@@ -846,6 +846,243 @@ ul.nav-tabs {
   <script>
     // Script section to load models into a JS Var
     var defs = {}
+    defs["filter"] = {
+  "type" : "object",
+  "properties" : {
+    "display_value" : {
+      "type" : "string"
+    },
+    "filters" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object"
+      }
+    }
+  }
+};
+    defs["filters"] = {
+  "type" : "object",
+  "properties" : {
+    "catalog_name" : {
+      "$ref" : "#/components/schemas/filter"
+    },
+    "dating_end" : {
+      "$ref" : "#/components/schemas/filter"
+    },
+    "size_width" : {
+      "$ref" : "#/components/schemas/filter"
+    },
+    "subject" : {
+      "$ref" : "#/components/schemas/filter"
+    },
+    "catalog" : {
+      "$ref" : "#/components/schemas/filter"
+    },
+    "technique" : {
+      "$ref" : "#/components/schemas/filter"
+    },
+    "title" : {
+      "$ref" : "#/components/schemas/filter"
+    },
+    "dating_begin" : {
+      "$ref" : "#/components/schemas/filter"
+    },
+    "catalog_work_reference_number" : {
+      "$ref" : "#/components/schemas/filter"
+    },
+    "is_best_of" : {
+      "$ref" : "#/components/schemas/filter"
+    },
+    "institution" : {
+      "$ref" : "#/components/schemas/filter"
+    },
+    "collection_repository" : {
+      "$ref" : "#/components/schemas/filter"
+    },
+    "size_height" : {
+      "$ref" : "#/components/schemas/filter"
+    },
+    "entity_type" : {
+      "$ref" : "#/components/schemas/filter"
+    },
+    "form" : {
+      "$ref" : "#/components/schemas/filter"
+    },
+    "examination_analysis" : {
+      "$ref" : "#/components/schemas/filter"
+    },
+    "object_name" : {
+      "$ref" : "#/components/schemas/filter"
+    },
+    "function" : {
+      "$ref" : "#/components/schemas/filter"
+    },
+    "attribution" : {
+      "$ref" : "#/components/schemas/filter"
+    },
+    "compnent_parts" : {
+      "$ref" : "#/components/schemas/filter"
+    }
+  }
+};
+    defs["item"] = {
+  "type" : "object",
+  "properties" : {
+    "attribution" : {
+      "type" : "string"
+    },
+    "involved_persons" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/components/schemas/person"
+      }
+    },
+    "locations" : {
+      "type" : "string"
+    },
+    "medium" : {
+      "type" : "string"
+    },
+    "is_best_of" : {
+      "type" : "boolean"
+    },
+    "img_src" : {
+      "type" : "string",
+      "format" : "uri"
+    },
+    "dating" : {
+      "type" : "string"
+    },
+    "dating_begin" : {
+      "type" : "integer"
+    },
+    "dating_end" : {
+      "type" : "integer"
+    },
+    "entity_type" : {
+      "type" : "string"
+    },
+    "dimensions" : {
+      "type" : "string"
+    },
+    "inventory_number" : {
+      "type" : "string"
+    },
+    "object_name" : {
+      "type" : "string"
+    },
+    "repository" : {
+      "type" : "string"
+    },
+    "institution" : {
+      "type" : "string"
+    },
+    "owner" : {
+      "type" : "string"
+    },
+    "classification" : {
+      "type" : "string"
+    },
+    "print_process" : {
+      "type" : "string"
+    },
+    "provenance" : {
+      "type" : "string"
+    },
+    "signature" : {
+      "type" : "string"
+    },
+    "title" : {
+      "type" : "string"
+    },
+    "subtitle" : {
+      "type" : "string"
+    },
+    "sorting_number" : {
+      "type" : "string"
+    },
+    "search_sorting_number" : {
+      "type" : "string"
+    }
+  }
+};
+    defs["meta"] = {
+  "type" : "object",
+  "properties" : {
+    "took" : {
+      "type" : "integer"
+    },
+    "hits" : {
+      "type" : "integer"
+    }
+  }
+};
+    defs["person"] = {
+  "type" : "object",
+  "properties" : {
+    "displayOrder" : {
+      "type" : "integer"
+    },
+    "id" : {
+      "type" : "string"
+    },
+    "role" : {
+      "type" : "string"
+    },
+    "roleType" : {
+      "type" : "string"
+    },
+    "name" : {
+      "type" : "string"
+    },
+    "prefix" : {
+      "type" : "string"
+    },
+    "suffix" : {
+      "type" : "string"
+    },
+    "nameType" : {
+      "type" : "string"
+    },
+    "alternativeName" : {
+      "type" : "string"
+    },
+    "remarks" : {
+      "type" : "string"
+    },
+    "date" : {
+      "type" : "string"
+    },
+    "isUnknown" : {
+      "type" : "boolean"
+    }
+  }
+};
+    defs["successResponse"] = {
+  "type" : "object",
+  "properties" : {
+    "data" : {
+      "$ref" : "#/components/schemas/successResponse_data"
+    }
+  }
+};
+    defs["successResponse_data"] = {
+  "type" : "object",
+  "properties" : {
+    "meta" : {
+      "$ref" : "#/components/schemas/meta"
+    },
+    "results" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/components/schemas/item"
+      }
+    },
+    "filters" : {
+      "$ref" : "#/components/schemas/filters"
+    }
+  }
+};
 
     var errs = {};
   </script>
@@ -865,6 +1102,9 @@ ul.nav-tabs {
             <li class="nav-fixed nav-header active" data-group="_"><a href="#api-_">API Summary</a></li>
 
                   <li class="nav-header" data-group="Default"><a href="#api-Default">API Methods - Default</a></li>
+                    <li data-group="Default" data-name="inventoryNumberGet" class="">
+                      <a href="#api-Default-inventoryNumberGet">inventoryNumberGet</a>
+                    </li>
                     <li data-group="Default" data-name="rootGet" class="">
                       <a href="#api-Default-rootGet">rootGet</a>
                     </li>
@@ -891,16 +1131,384 @@ ul.nav-tabs {
         <div id="sections">
                 <section id="api-Default">
                   <h1>Default</h1>
-                    <div id="api-Default-rootGet">
-                      <article id="api-Default-rootGet-0" data-group="User" data-name="rootGet" data-version="0">
+                    <div id="api-Default-inventoryNumberGet">
+                      <article id="api-Default-inventoryNumberGet-0" data-group="User" data-name="inventoryNumberGet" data-version="0">
                         <div class="pull-left">
-                          <h1>rootGet</h1>
-                          <p></p>
+                          <h1>inventoryNumberGet</h1>
+                          <p>Single item</p>
                         </div>
                         <div class="pull-right"></div>
                         <div class="clearfix"></div>
                         <p></p>
-                        <p class="marked"></p>
+                        <p class="marked">Returns the data of the item with the passed inventory number</p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/{inventory_number}</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Default-inventoryNumberGet-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Default-inventoryNumberGet-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Default-inventoryNumberGet-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Default-inventoryNumberGet-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Default-inventoryNumberGet-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Default-inventoryNumberGet-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Default-inventoryNumberGet-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Default-inventoryNumberGet-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Default-inventoryNumberGet-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Default-inventoryNumberGet-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Default-inventoryNumberGet-0-python">Python</a></li>
+                          <li class=""><a href="#examples-Default-inventoryNumberGet-0-rust">Rust</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Default-inventoryNumberGet-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET \
+ -H "Accept: application/json" \
+ "https://mivs02.gm.fh-koeln.de/{inventory_number}"
+</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Default-inventoryNumberGet-0-java">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.*;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.model.*;
+import org.openapitools.client.api.DefaultApi;
+
+import java.io.File;
+import java.util.*;
+
+public class DefaultApiExample {
+    public static void main(String[] args) {
+
+        // Create an instance of the API class
+        DefaultApi apiInstance = new DefaultApi();
+        String inventoryNumber = inventoryNumber_example; // String | The inventory number of the item
+
+        try {
+            item result = apiInstance.inventoryNumberGet(inventoryNumber);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#inventoryNumberGet");
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Default-inventoryNumberGet-0-android">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.api.DefaultApi;
+
+public class DefaultApiExample {
+    public static void main(String[] args) {
+        DefaultApi apiInstance = new DefaultApi();
+        String inventoryNumber = inventoryNumber_example; // String | The inventory number of the item
+
+        try {
+            item result = apiInstance.inventoryNumberGet(inventoryNumber);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#inventoryNumberGet");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Default-inventoryNumberGet-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Default-inventoryNumberGet-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">
+
+// Create an instance of the API class
+DefaultApi *apiInstance = [[DefaultApi alloc] init];
+String *inventoryNumber = inventoryNumber_example; // The inventory number of the item (default to null)
+
+// Single item
+[apiInstance inventoryNumberGetWith:inventoryNumber
+              completionHandler: ^(item output, NSError* error) {
+    if (output) {
+        NSLog(@"%@", output);
+    }
+    if (error) {
+        NSLog(@"Error: %@", error);
+    }
+}];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-inventoryNumberGet-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var CranachApi = require('cranach_api');
+
+// Create an instance of the API class
+var api = new CranachApi.DefaultApi()
+var inventoryNumber = inventoryNumber_example; // {String} The inventory number of the item
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.inventoryNumberGet(inventoryNumber, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Default-inventoryNumberGet-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Default-inventoryNumberGet-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using Org.OpenAPITools.Api;
+using Org.OpenAPITools.Client;
+using Org.OpenAPITools.Model;
+
+namespace Example
+{
+    public class inventoryNumberGetExample
+    {
+        public void main()
+        {
+
+            // Create an instance of the API class
+            var apiInstance = new DefaultApi();
+            var inventoryNumber = inventoryNumber_example;  // String | The inventory number of the item (default to null)
+
+            try {
+                // Single item
+                item result = apiInstance.inventoryNumberGet(inventoryNumber);
+                Debug.WriteLine(result);
+            } catch (Exception e) {
+                Debug.Print("Exception when calling DefaultApi.inventoryNumberGet: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-inventoryNumberGet-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create an instance of the API class
+$api_instance = new OpenAPITools\Client\Api\DefaultApi();
+$inventoryNumber = inventoryNumber_example; // String | The inventory number of the item
+
+try {
+    $result = $api_instance->inventoryNumberGet($inventoryNumber);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DefaultApi->inventoryNumberGet: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-inventoryNumberGet-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::OPenAPIClient::Configuration;
+use WWW::OPenAPIClient::DefaultApi;
+
+# Create an instance of the API class
+my $api_instance = WWW::OPenAPIClient::DefaultApi->new();
+my $inventoryNumber = inventoryNumber_example; # String | The inventory number of the item
+
+eval {
+    my $result = $api_instance->inventoryNumberGet(inventoryNumber => $inventoryNumber);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling DefaultApi->inventoryNumberGet: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-inventoryNumberGet-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import openapi_client
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Create an instance of the API class
+api_instance = openapi_client.DefaultApi()
+inventoryNumber = inventoryNumber_example # String | The inventory number of the item (default to null)
+
+try:
+    # Single item
+    api_response = api_instance.inventory_number_get(inventoryNumber)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DefaultApi->inventoryNumberGet: %s\n" % e)</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-inventoryNumberGet-0-rust">
+                              <pre class="prettyprint"><code class="language-rust">extern crate DefaultApi;
+
+pub fn main() {
+    let inventoryNumber = inventoryNumber_example; // String
+
+    let mut context = DefaultApi::Context::default();
+    let result = client.inventoryNumberGet(inventoryNumber, &context).wait();
+
+    println!("{:?}", result);
+}
+</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Scopes</h2>
+                          <table>
+                            
+                          </table>
+
+                          <h2>Parameters</h2>
+
+                            <div class="methodsubtabletitle">Path parameters</div>
+                            <table id="methodsubtable">
+                                <tr>
+                                  <th width="150px">Name</th>
+                                  <th>Description</th>
+                                </tr>
+                                  <tr><td style="width:150px;">inventory_number*</td>
+<td>
+
+
+    <div id="d2e199_inventoryNumberGet_inventoryNumber">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+The inventory number of the item
+                    </div>
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                            </table>
+
+
+
+
+
+                          <h2>Responses</h2>
+                            <h3 id="examples-Default-inventoryNumberGet-title-200"></h3>
+                            <p id="examples-Default-inventoryNumberGet-description-200" class="marked"></p>
+                            <script>
+                              var responseDefault200_description = `OK`;
+                              var responseDefault200_description_break = responseDefault200_description.indexOf('\n');
+                              if (responseDefault200_description_break == -1) {
+                                $("#examples-Default-inventoryNumberGet-title-200").text("Status: 200 - " + responseDefault200_description);
+                              } else {
+                                $("#examples-Default-inventoryNumberGet-title-200").text("Status: 200 - " + responseDefault200_description.substring(0, responseDefault200_description_break));
+                                $("#examples-Default-inventoryNumberGet-description-200").html(responseDefault200_description.substring(responseDefault200_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-Default-inventoryNumberGet-200" class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-Default-inventoryNumberGet-200-schema">Schema</a>
+                                </li>
+
+
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-Default-inventoryNumberGet-200-wrapper" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-Default-inventoryNumberGet-200-schema">
+                                  <div id="responses-Default-inventoryNumberGet-schema-200" class="exampleStyle">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "OK",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/item"
+      }
+    }
+  }
+};
+                                        var schema = findNode('schema',schemaWrapper).schema;
+                                        if (!schema) {
+                                          schema = schemaWrapper.schema;
+                                        }
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                          Object.keys(schema.properties).forEach( (item) => {
+                                            if (schema.properties[item].$ref != null) {
+                                              schema.properties[item] = defsParser.$refs.get(schema.properties[item].$ref);
+                                            }
+                                          });
+                                        } else if (schema.items != null && schema.items.$ref != null) {
+                                            schema.items = defsParser.$refs.get(schema.items.$ref);
+                                        } else {
+                                          schemaWrapper.definitions = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-Default-inventoryNumberGet-200-schema-data').val(JSON.stringify(schema));
+                                        var result = $('#responses-Default-inventoryNumberGet-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-Default-inventoryNumberGet-200-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+                            <h3 id="examples-Default-inventoryNumberGet-title-404"></h3>
+                            <p id="examples-Default-inventoryNumberGet-description-404" class="marked"></p>
+                            <script>
+                              var responseDefault404_description = `Not Found`;
+                              var responseDefault404_description_break = responseDefault404_description.indexOf('\n');
+                              if (responseDefault404_description_break == -1) {
+                                $("#examples-Default-inventoryNumberGet-title-404").text("Status: 404 - " + responseDefault404_description);
+                              } else {
+                                $("#examples-Default-inventoryNumberGet-title-404").text("Status: 404 - " + responseDefault404_description.substring(0, responseDefault404_description_break));
+                                $("#examples-Default-inventoryNumberGet-description-404").html(responseDefault404_description.substring(responseDefault404_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-Default-inventoryNumberGet-404" class="nav nav-tabs nav-tabs-examples" >
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-Default-inventoryNumberGet-404-wrapper" style='margin-bottom: 10px;'>
+                            </div>
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-Default-rootGet">
+                      <article id="api-Default-rootGet-0" data-group="User" data-name="rootGet" data-version="0">
+                        <div class="pull-left">
+                          <h1>rootGet</h1>
+                          <p>List of items</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked">Returns a list of all items.</p>
                         <p></p>
                         <br />
                         <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/</span></code></pre>
@@ -925,7 +1533,8 @@ ul.nav-tabs {
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-Default-rootGet-0-curl">
                             <pre class="prettyprint"><code class="language-bsh">curl -X GET \
- "https://api.server.test/v1/"
+ -H "Accept: application/json" \
+ "https://mivs02.gm.fh-koeln.de/?from=0&size=100&filterfield:[equalsoperator]=56&filterfield:[rangeoperator]=value"
 </code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Default-rootGet-0-java">
@@ -942,9 +1551,58 @@ public class DefaultApiExample {
 
         // Create an instance of the API class
         DefaultApi apiInstance = new DefaultApi();
+        Integer from = 0; // Integer | The offset of the first item to return
+        Integer size = 100; // Integer | The maximum number of items to return
+        Integer filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = 56; // Integer | # Items filtered by value
+## Example
+https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
+
+## Paramters
+The `filterfield` is used to define the field by which the data is to be filtered.
+
+The `equalsoperator` is the operator to set equals or not equals
+
+Possible operators:
+* `eq` = equals
+* `neq` = not equals
+* `sim` = similar - for wildcard search
+
+The `filtervalue` is used to define the value by which the data is to be filtered.
+
+## Serveral filter criteria
+Several criteria can be passed for filtering.
+
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1900&entity_type:eq=PAINTING
+
+## Multiple values
+Several values can be specified for one filter criteria.
+In this case, multiple values can be defined using a comma-separated list.
+
+If searching by wildcard or ranges, only one value is possible.
+
+https://mivs02.gm.fh-koeln.de/?entity_type:neq=PAINTING,GRAPHIC
+
+        String filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket = value; // String | # Items filtered by range
+## Example
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1920&dating_end:gte=1950
+
+## Paramters
+The `filterfield` is used to define the field by which the data is to be filtered.
+
+The `rangeoperator` is the operator to set the range
+
+Possible operators:
+* `gte` = greater than or equal
+* `lte` = less than or equal
+* `gt` = greater than
+* `lt` = less than
+
+The `filtervalue` is used to define the value by which the data is to be filtered.
+
 
         try {
-            apiInstance.rootGet();
+            successResponse result = apiInstance.rootGet(from, size, filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket, filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket);
+            System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#rootGet");
             e.printStackTrace();
@@ -960,9 +1618,58 @@ public class DefaultApiExample {
 public class DefaultApiExample {
     public static void main(String[] args) {
         DefaultApi apiInstance = new DefaultApi();
+        Integer from = 0; // Integer | The offset of the first item to return
+        Integer size = 100; // Integer | The maximum number of items to return
+        Integer filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = 56; // Integer | # Items filtered by value
+## Example
+https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
+
+## Paramters
+The `filterfield` is used to define the field by which the data is to be filtered.
+
+The `equalsoperator` is the operator to set equals or not equals
+
+Possible operators:
+* `eq` = equals
+* `neq` = not equals
+* `sim` = similar - for wildcard search
+
+The `filtervalue` is used to define the value by which the data is to be filtered.
+
+## Serveral filter criteria
+Several criteria can be passed for filtering.
+
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1900&entity_type:eq=PAINTING
+
+## Multiple values
+Several values can be specified for one filter criteria.
+In this case, multiple values can be defined using a comma-separated list.
+
+If searching by wildcard or ranges, only one value is possible.
+
+https://mivs02.gm.fh-koeln.de/?entity_type:neq=PAINTING,GRAPHIC
+
+        String filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket = value; // String | # Items filtered by range
+## Example
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1920&dating_end:gte=1950
+
+## Paramters
+The `filterfield` is used to define the field by which the data is to be filtered.
+
+The `rangeoperator` is the operator to set the range
+
+Possible operators:
+* `gte` = greater than or equal
+* `lte` = less than or equal
+* `gt` = greater than
+* `lt` = less than
+
+The `filtervalue` is used to define the value by which the data is to be filtered.
+
 
         try {
-            apiInstance.rootGet();
+            successResponse result = apiInstance.rootGet(from, size, filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket, filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket);
+            System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#rootGet");
             e.printStackTrace();
@@ -979,9 +1686,64 @@ public class DefaultApiExample {
 
 // Create an instance of the API class
 DefaultApi *apiInstance = [[DefaultApi alloc] init];
+Integer *from = 0; // The offset of the first item to return (optional) (default to 0)
+Integer *size = 100; // The maximum number of items to return (optional) (default to 100)
+Integer *filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = 56; // # Items filtered by value
+## Example
+https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
 
-[apiInstance rootGetWithCompletionHandler: 
-              ^(NSError* error) {
+## Paramters
+The `filterfield` is used to define the field by which the data is to be filtered.
+
+The `equalsoperator` is the operator to set equals or not equals
+
+Possible operators:
+* `eq` = equals
+* `neq` = not equals
+* `sim` = similar - for wildcard search
+
+The `filtervalue` is used to define the value by which the data is to be filtered.
+
+## Serveral filter criteria
+Several criteria can be passed for filtering.
+
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1900&entity_type:eq=PAINTING
+
+## Multiple values
+Several values can be specified for one filter criteria.
+In this case, multiple values can be defined using a comma-separated list.
+
+If searching by wildcard or ranges, only one value is possible.
+
+https://mivs02.gm.fh-koeln.de/?entity_type:neq=PAINTING,GRAPHIC
+ (optional) (default to null)
+String *filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket = value; // # Items filtered by range
+## Example
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1920&dating_end:gte=1950
+
+## Paramters
+The `filterfield` is used to define the field by which the data is to be filtered.
+
+The `rangeoperator` is the operator to set the range
+
+Possible operators:
+* `gte` = greater than or equal
+* `lte` = less than or equal
+* `gt` = greater than
+* `lt` = less than
+
+The `filtervalue` is used to define the value by which the data is to be filtered.
+ (optional) (default to null)
+
+// List of items
+[apiInstance rootGetWith:from
+    size:size
+    filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket:filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket
+    filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket:filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket
+              completionHandler: ^(successResponse output, NSError* error) {
+    if (output) {
+        NSLog(@"%@", output);
+    }
     if (error) {
         NSLog(@"Error: %@", error);
     }
@@ -994,14 +1756,65 @@ DefaultApi *apiInstance = [[DefaultApi alloc] init];
 
 // Create an instance of the API class
 var api = new CranachApi.DefaultApi()
+var opts = {
+  'from': 0, // {Integer} The offset of the first item to return
+  'size': 100, // {Integer} The maximum number of items to return
+  'filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket': 56, // {Integer} # Items filtered by value
+## Example
+https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
+
+## Paramters
+The `filterfield` is used to define the field by which the data is to be filtered.
+
+The `equalsoperator` is the operator to set equals or not equals
+
+Possible operators:
+* `eq` = equals
+* `neq` = not equals
+* `sim` = similar - for wildcard search
+
+The `filtervalue` is used to define the value by which the data is to be filtered.
+
+## Serveral filter criteria
+Several criteria can be passed for filtering.
+
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1900&entity_type:eq=PAINTING
+
+## Multiple values
+Several values can be specified for one filter criteria.
+In this case, multiple values can be defined using a comma-separated list.
+
+If searching by wildcard or ranges, only one value is possible.
+
+https://mivs02.gm.fh-koeln.de/?entity_type:neq=PAINTING,GRAPHIC
+
+  'filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket': value // {String} # Items filtered by range
+## Example
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1920&dating_end:gte=1950
+
+## Paramters
+The `filterfield` is used to define the field by which the data is to be filtered.
+
+The `rangeoperator` is the operator to set the range
+
+Possible operators:
+* `gte` = greater than or equal
+* `lte` = less than or equal
+* `gt` = greater than
+* `lt` = less than
+
+The `filtervalue` is used to define the value by which the data is to be filtered.
+
+};
+
 var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully.');
+    console.log('API called successfully. Returned data: ' + data);
   }
 };
-api.rootGet(callback);
+api.rootGet(opts, callback);
 </code></pre>
                             </div>
 
@@ -1024,9 +1837,59 @@ namespace Example
 
             // Create an instance of the API class
             var apiInstance = new DefaultApi();
+            var from = 0;  // Integer | The offset of the first item to return (optional)  (default to 0)
+            var size = 100;  // Integer | The maximum number of items to return (optional)  (default to 100)
+            var filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = 56;  // Integer | # Items filtered by value
+## Example
+https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
+
+## Paramters
+The `filterfield` is used to define the field by which the data is to be filtered.
+
+The `equalsoperator` is the operator to set equals or not equals
+
+Possible operators:
+* `eq` = equals
+* `neq` = not equals
+* `sim` = similar - for wildcard search
+
+The `filtervalue` is used to define the value by which the data is to be filtered.
+
+## Serveral filter criteria
+Several criteria can be passed for filtering.
+
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1900&entity_type:eq=PAINTING
+
+## Multiple values
+Several values can be specified for one filter criteria.
+In this case, multiple values can be defined using a comma-separated list.
+
+If searching by wildcard or ranges, only one value is possible.
+
+https://mivs02.gm.fh-koeln.de/?entity_type:neq=PAINTING,GRAPHIC
+ (optional)  (default to null)
+            var filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket = value;  // String | # Items filtered by range
+## Example
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1920&dating_end:gte=1950
+
+## Paramters
+The `filterfield` is used to define the field by which the data is to be filtered.
+
+The `rangeoperator` is the operator to set the range
+
+Possible operators:
+* `gte` = greater than or equal
+* `lte` = less than or equal
+* `gt` = greater than
+* `lt` = less than
+
+The `filtervalue` is used to define the value by which the data is to be filtered.
+ (optional)  (default to null)
 
             try {
-                apiInstance.rootGet();
+                // List of items
+                successResponse result = apiInstance.rootGet(from, size, filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket, filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket);
+                Debug.WriteLine(result);
             } catch (Exception e) {
                 Debug.Print("Exception when calling DefaultApi.rootGet: " + e.Message );
             }
@@ -1042,9 +1905,58 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 // Create an instance of the API class
 $api_instance = new OpenAPITools\Client\Api\DefaultApi();
+$from = 0; // Integer | The offset of the first item to return
+$size = 100; // Integer | The maximum number of items to return
+$filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = 56; // Integer | # Items filtered by value
+## Example
+https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
+
+## Paramters
+The `filterfield` is used to define the field by which the data is to be filtered.
+
+The `equalsoperator` is the operator to set equals or not equals
+
+Possible operators:
+* `eq` = equals
+* `neq` = not equals
+* `sim` = similar - for wildcard search
+
+The `filtervalue` is used to define the value by which the data is to be filtered.
+
+## Serveral filter criteria
+Several criteria can be passed for filtering.
+
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1900&entity_type:eq=PAINTING
+
+## Multiple values
+Several values can be specified for one filter criteria.
+In this case, multiple values can be defined using a comma-separated list.
+
+If searching by wildcard or ranges, only one value is possible.
+
+https://mivs02.gm.fh-koeln.de/?entity_type:neq=PAINTING,GRAPHIC
+
+$filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket = value; // String | # Items filtered by range
+## Example
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1920&dating_end:gte=1950
+
+## Paramters
+The `filterfield` is used to define the field by which the data is to be filtered.
+
+The `rangeoperator` is the operator to set the range
+
+Possible operators:
+* `gte` = greater than or equal
+* `lte` = less than or equal
+* `gt` = greater than
+* `lt` = less than
+
+The `filtervalue` is used to define the value by which the data is to be filtered.
+
 
 try {
-    $api_instance->rootGet();
+    $result = $api_instance->rootGet($from, $size, $filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket, $filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->rootGet: ', $e->getMessage(), PHP_EOL;
 }
@@ -1058,9 +1970,58 @@ use WWW::OPenAPIClient::DefaultApi;
 
 # Create an instance of the API class
 my $api_instance = WWW::OPenAPIClient::DefaultApi->new();
+my $from = 0; # Integer | The offset of the first item to return
+my $size = 100; # Integer | The maximum number of items to return
+my $filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = 56; # Integer | # Items filtered by value
+## Example
+https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
+
+## Paramters
+The `filterfield` is used to define the field by which the data is to be filtered.
+
+The `equalsoperator` is the operator to set equals or not equals
+
+Possible operators:
+* `eq` = equals
+* `neq` = not equals
+* `sim` = similar - for wildcard search
+
+The `filtervalue` is used to define the value by which the data is to be filtered.
+
+## Serveral filter criteria
+Several criteria can be passed for filtering.
+
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1900&entity_type:eq=PAINTING
+
+## Multiple values
+Several values can be specified for one filter criteria.
+In this case, multiple values can be defined using a comma-separated list.
+
+If searching by wildcard or ranges, only one value is possible.
+
+https://mivs02.gm.fh-koeln.de/?entity_type:neq=PAINTING,GRAPHIC
+
+my $filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket = value; # String | # Items filtered by range
+## Example
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1920&dating_end:gte=1950
+
+## Paramters
+The `filterfield` is used to define the field by which the data is to be filtered.
+
+The `rangeoperator` is the operator to set the range
+
+Possible operators:
+* `gte` = greater than or equal
+* `lte` = less than or equal
+* `gt` = greater than
+* `lt` = less than
+
+The `filtervalue` is used to define the value by which the data is to be filtered.
+
 
 eval {
-    $api_instance->rootGet();
+    my $result = $api_instance->rootGet(from => $from, size => $size, filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket => $filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket, filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket => $filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket);
+    print Dumper($result);
 };
 if ($@) {
     warn "Exception when calling DefaultApi->rootGet: $@\n";
@@ -1076,9 +2037,59 @@ from pprint import pprint
 
 # Create an instance of the API class
 api_instance = openapi_client.DefaultApi()
+from = 0 # Integer | The offset of the first item to return (optional) (default to 0)
+size = 100 # Integer | The maximum number of items to return (optional) (default to 100)
+filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = 56 # Integer | # Items filtered by value
+## Example
+https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
+
+## Paramters
+The `filterfield` is used to define the field by which the data is to be filtered.
+
+The `equalsoperator` is the operator to set equals or not equals
+
+Possible operators:
+* `eq` = equals
+* `neq` = not equals
+* `sim` = similar - for wildcard search
+
+The `filtervalue` is used to define the value by which the data is to be filtered.
+
+## Serveral filter criteria
+Several criteria can be passed for filtering.
+
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1900&entity_type:eq=PAINTING
+
+## Multiple values
+Several values can be specified for one filter criteria.
+In this case, multiple values can be defined using a comma-separated list.
+
+If searching by wildcard or ranges, only one value is possible.
+
+https://mivs02.gm.fh-koeln.de/?entity_type:neq=PAINTING,GRAPHIC
+ (optional) (default to null)
+filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket = value # String | # Items filtered by range
+## Example
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1920&dating_end:gte=1950
+
+## Paramters
+The `filterfield` is used to define the field by which the data is to be filtered.
+
+The `rangeoperator` is the operator to set the range
+
+Possible operators:
+* `gte` = greater than or equal
+* `lte` = less than or equal
+* `gt` = greater than
+* `lt` = less than
+
+The `filtervalue` is used to define the value by which the data is to be filtered.
+ (optional) (default to null)
 
 try:
-    api_instance.root_get()
+    # List of items
+    api_response = api_instance.root_get(from=from, size=size, filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket=filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket, filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket=filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->rootGet: %s\n" % e)</code></pre>
                             </div>
@@ -1087,9 +2098,13 @@ except ApiException as e:
                               <pre class="prettyprint"><code class="language-rust">extern crate DefaultApi;
 
 pub fn main() {
+    let from = 0; // Integer
+    let size = 100; // Integer
+    let filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = 56; // Integer
+    let filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket = value; // String
 
     let mut context = DefaultApi::Context::default();
-    let result = client.rootGet(&context).wait();
+    let result = client.rootGet(from, size, filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket, filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket, &context).wait();
 
     println!("{:?}", result);
 }
@@ -1108,12 +2123,143 @@ pub fn main() {
 
 
 
+                            <div class="methodsubtabletitle">Query parameters</div>
+                            <table id="methodsubtable">
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
+                                <tr><td style="width:150px;">from</td>
+<td>
+
+
+    <div id="d2e199_rootGet_from">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    Integer
+                </span>
+
+                    <div class="inner description marked">
+The offset of the first item to return
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                                <tr><td style="width:150px;">size</td>
+<td>
+
+
+    <div id="d2e199_rootGet_size">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    Integer
+                </span>
+
+                    <div class="inner description marked">
+The maximum number of items to return
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                                <tr><td style="width:150px;">filterfield:[equalsoperator]</td>
+<td>
+
+
+    <div id="d2e199_rootGet_filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    Integer
+                </span>
+
+                    <div class="inner description marked">
+# Items filtered by value
+## Example
+https://mivs02.gm.fh-koeln.de/?entity_type:eq&#x3D;PAINTING
+
+## Paramters
+The &#x60;filterfield&#x60; is used to define the field by which the data is to be filtered.
+
+The &#x60;equalsoperator&#x60; is the operator to set equals or not equals
+
+Possible operators:
+* &#x60;eq&#x60; &#x3D; equals
+* &#x60;neq&#x60; &#x3D; not equals
+* &#x60;sim&#x60; &#x3D; similar - for wildcard search
+
+The &#x60;filtervalue&#x60; is used to define the value by which the data is to be filtered.
+
+## Serveral filter criteria
+Several criteria can be passed for filtering.
+
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte&#x3D;1900&amp;entity_type:eq&#x3D;PAINTING
+
+## Multiple values
+Several values can be specified for one filter criteria.
+In this case, multiple values can be defined using a comma-separated list.
+
+If searching by wildcard or ranges, only one value is possible.
+
+https://mivs02.gm.fh-koeln.de/?entity_type:neq&#x3D;PAINTING,GRAPHIC
+
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                                <tr><td style="width:150px;">filterfield:[rangeoperator]</td>
+<td>
+
+
+    <div id="d2e199_rootGet_filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+# Items filtered by range
+## Example
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte&#x3D;1920&amp;dating_end:gte&#x3D;1950
+
+## Paramters
+The &#x60;filterfield&#x60; is used to define the field by which the data is to be filtered.
+
+The &#x60;rangeoperator&#x60; is the operator to set the range
+
+Possible operators:
+* &#x60;gte&#x60; &#x3D; greater than or equal
+* &#x60;lte&#x60; &#x3D; less than or equal
+* &#x60;gt&#x60; &#x3D; greater than
+* &#x60;lt&#x60; &#x3D; less than
+
+The &#x60;filtervalue&#x60; is used to define the value by which the data is to be filtered.
+
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                            </table>
 
                           <h2>Responses</h2>
                             <h3 id="examples-Default-rootGet-title-200"></h3>
                             <p id="examples-Default-rootGet-description-200" class="marked"></p>
                             <script>
-                              var responseDefault200_description = `Returns a list of all items`;
+                              var responseDefault200_description = `OK`;
                               var responseDefault200_description_break = responseDefault200_description.indexOf('\n');
                               if (responseDefault200_description_break == -1) {
                                 $("#examples-Default-rootGet-title-200").text("Status: 200 - " + responseDefault200_description);
@@ -1125,12 +2271,61 @@ pub fn main() {
 
 
                             <ul id="responses-detail-Default-rootGet-200" class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-Default-rootGet-200-schema">Schema</a>
+                                </li>
+
+
 
 
                             </ul>
 
 
                             <div class="tab-content" id="responses-Default-rootGet-200-wrapper" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-Default-rootGet-200-schema">
+                                  <div id="responses-Default-rootGet-schema-200" class="exampleStyle">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "OK",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/successResponse"
+      }
+    }
+  }
+};
+                                        var schema = findNode('schema',schemaWrapper).schema;
+                                        if (!schema) {
+                                          schema = schemaWrapper.schema;
+                                        }
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                          Object.keys(schema.properties).forEach( (item) => {
+                                            if (schema.properties[item].$ref != null) {
+                                              schema.properties[item] = defsParser.$refs.get(schema.properties[item].$ref);
+                                            }
+                                          });
+                                        } else if (schema.items != null && schema.items.$ref != null) {
+                                            schema.items = defsParser.$refs.get(schema.items.$ref);
+                                        } else {
+                                          schemaWrapper.definitions = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-Default-rootGet-200-schema-data').val(JSON.stringify(schema));
+                                        var result = $('#responses-Default-rootGet-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-Default-rootGet-200-schema-data' type='hidden' value=''></input>
+                                </div>
                             </div>
                         </article>
                       </div>

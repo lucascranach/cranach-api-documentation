@@ -1,0 +1,13 @@
+{
+  "name": "Cranach API Documentation",
+  "version": "1.0.0",
+  "scripts": {
+    "watch-generate": "nodemon --watch ./src/openapi.yaml --exec \"npm run generate\"",
+    "generate": "openapi-generator-cli generate -i ./src/openapi.yaml -g html2 -o ./docs",
+    "start": "npm run generate && http-server ./docs"
+  },
+  "devDependencies": {
+    "@openapitools/openapi-generator-cli": "^2.7.0",
+    "nodemon": "^3.0.1"
+  }
+}

@@ -1,0 +1,283 @@
+openapi: "3.0.0"
+info:
+  title: Cranach API
+  description: |
+    API to retrieve data from the Lucas Cranach Archive
+  version: "1.3"
+servers:
+  - url: https://mivs02.gm.fh-koeln.de/
+    description: Production server
+paths:
+  /:
+    get:
+      summary: List of items
+      description: Returns a list of all items.
+      parameters:
+        - $ref: "#/components/parameters/from"
+        - $ref: "#/components/parameters/size"
+        - name: "filterfield:[equalsoperator]"
+          in: query
+          description: |
+            # Items filtered by value
+            ## Example
+            https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
+
+            ## Paramters
+            The `filterfield` is used to define the field by which the data is to be filtered.
+
+            The `equalsoperator` is the operator to set equals or not equals
+
+            Possible operators:
+            * `eq` = equals
+            * `neq` = not equals
+            * `sim` = similar - for wildcard search
+
+            The `filtervalue` is used to define the value by which the data is to be filtered.
+
+            ## Serveral filter criteria
+            Several criteria can be passed for filtering.
+
+            https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1900&entity_type:eq=PAINTING
+
+            ## Multiple values
+            Several values can be specified for one filter criteria.
+            In this case, multiple values can be defined using a comma-separated list.
+
+            If searching by wildcard or ranges, only one value is possible.
+
+            https://mivs02.gm.fh-koeln.de/?entity_type:neq=PAINTING,GRAPHIC
+          required: false
+          schema:
+            type: integer
+        - name: "filterfield:[rangeoperator]"
+          in: query
+          description: |
+            # Items filtered by range
+            ## Example
+            https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1920&dating_end:gte=1950
+
+            ## Paramters
+            The `filterfield` is used to define the field by which the data is to be filtered.
+
+            The `rangeoperator` is the operator to set the range
+
+            Possible operators:
+            * `gte` = greater than or equal
+            * `lte` = less than or equal
+            * `gt` = greater than
+            * `lt` = less than
+
+            The `filtervalue` is used to define the value by which the data is to be filtered.
+          example: value
+          required: false
+          schema:
+            type: string
+      responses:
+        200:
+          $ref: "#/components/responses/success"
+
+  /{inventory_number}:
+    get:
+      summary: Single item
+      description: Returns the data of the item with the passed inventory number
+      parameters:
+        - name: inventory_number
+          in: path
+          description: The inventory number of the item
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/item"
+        "404":
+          description: "Not Found"
+components:
+  responses:
+    success:
+      description: "OK"
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/successResponse"
+  schemas:
+    successResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            meta:
+              $ref: "#/components/schemas/meta"
+            results:
+              type: array
+              items:
+                $ref: "#/components/schemas/item"
+            filters:
+              $ref: "#/components/schemas/filters"
+    meta:
+      type: object
+      properties:
+        took:
+          type: integer
+        hits:
+          type: integer
+    filters:
+      type: object
+      properties:
+        catalog_name:
+          $ref: "#/components/schemas/filter"
+        dating_end:
+          $ref: "#/components/schemas/filter"
+        size_width:
+          $ref: "#/components/schemas/filter"
+        subject:
+          $ref: "#/components/schemas/filter"
+        catalog:
+          $ref: "#/components/schemas/filter"
+        technique:
+          $ref: "#/components/schemas/filter"
+        title:
+          $ref: "#/components/schemas/filter"
+        dating_begin:
+          $ref: "#/components/schemas/filter"
+        catalog_work_reference_number:
+          $ref: "#/components/schemas/filter"
+        is_best_of:
+          $ref: "#/components/schemas/filter"
+        institution:
+          $ref: "#/components/schemas/filter"
+        collection_repository:
+          $ref: "#/components/schemas/filter"
+        size_height:
+          $ref: "#/components/schemas/filter"
+        entity_type:
+          $ref: "#/components/schemas/filter"
+        form:
+          $ref: "#/components/schemas/filter"
+        examination_analysis:
+          $ref: "#/components/schemas/filter"
+        object_name:
+          $ref: "#/components/schemas/filter"
+        function:
+          $ref: "#/components/schemas/filter"
+        attribution:
+          $ref: "#/components/schemas/filter"
+        compnent_parts:
+          $ref: "#/components/schemas/filter"
+    filter:
+      type: object
+      properties:
+        display_value:
+          type: string
+        filters:
+          type: array
+          items:
+            type: object
+    person:
+      type: object
+      properties:
+        displayOrder:
+          type: integer
+        id:
+          type: string
+        role:
+          type: string
+        roleType:
+          type: string
+        name:
+          type: string
+        prefix:
+          type: string
+        suffix:
+          type: string
+        nameType:
+          type: string
+        alternativeName:
+          type: string
+        remarks:
+          type: string
+        date:
+          type: string
+        isUnknown:
+          type: boolean
+    item:
+      type: object
+      properties:
+        attribution:
+          type: string
+        involved_persons:
+          type: array
+          items:
+            $ref: "#/components/schemas/person"
+        locations:
+          type: string
+        medium:
+          type: string
+        is_best_of:
+          type: boolean
+        img_src:
+          type: string
+          format: uri
+        dating:
+          type: string
+        dating_begin:
+          type: integer
+        dating_end:
+          type: integer
+        entity_type:
+          type: string
+        dimensions:
+          type: string
+        inventory_number:
+          type: string
+        object_name:
+          type: string
+        repository:
+          type: string
+        institution:
+          type: string
+        owner:
+          type: string
+        classification:
+          type: string
+        print_process:
+          type: string
+        provenance:
+          type: string
+        signature:
+          type: string
+        title:
+          type: string
+        subtitle:
+          type: string
+        sorting_number:
+          type: string
+        search_sorting_number:
+          type: string
+  parameters:
+    from:
+      name: from
+      in: query
+      description: The offset of the first item to return
+      required: false
+      example: 0
+      schema:
+        type: integer
+        minimum: 0
+        default: 0
+    size:
+      name: size
+      in: query
+      description: The maximum number of items to return
+      required: false
+      example: 100
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 10000
+        default: 100

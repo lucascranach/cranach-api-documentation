@@ -1,0 +1,731 @@
+{
+  "data": {
+    "meta": { "took": 539, "hits": 2406 },
+    "results": [
+      {
+        "attribution": "",
+        "involved_persons": [
+          {
+            "displayOrder": 1,
+            "id": "attribution.lucas_cranach_the_elder",
+            "role": "Künstler*in",
+            "roleType": "ARTIST",
+            "name": "Lucas Cranach der Ältere",
+            "prefix": "",
+            "suffix": "",
+            "nameType": "Primärer Name",
+            "alternativeName": "Lucas Cranach der Ältere",
+            "remarks": "[Friedländer, Rosenberg 1979, 66, no. 1]\n[Kunsthistorisches Museum, revised 2010]",
+            "date": "",
+            "isUnknown": false
+          }
+        ],
+        "locations": "",
+        "medium": "Malerei auf Lindenholz (Tilia sp.)\n[Klein, Bericht 2013]\n[P. Klein, Bericht von 1980]",
+        "is_best_of": true,
+        "img_src": "https://lucascranach.org/imageserver-2022/AT_KHM_GG6905_FR001/01_Overall/AT_KHM_GG6905_FR001_2008-08_Overall-s.jpg",
+        "dating": "1501",
+        "dating_begin": 1501,
+        "dating_end": 1501,
+        "entity_type": "PAINTING",
+        "dimensions": "Maße Bildträger: 58,4 (oben) - 58,1 (unten) x 45,1(links) - 45.8 (rechts) x 2,5 - 2,6 cm \n(3-4 mm Aufdoppelung, Gesamtstärke max. 9 mm. Das originale Bildformat ist weitgehend erhalten)\n[Kunsthistorisches Museum, revised 2010]",
+        "inventory_number": "AT_KHM_GG6905",
+        "object_name": "FR001",
+        "repository": "Kunsthistorisches Museum, Wien",
+        "owner": "Kunsthistorisches Museum, Wien",
+        "classification": "Malerei",
+        "print_process": "",
+        "provenance": "- erstmals nachweisbar um 1800, handschriftliches Inventar des Schottenstiftes, sub Nr. 24 als Lucas van Leyden\n- Schottenstift Wien (Inventar von 1842 als Lucas van Leyden, siehe: [Dörnhöffer 1904, Sp. 188]\n- Erwerbung des Kunsthistorischen Museums, Wien 1934\n\nDokumente [Archiv der Gemäldegalerie, KHM]:\n- Gal. Akt Z.17/1934: Stix an die Zentralstelle für Denkmalschutz am 23.10.1934: Prälat Peichl hat am Vortag angerufen und mitgeteilt, dass das Schottenstift vorerst nicht genötigt wäre, die Schottenkreuzigung zu verkaufen; Stix versicherte ihm, sollte es demnächst doch nötig werden, so würde das KHM einen angemessenen Preis zahlen, denn es liegt ein \"bedeutendes öffentliches Interesse vor, dass dieses Bild, welches auf eine ganz besondere Weise mit Oesterreich verbunden ist, nicht in das Ausland gelange.\"\n- Gal. Akt Z.20/1934: (vgl. Zl. 25 u. 30 / ex 1932, Zl. 2, 5 u. 9 / ex 1934, Z. 33 /1933, Zl. 17 / 1934, Tausch XXIII) Pro Memoria 23.11.1934, Stix: Staatssekretär Dr. Pernter stimmt Erwerbung der Schottenkreuzigung zu, aus zwei Fonds finanziert um 90.910 Schilling. An Dr. Peichl, Abt-Koadjutor, 24.11.1934: Zentralstelle für Denkmalschutz bewilligt Verkauf ans KHM. Buchner (Bayr. Staatsgemäldesammlungen) an Buschbeck, 13.11.1934: \"Ich habe gehört, dass die Cranach-Kreuzigung des Wiener Schottenstiftes locker sein soll.\" Sollte es das KHM nicht erwerben, würde sich die Alte Pinakothek darum bemühen.\n\n[Alice Hoppe-Harnoncourt, 2010]",
+        "signature": "Keine",
+        "title": "Kreuzigung Christi, sog. \"Schottenkreuzigung\"",
+        "subtitle": "",
+        "sorting_number": "1501-001",
+        "search_sorting_number": "1501-001"
+      }
+    ],
+    "filters": {
+      "catalog_name": {
+        "display_value": "catalog_name",
+        "values": [
+          {
+            "doc_count": 44,
+            "display_value": "Hollstein",
+            "value": "Hollstein",
+            "is_available": true
+          },
+          {
+            "doc_count": 131,
+            "display_value": "KKL-Ordnungsnummer",
+            "value": "KKL-Ordnungsnummer",
+            "is_available": true
+          },
+          {
+            "doc_count": 8,
+            "display_value": "Bartsch",
+            "value": "Bartsch",
+            "is_available": true
+          }
+        ]
+      },
+      "subject": {
+        "display_value": "Inhalt",
+        "values": [
+          {
+            "id": "010401",
+            "text": "Allegorie",
+            "children": [
+              {
+                "id": "01040101",
+                "text": "Caritas",
+                "children": [],
+                "doc_count": 15,
+                "is_available": true
+              },
+              {
+                "id": "01040106",
+                "text": "Melancholie",
+                "children": [],
+                "doc_count": 4,
+                "is_available": true
+              }
+            ],
+            "doc_count": 38,
+            "is_available": true
+          },
+          {
+            "id": "010402",
+            "text": "Bildnisse",
+            "children": [
+              {
+                "id": "01040201",
+                "text": "Männliche Bildnisse",
+                "children": [
+                  {
+                    "id": "0104020102",
+                    "text": "Fürstliche Personen",
+                    "children": [
+                      {
+                        "id": "010402010201",
+                        "text": "Albrecht von Brandenburg, Kardinal",
+                        "children": [],
+                        "doc_count": 15,
+                        "is_available": true
+                      },
+                      {
+                        "id": "010402010202",
+                        "text": "Albrecht, Markgraf von Brandenburg",
+                        "children": [],
+                        "doc_count": 2,
+                        "is_available": true
+                      },
+                      {
+                        "id": "010402010203",
+                        "text": "Alexander, Kurprinz von Sachsen",
+                        "children": [],
+                        "doc_count": 1,
+                        "is_available": true
+                      },
+                      {
+                        "id": "010402010249",
+                        "text": "Wolfgang der Standhafte, Fürst von Anhalt-Köthen (1492 - 1566)",
+                        "children": [],
+                        "doc_count": 6,
+                        "is_available": true
+                      }
+                    ],
+                    "doc_count": 310,
+                    "is_available": true
+                  }
+                ],
+                "doc_count": 717,
+                "is_available": true
+              },
+              {
+                "id": "01040202",
+                "text": "Weibliche Bildnisse",
+                "children": [
+                  {
+                    "id": "0104020202",
+                    "text": "Fürstliche Personen",
+                    "children": [
+                      {
+                        "id": "010402020201",
+                        "text": "Agnes von Barby-Mühlingen, Fürstin von Anhalt",
+                        "children": [],
+                        "doc_count": 4,
+                        "is_available": true
+                      },
+                      {
+                        "id": "010402020202",
+                        "text": "Agnes von Hessen, Kurfürsten von Sachsen",
+                        "children": [],
+                        "doc_count": 2,
+                        "is_available": true
+                      },
+                      {
+                        "id": "010402020203",
+                        "text": "Anna von Dänemark, Gemahlin des Herzogs August von Sachsen",
+                        "children": [],
+                        "doc_count": 5,
+                        "is_available": true
+                      }
+                    ],
+                    "doc_count": 50,
+                    "is_available": true
+                  }
+                ],
+                "doc_count": 179,
+                "is_available": true
+              }
+            ],
+            "doc_count": 896,
+            "is_available": true
+          }
+        ]
+      },
+      "catalog": {
+        "display_value": "Katalog",
+        "values": [
+          {
+            "id": "catalog.KKL",
+            "text": "Luther-Bildnisse (1519-1530)",
+            "children": [
+              {
+                "id": "catalog.KKL.I",
+                "text": "I.",
+                "children": [],
+                "doc_count": 35,
+                "is_available": true
+              },
+              {
+                "id": "catalog.KKL.II",
+                "text": "II.",
+                "children": [],
+                "doc_count": 5,
+                "is_available": true
+              },
+              {
+                "id": "catalog.KKL.III",
+                "text": "III.",
+                "children": [],
+                "doc_count": 32,
+                "is_available": true
+              }
+            ],
+            "doc_count": 131,
+            "is_available": true
+          }
+        ]
+      },
+      "technique": {
+        "display_value": "Technik",
+        "values": [
+          {
+            "id": "010501",
+            "text": "Holzschnitt",
+            "children": [],
+            "doc_count": 36,
+            "is_available": true
+          },
+          {
+            "id": "010502",
+            "text": "Kupferstich",
+            "children": [],
+            "doc_count": 6,
+            "is_available": true
+          }
+        ]
+      },
+      "title": {
+        "display_value": "title",
+        "values": [
+          {
+            "doc_count": 50,
+            "display_value": "Lucretia",
+            "value": "Lucretia",
+            "is_available": true
+          },
+          {
+            "doc_count": 32,
+            "display_value": "Christus und die Ehebrecherin",
+            "value": "Christus und die Ehebrecherin",
+            "is_available": true
+          },
+          {
+            "doc_count": 26,
+            "display_value": "Martin Luther",
+            "value": "Martin Luther",
+            "is_available": true
+          },
+
+          {
+            "doc_count": 1,
+            "display_value": "Ährenkleidmaria mit Stifter",
+            "value": "Ährenkleidmaria mit Stifter",
+            "is_available": true
+          }
+        ]
+      },
+      "dating_begin": {
+        "display_value": "dating_begin",
+        "values": [
+          {
+            "doc_count": 143,
+            "display_value": 1515,
+            "value": 1515,
+            "is_available": true
+          },
+          {
+            "doc_count": 126,
+            "display_value": 1525,
+            "value": 1525,
+            "is_available": true
+          },
+          {
+            "doc_count": 124,
+            "display_value": 1537,
+            "value": 1537,
+            "is_available": true
+          },
+          {
+            "doc_count": 118,
+            "display_value": 1520,
+            "value": 1520,
+            "is_available": true
+          }
+        ]
+      },
+      "catalog_work_reference_number": {
+        "display_value": "catalog_work_reference_number",
+        "values": [
+          {
+            "doc_count": 25,
+            "display_value": "---",
+            "value": "---",
+            "is_available": true
+          },
+          {
+            "doc_count": 4,
+            "display_value": "Galerie-Nr. 1453",
+            "value": "Galerie-Nr. 1453",
+            "is_available": true
+          },
+          {
+            "doc_count": 4,
+            "display_value": "Galerie-Nr. 1923",
+            "value": "Galerie-Nr. 1923",
+            "is_available": true
+          },
+          {
+            "doc_count": 1,
+            "display_value": "Zweibrücken \"rot\" 1800, Nr. 700",
+            "value": "Zweibrücken \"rot\" 1800, Nr. 700",
+            "is_available": true
+          },
+          {
+            "doc_count": 1,
+            "display_value": "o. Nr.",
+            "value": "o. Nr.",
+            "is_available": true
+          }
+        ]
+      },
+      "is_best_of": {
+        "display_value": "is_best_of",
+        "values": [
+          {
+            "doc_count": 2261,
+            "display_value": 0,
+            "value": 0,
+            "is_available": true
+          },
+          {
+            "doc_count": 100,
+            "display_value": 1,
+            "value": 1,
+            "is_available": true
+          }
+        ]
+      },
+      "collection_repository": {
+        "display_value": "Sammlung / Standort",
+        "values": [
+          {
+            "id": "collection_repository.country",
+            "text": "Länder",
+            "children": [
+              {
+                "id": "collection_repository.country.argentina",
+                "text": "Argentinien",
+                "children": [
+                  {
+                    "id": "collection_repository.country.argentina.buenos_aires",
+                    "text": "Buenos Aires, Museo Nacional de Bellas Artes",
+                    "children": [],
+                    "doc_count": 1,
+                    "is_available": true
+                  }
+                ],
+                "doc_count": 1,
+                "is_available": true
+              },
+              {
+                "id": "collection_repository.country.australia",
+                "text": "Australien",
+                "children": [
+                  {
+                    "id": "collection_repository.country.australia.melbourne",
+                    "text": "Melbourne, The National Gallery of Victoria",
+                    "children": [],
+                    "doc_count": 1,
+                    "is_available": true
+                  }
+                ],
+                "doc_count": 1,
+                "is_available": true
+              },
+              {
+                "id": "collection_repository.country.belgium",
+                "text": "Belgien",
+                "children": [
+                  {
+                    "id": "collection_repository.country.belgium.antwerp",
+                    "text": "Antwerpen",
+                    "children": [
+                      {
+                        "id": "collection_repository.country.belgium.antwerp.antwerp_1",
+                        "text": "Koninklijk Museum voor Schone Kunsten",
+                        "children": [],
+                        "doc_count": 4,
+                        "is_available": true
+                      },
+                      {
+                        "id": "collection_repository.country.belgium.antwerp.antwerp_2",
+                        "text": "Museum Mayer van den Bergh",
+                        "children": [],
+                        "doc_count": 2,
+                        "is_available": true
+                      }
+                    ],
+                    "doc_count": 6,
+                    "is_available": true
+                  },
+                  {
+                    "id": "collection_repository.country.belgium.brussels",
+                    "text": "Brüssel, Musées royaux des Beaux-Arts",
+                    "children": [],
+                    "doc_count": 7,
+                    "is_available": true
+                  },
+                  {
+                    "id": "collection_repository.country.belgium.ghent",
+                    "text": "Gent, Museum voor Schone Kunsten",
+                    "children": [],
+                    "doc_count": 1,
+                    "is_available": true
+                  },
+                  {
+                    "id": "collection_repository.country.belgium.liege",
+                    "text": "Lüttich, Collections artistiques de l'Université de Liège - Galerie Wittert",
+                    "children": [],
+                    "doc_count": 1,
+                    "is_available": true
+                  }
+                ],
+                "doc_count": 15,
+                "is_available": true
+              },
+              {
+                "id": "collection_repository.country.brazil",
+                "text": "Brasilien",
+                "children": [
+                  {
+                    "id": "collection_repository.country.brazil.sao_paulo",
+                    "text": "São Paulo, Museu de Arte",
+                    "children": [],
+                    "doc_count": 1,
+                    "is_available": true
+                  }
+                ],
+                "doc_count": 1,
+                "is_available": true
+              },
+              {
+                "id": "collection_repository.country.georgia",
+                "text": "Georgien",
+                "children": [
+                  {
+                    "id": "collection_repository.country.georgia.tbilisi",
+                    "text": "Tiflis, Shalva Amiranashvili Museum der Bildenden Künste",
+                    "children": [],
+                    "doc_count": 1,
+                    "is_available": true
+                  }
+                ],
+                "doc_count": 1,
+                "is_available": true
+              },
+              {
+                "id": "collection_repository.country.britain",
+                "text": "Vereinigtes Königreich",
+                "children": [
+                  {
+                    "id": "collection_repository.country.britain.brighton",
+                    "text": "Brighton, Museum and Art Gallery",
+                    "children": [],
+                    "doc_count": 1,
+                    "is_available": true
+                  },
+                  {
+                    "id": "collection_repository.country.britain.bristol",
+                    "text": "Bristol, City Museum and Art Gallery",
+                    "children": [],
+                    "doc_count": 1,
+                    "is_available": true
+                  }
+                ],
+                "doc_count": 62,
+                "is_available": true
+              }
+            ],
+            "doc_count": 1820,
+            "is_available": true
+          },
+          {
+            "id": "collection_repository.lost",
+            "text": "Verlust",
+            "children": [],
+            "doc_count": 40,
+            "is_available": true
+          },
+          {
+            "id": "collection_repository.private",
+            "text": "Privatsammlung",
+            "children": [],
+            "doc_count": 507,
+            "is_available": true
+          },
+          {
+            "id": "collection_repository.unknown",
+            "text": "Unbekannter Standort",
+            "children": [],
+            "doc_count": 28,
+            "is_available": true
+          }
+        ]
+      },
+      "size_height": {
+        "display_value": "size_height",
+        "values": [
+          {
+            "doc_count": 49,
+            "display_value": 4256,
+            "value": 4256,
+            "is_available": true
+          },
+          {
+            "doc_count": 31,
+            "display_value": 7360,
+            "value": 7360,
+            "is_available": true
+          },
+          {
+            "doc_count": 20,
+            "display_value": 765,
+            "value": 765,
+            "is_available": true
+          }
+        ]
+      },
+      "entity_type": {
+        "display_value": "Art",
+        "values": [
+          {
+            "doc_count": 2361,
+            "display_value": "PAINTING",
+            "value": "PAINTING",
+            "is_available": true
+          },
+          {
+            "doc_count": 45,
+            "display_value": "GRAPHIC",
+            "value": "GRAPHIC",
+            "is_available": true
+          }
+        ]
+      },
+      "form": {
+        "display_value": "Form",
+        "values": [
+          {
+            "id": "010201",
+            "text": "Diptychon",
+            "children": [],
+            "doc_count": 26,
+            "is_available": true
+          },
+          {
+            "id": "010204",
+            "text": "Triptychon",
+            "children": [],
+            "doc_count": 140,
+            "is_available": true
+          }
+        ]
+      },
+      "examination_analysis": {
+        "display_value": "Untersuchungstechniken",
+        "values": [
+          {
+            "id": "examination_analysis.infrared_photography",
+            "text": "Infrarot-Fotografie",
+            "children": [],
+            "doc_count": 39,
+            "is_available": true
+          },
+          {
+            "id": "examination_analysis.infrared_reflectography",
+            "text": "Infrarot-Reflektografie",
+            "children": [],
+            "doc_count": 1114,
+            "is_available": true
+          }
+        ]
+      },
+      "object_name": {
+        "display_value": "object_name",
+        "values": [
+          {
+            "doc_count": 1412,
+            "display_value": "FR-none",
+            "value": "FR-none",
+            "is_available": true
+          },
+          {
+            "doc_count": 45,
+            "display_value": "",
+            "value": "",
+            "is_available": true
+          },
+
+          {
+            "id": "010104",
+            "text": "Kopie",
+            "children": [],
+            "doc_count": 50,
+            "is_available": true
+          }
+        ]
+      },
+      "attribution": {
+        "display_value": "Zuschreibung",
+        "values": [
+          {
+            "id": "attribution.lucas_cranach_the_elder",
+            "text": "Lucas Cranach der Ältere",
+            "children": [],
+            "doc_count": 1030,
+            "is_available": true
+          },
+          {
+            "id": "attribution.lucas_cranach_the_elder_and_workshop",
+            "text": "Lucas Cranach der Ältere und Werkstatt",
+            "children": [],
+            "doc_count": 214,
+            "is_available": true
+          },
+          {
+            "id": "attribution.workshop_of_lucas_cranach_the_elder",
+            "text": "Werkstatt Lucas Cranach d. Ä.",
+            "children": [],
+            "doc_count": 665,
+            "is_available": true
+          },
+          {
+            "id": "attribution.named_masters_from_the_cranach_workshop",
+            "text": "Bekannte Meister der Cranach-Werkstatt",
+            "children": [
+              {
+                "id": "attribution.named_masters_from_the_cranach_workshop.antonius_heusler",
+                "text": "Antonius Heusler",
+                "children": [],
+                "doc_count": 23,
+                "is_available": true
+              },
+              {
+                "id": "attribution.named_masters_from_the_cranach_workshop.augustus_cordes",
+                "text": "Augustus Cordes",
+                "children": [],
+                "doc_count": 1,
+                "is_available": true
+              },
+              {
+                "id": "attribution.named_masters_from_the_cranach_workshop.hans_doering",
+                "text": "Hans Döring",
+                "children": [],
+                "doc_count": 7,
+                "is_available": true
+              }
+            ],
+            "doc_count": 266,
+            "is_available": true
+          }
+        ]
+      },
+      "component_parts": {
+        "display_value": "Bestandteile",
+        "values": [
+          {
+            "id": "010302",
+            "text": "Flügel",
+            "children": [],
+            "doc_count": 248,
+            "is_available": true
+          },
+          {
+            "id": "010301",
+            "text": "Mitteltafel",
+            "children": [],
+            "doc_count": 53,
+            "is_available": true
+          },
+          {
+            "id": "010303",
+            "text": "Predella",
+            "children": [],
+            "doc_count": 20,
+            "is_available": true
+          },
+          {
+            "id": "010305",
+            "text": "Fragment",
+            "children": [],
+            "doc_count": 70,
+            "is_available": true
+          },
+          {
+            "id": "010304",
+            "text": "Retabelauszug",
+            "children": [],
+            "doc_count": 14,
+            "is_available": true
+          },
+          {
+            "id": "010306",
+            "text": "Originaler Rahmen",
+            "children": [],
+            "doc_count": 100,
+            "is_available": true
+          },
+          {
+            "id": "010307",
+            "text": "Illustration",
+            "children": [],
+            "doc_count": 6,
+            "is_available": true
+          }
+        ]
+      }
+    }
+  }
+}
