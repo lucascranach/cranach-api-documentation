@@ -279,7 +279,8 @@ components:
         maximum: 10000
         default: 100
     filterfield_equalsoperator:
-      name: filterfield:[equalsoperator]
+      name: filterfield:<equalsoperator>
+      example: value
       in: query
       description: |
         # Items filtered by value
@@ -314,7 +315,7 @@ components:
       schema:
         type: string      
     filterfield_rangeoperator:
-      name: filterfield:[rangeoperator]
+      name: filterfield:<rangeoperator>
       in: query
       description: |
         # Items filtered by range
@@ -338,7 +339,7 @@ components:
       schema:
         type: string
     sort_by:
-      name: "sort_by:[sorfield].[sortdirection]"
+      name: sort_by:<sortfield>.<sortdirection>
       in: query
       description: |
         # Items sorted by field
@@ -361,7 +362,8 @@ components:
       schema:
         type: string
     searchterm:
-      name: "searchterm:[value]"
+      name: searchterm:<value>
+      example: value
       in: query
       description: |
         # Items filtered across multiple field
@@ -395,7 +397,8 @@ components:
       schema:
         type: string
     searchterm_archivals:
-      name: "searchterm:[value]"
+      name: searchterm:<value>
+      example: value
       in: query
       description: |
         # Items filtered across multiple field
@@ -418,7 +421,8 @@ components:
       schema:
         type: string
     searchterm_literature:
-      name: "searchterm:[value]"
+      name: searchterm:<value>
+      example: value
       in: query
       description: |
         # Items filtered across multiple field
@@ -446,7 +450,8 @@ components:
       schema:
         type: string
     searchterm_works:
-      name: "searchterm:[value]"
+      name: searchterm:<value>
+      example: value
       in: query
       description: |
         # Items filtered across multiple field
