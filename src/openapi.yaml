@@ -312,7 +312,7 @@ components:
         https://mivs02.gm.fh-koeln.de/?entity_type:neq=PAINTING,GRAPHIC
       required: false
       schema:
-        type: integer      
+        type: string      
     filterfield_rangeoperator:
       name: filterfield:[rangeoperator]
       in: query

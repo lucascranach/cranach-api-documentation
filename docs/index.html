@@ -1182,7 +1182,7 @@ ul.nav-tabs {
                           <div class="tab-pane active" id="examples-Default-archivalsGet-0-curl">
                             <pre class="prettyprint"><code class="language-bsh">curl -X GET \
  -H "Accept: application/json" \
- "https://mivs02.gm.fh-koeln.de/archivals?from=0&size=100&filterfield:[equalsoperator]=56&filterfield:[rangeoperator]=value&sort_by:[sorfield].[sortdirection]=value&searchterm:[value]=searchtermLeft_Square_BracketvalueRight_Square_Bracket_example"
+ "https://mivs02.gm.fh-koeln.de/archivals?from=0&size=100&filterfield:[equalsoperator]=filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket_example&filterfield:[rangeoperator]=value&sort_by:[sorfield].[sortdirection]=value&searchterm:[value]=searchtermLeft_Square_BracketvalueRight_Square_Bracket_example"
 </code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Default-archivalsGet-0-java">
@@ -1201,7 +1201,7 @@ public class DefaultApiExample {
         DefaultApi apiInstance = new DefaultApi();
         Integer from = 0; // Integer | The offset of the first item to return
         Integer size = 100; // Integer | The maximum number of items to return
-        Integer filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = 56; // Integer | # Items filtered by value
+        String filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket_example; // String | # Items filtered by value
 ## Example
 https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
 
@@ -1300,7 +1300,7 @@ public class DefaultApiExample {
         DefaultApi apiInstance = new DefaultApi();
         Integer from = 0; // Integer | The offset of the first item to return
         Integer size = 100; // Integer | The maximum number of items to return
-        Integer filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = 56; // Integer | # Items filtered by value
+        String filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket_example; // String | # Items filtered by value
 ## Example
 https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
 
@@ -1400,7 +1400,7 @@ The search term is searched in the following fields:
 DefaultApi *apiInstance = [[DefaultApi alloc] init];
 Integer *from = 0; // The offset of the first item to return (optional) (default to 0)
 Integer *size = 100; // The maximum number of items to return (optional) (default to 100)
-Integer *filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = 56; // # Items filtered by value
+String *filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket_example; // # Items filtered by value
 ## Example
 https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
 
@@ -1505,7 +1505,7 @@ var api = new CranachApi.DefaultApi()
 var opts = {
   'from': 0, // {Integer} The offset of the first item to return
   'size': 100, // {Integer} The maximum number of items to return
-  'filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket': 56, // {Integer} # Items filtered by value
+  'filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket': filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket_example, // {String} # Items filtered by value
 ## Example
 https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
 
@@ -1617,7 +1617,7 @@ namespace Example
             var apiInstance = new DefaultApi();
             var from = 0;  // Integer | The offset of the first item to return (optional)  (default to 0)
             var size = 100;  // Integer | The maximum number of items to return (optional)  (default to 100)
-            var filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = 56;  // Integer | # Items filtered by value
+            var filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket_example;  // String | # Items filtered by value
 ## Example
 https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
 
@@ -1717,7 +1717,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $api_instance = new OpenAPITools\Client\Api\DefaultApi();
 $from = 0; // Integer | The offset of the first item to return
 $size = 100; // Integer | The maximum number of items to return
-$filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = 56; // Integer | # Items filtered by value
+$filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket_example; // String | # Items filtered by value
 ## Example
 https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
 
@@ -1814,7 +1814,7 @@ use WWW::OPenAPIClient::DefaultApi;
 my $api_instance = WWW::OPenAPIClient::DefaultApi->new();
 my $from = 0; # Integer | The offset of the first item to return
 my $size = 100; # Integer | The maximum number of items to return
-my $filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = 56; # Integer | # Items filtered by value
+my $filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket_example; # String | # Items filtered by value
 ## Example
 https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
 
@@ -1913,7 +1913,7 @@ from pprint import pprint
 api_instance = openapi_client.DefaultApi()
 from = 0 # Integer | The offset of the first item to return (optional) (default to 0)
 size = 100 # Integer | The maximum number of items to return (optional) (default to 100)
-filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = 56 # Integer | # Items filtered by value
+filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket_example # String | # Items filtered by value
 ## Example
 https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
 
@@ -2006,7 +2006,7 @@ except ApiException as e:
 pub fn main() {
     let from = 0; // Integer
     let size = 100; // Integer
-    let filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = 56; // Integer
+    let filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket_example; // String
     let filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket = value; // String
     let sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket = value; // String
     let searchtermLeft_Square_BracketvalueRight_Square_Bracket = searchtermLeft_Square_BracketvalueRight_Square_Bracket_example; // String
@@ -2085,7 +2085,7 @@ The maximum number of items to return
         <div class="json-schema-view">
             <div class="primitive">
                 <span class="type">
-                    Integer
+                    String
                 </span>
 
                     <div class="inner description marked">
@@ -2711,7 +2711,7 @@ The inventory number of the item
                           <div class="tab-pane active" id="examples-Default-literatureReferencesGet-0-curl">
                             <pre class="prettyprint"><code class="language-bsh">curl -X GET \
  -H "Accept: application/json" \
- "https://mivs02.gm.fh-koeln.de/literature_references?from=0&size=100&filterfield:[equalsoperator]=56&filterfield:[rangeoperator]=value&sort_by:[sorfield].[sortdirection]=value&searchterm:[value]=searchtermLeft_Square_BracketvalueRight_Square_Bracket_example"
+ "https://mivs02.gm.fh-koeln.de/literature_references?from=0&size=100&filterfield:[equalsoperator]=filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket_example&filterfield:[rangeoperator]=value&sort_by:[sorfield].[sortdirection]=value&searchterm:[value]=searchtermLeft_Square_BracketvalueRight_Square_Bracket_example"
 </code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Default-literatureReferencesGet-0-java">
@@ -2730,7 +2730,7 @@ public class DefaultApiExample {
         DefaultApi apiInstance = new DefaultApi();
         Integer from = 0; // Integer | The offset of the first item to return
         Integer size = 100; // Integer | The maximum number of items to return
-        Integer filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = 56; // Integer | # Items filtered by value
+        String filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket_example; // String | # Items filtered by value
 ## Example
 https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
 
@@ -2834,7 +2834,7 @@ public class DefaultApiExample {
         DefaultApi apiInstance = new DefaultApi();
         Integer from = 0; // Integer | The offset of the first item to return
         Integer size = 100; // Integer | The maximum number of items to return
-        Integer filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = 56; // Integer | # Items filtered by value
+        String filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket_example; // String | # Items filtered by value
 ## Example
 https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
 
@@ -2939,7 +2939,7 @@ The search term is searched in the following fields:
 DefaultApi *apiInstance = [[DefaultApi alloc] init];
 Integer *from = 0; // The offset of the first item to return (optional) (default to 0)
 Integer *size = 100; // The maximum number of items to return (optional) (default to 100)
-Integer *filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = 56; // # Items filtered by value
+String *filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket_example; // # Items filtered by value
 ## Example
 https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
 
@@ -3049,7 +3049,7 @@ var api = new CranachApi.DefaultApi()
 var opts = {
   'from': 0, // {Integer} The offset of the first item to return
   'size': 100, // {Integer} The maximum number of items to return
-  'filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket': 56, // {Integer} # Items filtered by value
+  'filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket': filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket_example, // {String} # Items filtered by value
 ## Example
 https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
 
@@ -3166,7 +3166,7 @@ namespace Example
             var apiInstance = new DefaultApi();
             var from = 0;  // Integer | The offset of the first item to return (optional)  (default to 0)
             var size = 100;  // Integer | The maximum number of items to return (optional)  (default to 100)
-            var filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = 56;  // Integer | # Items filtered by value
+            var filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket_example;  // String | # Items filtered by value
 ## Example
 https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
 
@@ -3271,7 +3271,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $api_instance = new OpenAPITools\Client\Api\DefaultApi();
 $from = 0; // Integer | The offset of the first item to return
 $size = 100; // Integer | The maximum number of items to return
-$filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = 56; // Integer | # Items filtered by value
+$filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket_example; // String | # Items filtered by value
 ## Example
 https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
 
@@ -3373,7 +3373,7 @@ use WWW::OPenAPIClient::DefaultApi;
 my $api_instance = WWW::OPenAPIClient::DefaultApi->new();
 my $from = 0; # Integer | The offset of the first item to return
 my $size = 100; # Integer | The maximum number of items to return
-my $filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = 56; # Integer | # Items filtered by value
+my $filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket_example; # String | # Items filtered by value
 ## Example
 https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
 
@@ -3477,7 +3477,7 @@ from pprint import pprint
 api_instance = openapi_client.DefaultApi()
 from = 0 # Integer | The offset of the first item to return (optional) (default to 0)
 size = 100 # Integer | The maximum number of items to return (optional) (default to 100)
-filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = 56 # Integer | # Items filtered by value
+filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket_example # String | # Items filtered by value
 ## Example
 https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
 
@@ -3575,7 +3575,7 @@ except ApiException as e:
 pub fn main() {
     let from = 0; // Integer
     let size = 100; // Integer
-    let filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = 56; // Integer
+    let filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket_example; // String
     let filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket = value; // String
     let sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket = value; // String
     let searchtermLeft_Square_BracketvalueRight_Square_Bracket = searchtermLeft_Square_BracketvalueRight_Square_Bracket_example; // String
@@ -3654,7 +3654,7 @@ The maximum number of items to return
         <div class="json-schema-view">
             <div class="primitive">
                 <span class="type">
-                    Integer
+                    String
                 </span>
 
                     <div class="inner description marked">
@@ -3917,7 +3917,7 @@ The search term is searched in the following fields:
                           <div class="tab-pane active" id="examples-Default-rootGet-0-curl">
                             <pre class="prettyprint"><code class="language-bsh">curl -X GET \
  -H "Accept: application/json" \
- "https://mivs02.gm.fh-koeln.de/?from=0&size=100&filterfield:[equalsoperator]=56&filterfield:[rangeoperator]=value&sort_by:[sorfield].[sortdirection]=value&searchterm:[value]=searchtermLeft_Square_BracketvalueRight_Square_Bracket_example"
+ "https://mivs02.gm.fh-koeln.de/?from=0&size=100&filterfield:[equalsoperator]=filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket_example&filterfield:[rangeoperator]=value&sort_by:[sorfield].[sortdirection]=value&searchterm:[value]=searchtermLeft_Square_BracketvalueRight_Square_Bracket_example"
 </code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Default-rootGet-0-java">
@@ -3936,7 +3936,7 @@ public class DefaultApiExample {
         DefaultApi apiInstance = new DefaultApi();
         Integer from = 0; // Integer | The offset of the first item to return
         Integer size = 100; // Integer | The maximum number of items to return
-        Integer filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = 56; // Integer | # Items filtered by value
+        String filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket_example; // String | # Items filtered by value
 ## Example
 https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
 
@@ -4046,7 +4046,7 @@ public class DefaultApiExample {
         DefaultApi apiInstance = new DefaultApi();
         Integer from = 0; // Integer | The offset of the first item to return
         Integer size = 100; // Integer | The maximum number of items to return
-        Integer filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = 56; // Integer | # Items filtered by value
+        String filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket_example; // String | # Items filtered by value
 ## Example
 https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
 
@@ -4157,7 +4157,7 @@ The search term is searched in the following fields:
 DefaultApi *apiInstance = [[DefaultApi alloc] init];
 Integer *from = 0; // The offset of the first item to return (optional) (default to 0)
 Integer *size = 100; // The maximum number of items to return (optional) (default to 100)
-Integer *filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = 56; // # Items filtered by value
+String *filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket_example; // # Items filtered by value
 ## Example
 https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
 
@@ -4273,7 +4273,7 @@ var api = new CranachApi.DefaultApi()
 var opts = {
   'from': 0, // {Integer} The offset of the first item to return
   'size': 100, // {Integer} The maximum number of items to return
-  'filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket': 56, // {Integer} # Items filtered by value
+  'filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket': filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket_example, // {String} # Items filtered by value
 ## Example
 https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
 
@@ -4396,7 +4396,7 @@ namespace Example
             var apiInstance = new DefaultApi();
             var from = 0;  // Integer | The offset of the first item to return (optional)  (default to 0)
             var size = 100;  // Integer | The maximum number of items to return (optional)  (default to 100)
-            var filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = 56;  // Integer | # Items filtered by value
+            var filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket_example;  // String | # Items filtered by value
 ## Example
 https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
 
@@ -4507,7 +4507,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $api_instance = new OpenAPITools\Client\Api\DefaultApi();
 $from = 0; // Integer | The offset of the first item to return
 $size = 100; // Integer | The maximum number of items to return
-$filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = 56; // Integer | # Items filtered by value
+$filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket_example; // String | # Items filtered by value
 ## Example
 https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
 
@@ -4615,7 +4615,7 @@ use WWW::OPenAPIClient::DefaultApi;
 my $api_instance = WWW::OPenAPIClient::DefaultApi->new();
 my $from = 0; # Integer | The offset of the first item to return
 my $size = 100; # Integer | The maximum number of items to return
-my $filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = 56; # Integer | # Items filtered by value
+my $filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket_example; # String | # Items filtered by value
 ## Example
 https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
 
@@ -4725,7 +4725,7 @@ from pprint import pprint
 api_instance = openapi_client.DefaultApi()
 from = 0 # Integer | The offset of the first item to return (optional) (default to 0)
 size = 100 # Integer | The maximum number of items to return (optional) (default to 100)
-filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = 56 # Integer | # Items filtered by value
+filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket_example # String | # Items filtered by value
 ## Example
 https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
 
@@ -4829,7 +4829,7 @@ except ApiException as e:
 pub fn main() {
     let from = 0; // Integer
     let size = 100; // Integer
-    let filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = 56; // Integer
+    let filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket_example; // String
     let filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket = value; // String
     let sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket = value; // String
     let searchtermLeft_Square_BracketvalueRight_Square_Bracket = searchtermLeft_Square_BracketvalueRight_Square_Bracket_example; // String
@@ -4908,7 +4908,7 @@ The maximum number of items to return
         <div class="json-schema-view">
             <div class="primitive">
                 <span class="type">
-                    Integer
+                    String
                 </span>
 
                     <div class="inner description marked">
@@ -5177,7 +5177,7 @@ The search term is searched in the following fields:
                           <div class="tab-pane active" id="examples-Default-worksGet-0-curl">
                             <pre class="prettyprint"><code class="language-bsh">curl -X GET \
  -H "Accept: application/json" \
- "https://mivs02.gm.fh-koeln.de/works?from=0&size=100&filterfield:[equalsoperator]=56&filterfield:[rangeoperator]=value&sort_by:[sorfield].[sortdirection]=value&searchterm:[value]=searchtermLeft_Square_BracketvalueRight_Square_Bracket_example"
+ "https://mivs02.gm.fh-koeln.de/works?from=0&size=100&filterfield:[equalsoperator]=filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket_example&filterfield:[rangeoperator]=value&sort_by:[sorfield].[sortdirection]=value&searchterm:[value]=searchtermLeft_Square_BracketvalueRight_Square_Bracket_example"
 </code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Default-worksGet-0-java">
@@ -5196,7 +5196,7 @@ public class DefaultApiExample {
         DefaultApi apiInstance = new DefaultApi();
         Integer from = 0; // Integer | The offset of the first item to return
         Integer size = 100; // Integer | The maximum number of items to return
-        Integer filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = 56; // Integer | # Items filtered by value
+        String filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket_example; // String | # Items filtered by value
 ## Example
 https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
 
@@ -5303,7 +5303,7 @@ public class DefaultApiExample {
         DefaultApi apiInstance = new DefaultApi();
         Integer from = 0; // Integer | The offset of the first item to return
         Integer size = 100; // Integer | The maximum number of items to return
-        Integer filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = 56; // Integer | # Items filtered by value
+        String filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket_example; // String | # Items filtered by value
 ## Example
 https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
 
@@ -5411,7 +5411,7 @@ The search term is searched in the following fields:
 DefaultApi *apiInstance = [[DefaultApi alloc] init];
 Integer *from = 0; // The offset of the first item to return (optional) (default to 0)
 Integer *size = 100; // The maximum number of items to return (optional) (default to 100)
-Integer *filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = 56; // # Items filtered by value
+String *filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket_example; // # Items filtered by value
 ## Example
 https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
 
@@ -5524,7 +5524,7 @@ var api = new CranachApi.DefaultApi()
 var opts = {
   'from': 0, // {Integer} The offset of the first item to return
   'size': 100, // {Integer} The maximum number of items to return
-  'filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket': 56, // {Integer} # Items filtered by value
+  'filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket': filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket_example, // {String} # Items filtered by value
 ## Example
 https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
 
@@ -5644,7 +5644,7 @@ namespace Example
             var apiInstance = new DefaultApi();
             var from = 0;  // Integer | The offset of the first item to return (optional)  (default to 0)
             var size = 100;  // Integer | The maximum number of items to return (optional)  (default to 100)
-            var filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = 56;  // Integer | # Items filtered by value
+            var filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket_example;  // String | # Items filtered by value
 ## Example
 https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
 
@@ -5752,7 +5752,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $api_instance = new OpenAPITools\Client\Api\DefaultApi();
 $from = 0; // Integer | The offset of the first item to return
 $size = 100; // Integer | The maximum number of items to return
-$filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = 56; // Integer | # Items filtered by value
+$filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket_example; // String | # Items filtered by value
 ## Example
 https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
 
@@ -5857,7 +5857,7 @@ use WWW::OPenAPIClient::DefaultApi;
 my $api_instance = WWW::OPenAPIClient::DefaultApi->new();
 my $from = 0; # Integer | The offset of the first item to return
 my $size = 100; # Integer | The maximum number of items to return
-my $filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = 56; # Integer | # Items filtered by value
+my $filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket_example; # String | # Items filtered by value
 ## Example
 https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
 
@@ -5964,7 +5964,7 @@ from pprint import pprint
 api_instance = openapi_client.DefaultApi()
 from = 0 # Integer | The offset of the first item to return (optional) (default to 0)
 size = 100 # Integer | The maximum number of items to return (optional) (default to 100)
-filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = 56 # Integer | # Items filtered by value
+filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket_example # String | # Items filtered by value
 ## Example
 https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
 
@@ -6065,7 +6065,7 @@ except ApiException as e:
 pub fn main() {
     let from = 0; // Integer
     let size = 100; // Integer
-    let filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = 56; // Integer
+    let filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket_example; // String
     let filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket = value; // String
     let sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket = value; // String
     let searchtermLeft_Square_BracketvalueRight_Square_Bracket = searchtermLeft_Square_BracketvalueRight_Square_Bracket_example; // String
@@ -6144,7 +6144,7 @@ The maximum number of items to return
         <div class="json-schema-view">
             <div class="primitive">
                 <span class="type">
-                    Integer
+                    String
                 </span>
 
                     <div class="inner description marked">
