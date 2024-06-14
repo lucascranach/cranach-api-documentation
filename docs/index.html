@@ -1102,11 +1102,20 @@ ul.nav-tabs {
             <li class="nav-fixed nav-header active" data-group="_"><a href="#api-_">API Summary</a></li>
 
                   <li class="nav-header" data-group="Default"><a href="#api-Default">API Methods - Default</a></li>
+                    <li data-group="Default" data-name="archivalsGet" class="">
+                      <a href="#api-Default-archivalsGet">archivalsGet</a>
+                    </li>
                     <li data-group="Default" data-name="inventoryNumberGet" class="">
                       <a href="#api-Default-inventoryNumberGet">inventoryNumberGet</a>
                     </li>
+                    <li data-group="Default" data-name="literatureReferencesGet" class="">
+                      <a href="#api-Default-literatureReferencesGet">literatureReferencesGet</a>
+                    </li>
                     <li data-group="Default" data-name="rootGet" class="">
                       <a href="#api-Default-rootGet">rootGet</a>
+                    </li>
+                    <li data-group="Default" data-name="worksGet" class="">
+                      <a href="#api-Default-worksGet">worksGet</a>
                     </li>
           </ul>
         </nav>
@@ -1124,13 +1133,1181 @@ ul.nav-tabs {
               <div class="app-desc">Version: 1.3</div>
             <hr>
             <div id="app-description" class="app-desc">
-                API to retrieve data from the Lucas Cranach Archive
+                <h2>API to retrieve data of the Lucas Cranach Archive</h2>
+<ul>
+<li>Response to every request is sent in JSON format.</li>
+<li>In case the API request results in an error, it is represented by an <code>&quot;error&quot;: {}</code> in the JSON response.</li>
+<li>The API only provides the GET method. Data changes are not possible via the API.</li>
+<li>The API calls will respond with appropriate HTTP status codes for all requests.</li>
+</ul>
+
             </div>
           </div>
         </div>
         <div id="sections">
                 <section id="api-Default">
                   <h1>Default</h1>
+                    <div id="api-Default-archivalsGet">
+                      <article id="api-Default-archivalsGet-0" data-group="User" data-name="archivalsGet" data-version="0">
+                        <div class="pull-left">
+                          <h1>archivalsGet</h1>
+                          <p>List of archival documents</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked">Returns a list of items including Archival Documents.</p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/archivals</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Default-archivalsGet-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Default-archivalsGet-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Default-archivalsGet-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Default-archivalsGet-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Default-archivalsGet-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Default-archivalsGet-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Default-archivalsGet-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Default-archivalsGet-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Default-archivalsGet-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Default-archivalsGet-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Default-archivalsGet-0-python">Python</a></li>
+                          <li class=""><a href="#examples-Default-archivalsGet-0-rust">Rust</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Default-archivalsGet-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET \
+ -H "Accept: application/json" \
+ "https://mivs02.gm.fh-koeln.de/archivals?from=0&size=100&filterfield:[equalsoperator]=56&filterfield:[rangeoperator]=value&sort_by:[sorfield].[sortdirection]=value&searchterm:[value]=searchtermLeft_Square_BracketvalueRight_Square_Bracket_example"
+</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Default-archivalsGet-0-java">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.*;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.model.*;
+import org.openapitools.client.api.DefaultApi;
+
+import java.io.File;
+import java.util.*;
+
+public class DefaultApiExample {
+    public static void main(String[] args) {
+
+        // Create an instance of the API class
+        DefaultApi apiInstance = new DefaultApi();
+        Integer from = 0; // Integer | The offset of the first item to return
+        Integer size = 100; // Integer | The maximum number of items to return
+        Integer filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = 56; // Integer | # Items filtered by value
+## Example
+https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
+
+## Paramters
+The `filterfield` is used to define the field by which the data is to be filtered.
+
+The `equalsoperator` is the operator to set equals or not equals
+
+Possible operators:
+* `eq` = equals
+* `neq` = not equals
+* `sim` = similar - for wildcard search
+
+The `filtervalue` is used to define the value by which the data is to be filtered.
+
+## Serveral filter criteria
+Several criteria can be passed for filtering.
+
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1900&entity_type:eq=PAINTING
+
+## Multiple values
+Several values can be specified for one filter criteria.
+In this case, multiple values can be defined using a comma-separated list.
+
+If searching by wildcard or ranges, only one value is possible.
+
+https://mivs02.gm.fh-koeln.de/?entity_type:neq=PAINTING,GRAPHIC
+
+        String filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket = value; // String | # Items filtered by range
+## Example
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1920&dating_end:gte=1950
+
+## Paramters
+The `filterfield` is used to define the field by which the data is to be filtered.
+
+The `rangeoperator` is the operator to set the range
+
+Possible operators:
+* `gte` = greater than or equal
+* `lte` = less than or equal
+* `gt` = greater than
+* `lt` = less than
+
+The `filtervalue` is used to define the value by which the data is to be filtered.
+
+        String sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket = value; // String | # Items sorted by field
+## Example
+https://mivs02.gm.fh-koeln.de/?sort_by:dating_end.asc
+
+## Paramters
+The `sort_by` key must be setted to sort the data
+
+The `sortfield` is the field by which the data is to be sorted.
+
+The `sortdirection` is the direction of the sorting.
+
+Possible directions:
+* `asc` = ascending
+* `desc` = descending
+
+        String searchtermLeft_Square_BracketvalueRight_Square_Bracket = searchtermLeft_Square_BracketvalueRight_Square_Bracket_example; // String | # Items filtered across multiple field
+
+The `searchtearm` parameter is used to search the data across multiple fields.
+
+## Example
+https://mivs02.gm.fh-koeln.de/?searchterm=Lucas
+
+## Paramters
+The `value` is the search term.
+
+The search term is searched in the following fields:
+* `inventoryNumber`
+* `repository`
+* `signature`
+* `metadata.subtitle`
+* `metadata.title`
+
+
+        try {
+            successResponse result = apiInstance.archivalsGet(from, size, filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket, filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket, sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket, searchtermLeft_Square_BracketvalueRight_Square_Bracket);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#archivalsGet");
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Default-archivalsGet-0-android">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.api.DefaultApi;
+
+public class DefaultApiExample {
+    public static void main(String[] args) {
+        DefaultApi apiInstance = new DefaultApi();
+        Integer from = 0; // Integer | The offset of the first item to return
+        Integer size = 100; // Integer | The maximum number of items to return
+        Integer filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = 56; // Integer | # Items filtered by value
+## Example
+https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
+
+## Paramters
+The `filterfield` is used to define the field by which the data is to be filtered.
+
+The `equalsoperator` is the operator to set equals or not equals
+
+Possible operators:
+* `eq` = equals
+* `neq` = not equals
+* `sim` = similar - for wildcard search
+
+The `filtervalue` is used to define the value by which the data is to be filtered.
+
+## Serveral filter criteria
+Several criteria can be passed for filtering.
+
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1900&entity_type:eq=PAINTING
+
+## Multiple values
+Several values can be specified for one filter criteria.
+In this case, multiple values can be defined using a comma-separated list.
+
+If searching by wildcard or ranges, only one value is possible.
+
+https://mivs02.gm.fh-koeln.de/?entity_type:neq=PAINTING,GRAPHIC
+
+        String filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket = value; // String | # Items filtered by range
+## Example
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1920&dating_end:gte=1950
+
+## Paramters
+The `filterfield` is used to define the field by which the data is to be filtered.
+
+The `rangeoperator` is the operator to set the range
+
+Possible operators:
+* `gte` = greater than or equal
+* `lte` = less than or equal
+* `gt` = greater than
+* `lt` = less than
+
+The `filtervalue` is used to define the value by which the data is to be filtered.
+
+        String sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket = value; // String | # Items sorted by field
+## Example
+https://mivs02.gm.fh-koeln.de/?sort_by:dating_end.asc
+
+## Paramters
+The `sort_by` key must be setted to sort the data
+
+The `sortfield` is the field by which the data is to be sorted.
+
+The `sortdirection` is the direction of the sorting.
+
+Possible directions:
+* `asc` = ascending
+* `desc` = descending
+
+        String searchtermLeft_Square_BracketvalueRight_Square_Bracket = searchtermLeft_Square_BracketvalueRight_Square_Bracket_example; // String | # Items filtered across multiple field
+
+The `searchtearm` parameter is used to search the data across multiple fields.
+
+## Example
+https://mivs02.gm.fh-koeln.de/?searchterm=Lucas
+
+## Paramters
+The `value` is the search term.
+
+The search term is searched in the following fields:
+* `inventoryNumber`
+* `repository`
+* `signature`
+* `metadata.subtitle`
+* `metadata.title`
+
+
+        try {
+            successResponse result = apiInstance.archivalsGet(from, size, filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket, filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket, sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket, searchtermLeft_Square_BracketvalueRight_Square_Bracket);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#archivalsGet");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Default-archivalsGet-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Default-archivalsGet-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">
+
+// Create an instance of the API class
+DefaultApi *apiInstance = [[DefaultApi alloc] init];
+Integer *from = 0; // The offset of the first item to return (optional) (default to 0)
+Integer *size = 100; // The maximum number of items to return (optional) (default to 100)
+Integer *filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = 56; // # Items filtered by value
+## Example
+https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
+
+## Paramters
+The `filterfield` is used to define the field by which the data is to be filtered.
+
+The `equalsoperator` is the operator to set equals or not equals
+
+Possible operators:
+* `eq` = equals
+* `neq` = not equals
+* `sim` = similar - for wildcard search
+
+The `filtervalue` is used to define the value by which the data is to be filtered.
+
+## Serveral filter criteria
+Several criteria can be passed for filtering.
+
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1900&entity_type:eq=PAINTING
+
+## Multiple values
+Several values can be specified for one filter criteria.
+In this case, multiple values can be defined using a comma-separated list.
+
+If searching by wildcard or ranges, only one value is possible.
+
+https://mivs02.gm.fh-koeln.de/?entity_type:neq=PAINTING,GRAPHIC
+ (optional) (default to null)
+String *filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket = value; // # Items filtered by range
+## Example
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1920&dating_end:gte=1950
+
+## Paramters
+The `filterfield` is used to define the field by which the data is to be filtered.
+
+The `rangeoperator` is the operator to set the range
+
+Possible operators:
+* `gte` = greater than or equal
+* `lte` = less than or equal
+* `gt` = greater than
+* `lt` = less than
+
+The `filtervalue` is used to define the value by which the data is to be filtered.
+ (optional) (default to null)
+String *sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket = value; // # Items sorted by field
+## Example
+https://mivs02.gm.fh-koeln.de/?sort_by:dating_end.asc
+
+## Paramters
+The `sort_by` key must be setted to sort the data
+
+The `sortfield` is the field by which the data is to be sorted.
+
+The `sortdirection` is the direction of the sorting.
+
+Possible directions:
+* `asc` = ascending
+* `desc` = descending
+ (optional) (default to null)
+String *searchtermLeft_Square_BracketvalueRight_Square_Bracket = searchtermLeft_Square_BracketvalueRight_Square_Bracket_example; // # Items filtered across multiple field
+
+The `searchtearm` parameter is used to search the data across multiple fields.
+
+## Example
+https://mivs02.gm.fh-koeln.de/?searchterm=Lucas
+
+## Paramters
+The `value` is the search term.
+
+The search term is searched in the following fields:
+* `inventoryNumber`
+* `repository`
+* `signature`
+* `metadata.subtitle`
+* `metadata.title`
+ (optional) (default to null)
+
+// List of archival documents
+[apiInstance archivalsGetWith:from
+    size:size
+    filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket:filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket
+    filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket:filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket
+    sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket:sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket
+    searchtermLeft_Square_BracketvalueRight_Square_Bracket:searchtermLeft_Square_BracketvalueRight_Square_Bracket
+              completionHandler: ^(successResponse output, NSError* error) {
+    if (output) {
+        NSLog(@"%@", output);
+    }
+    if (error) {
+        NSLog(@"Error: %@", error);
+    }
+}];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-archivalsGet-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var CranachApi = require('cranach_api');
+
+// Create an instance of the API class
+var api = new CranachApi.DefaultApi()
+var opts = {
+  'from': 0, // {Integer} The offset of the first item to return
+  'size': 100, // {Integer} The maximum number of items to return
+  'filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket': 56, // {Integer} # Items filtered by value
+## Example
+https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
+
+## Paramters
+The `filterfield` is used to define the field by which the data is to be filtered.
+
+The `equalsoperator` is the operator to set equals or not equals
+
+Possible operators:
+* `eq` = equals
+* `neq` = not equals
+* `sim` = similar - for wildcard search
+
+The `filtervalue` is used to define the value by which the data is to be filtered.
+
+## Serveral filter criteria
+Several criteria can be passed for filtering.
+
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1900&entity_type:eq=PAINTING
+
+## Multiple values
+Several values can be specified for one filter criteria.
+In this case, multiple values can be defined using a comma-separated list.
+
+If searching by wildcard or ranges, only one value is possible.
+
+https://mivs02.gm.fh-koeln.de/?entity_type:neq=PAINTING,GRAPHIC
+
+  'filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket': value, // {String} # Items filtered by range
+## Example
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1920&dating_end:gte=1950
+
+## Paramters
+The `filterfield` is used to define the field by which the data is to be filtered.
+
+The `rangeoperator` is the operator to set the range
+
+Possible operators:
+* `gte` = greater than or equal
+* `lte` = less than or equal
+* `gt` = greater than
+* `lt` = less than
+
+The `filtervalue` is used to define the value by which the data is to be filtered.
+
+  'sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket': value, // {String} # Items sorted by field
+## Example
+https://mivs02.gm.fh-koeln.de/?sort_by:dating_end.asc
+
+## Paramters
+The `sort_by` key must be setted to sort the data
+
+The `sortfield` is the field by which the data is to be sorted.
+
+The `sortdirection` is the direction of the sorting.
+
+Possible directions:
+* `asc` = ascending
+* `desc` = descending
+
+  'searchtermLeft_Square_BracketvalueRight_Square_Bracket': searchtermLeft_Square_BracketvalueRight_Square_Bracket_example // {String} # Items filtered across multiple field
+
+The `searchtearm` parameter is used to search the data across multiple fields.
+
+## Example
+https://mivs02.gm.fh-koeln.de/?searchterm=Lucas
+
+## Paramters
+The `value` is the search term.
+
+The search term is searched in the following fields:
+* `inventoryNumber`
+* `repository`
+* `signature`
+* `metadata.subtitle`
+* `metadata.title`
+
+};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.archivalsGet(opts, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Default-archivalsGet-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Default-archivalsGet-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using Org.OpenAPITools.Api;
+using Org.OpenAPITools.Client;
+using Org.OpenAPITools.Model;
+
+namespace Example
+{
+    public class archivalsGetExample
+    {
+        public void main()
+        {
+
+            // Create an instance of the API class
+            var apiInstance = new DefaultApi();
+            var from = 0;  // Integer | The offset of the first item to return (optional)  (default to 0)
+            var size = 100;  // Integer | The maximum number of items to return (optional)  (default to 100)
+            var filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = 56;  // Integer | # Items filtered by value
+## Example
+https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
+
+## Paramters
+The `filterfield` is used to define the field by which the data is to be filtered.
+
+The `equalsoperator` is the operator to set equals or not equals
+
+Possible operators:
+* `eq` = equals
+* `neq` = not equals
+* `sim` = similar - for wildcard search
+
+The `filtervalue` is used to define the value by which the data is to be filtered.
+
+## Serveral filter criteria
+Several criteria can be passed for filtering.
+
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1900&entity_type:eq=PAINTING
+
+## Multiple values
+Several values can be specified for one filter criteria.
+In this case, multiple values can be defined using a comma-separated list.
+
+If searching by wildcard or ranges, only one value is possible.
+
+https://mivs02.gm.fh-koeln.de/?entity_type:neq=PAINTING,GRAPHIC
+ (optional)  (default to null)
+            var filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket = value;  // String | # Items filtered by range
+## Example
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1920&dating_end:gte=1950
+
+## Paramters
+The `filterfield` is used to define the field by which the data is to be filtered.
+
+The `rangeoperator` is the operator to set the range
+
+Possible operators:
+* `gte` = greater than or equal
+* `lte` = less than or equal
+* `gt` = greater than
+* `lt` = less than
+
+The `filtervalue` is used to define the value by which the data is to be filtered.
+ (optional)  (default to null)
+            var sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket = value;  // String | # Items sorted by field
+## Example
+https://mivs02.gm.fh-koeln.de/?sort_by:dating_end.asc
+
+## Paramters
+The `sort_by` key must be setted to sort the data
+
+The `sortfield` is the field by which the data is to be sorted.
+
+The `sortdirection` is the direction of the sorting.
+
+Possible directions:
+* `asc` = ascending
+* `desc` = descending
+ (optional)  (default to null)
+            var searchtermLeft_Square_BracketvalueRight_Square_Bracket = searchtermLeft_Square_BracketvalueRight_Square_Bracket_example;  // String | # Items filtered across multiple field
+
+The `searchtearm` parameter is used to search the data across multiple fields.
+
+## Example
+https://mivs02.gm.fh-koeln.de/?searchterm=Lucas
+
+## Paramters
+The `value` is the search term.
+
+The search term is searched in the following fields:
+* `inventoryNumber`
+* `repository`
+* `signature`
+* `metadata.subtitle`
+* `metadata.title`
+ (optional)  (default to null)
+
+            try {
+                // List of archival documents
+                successResponse result = apiInstance.archivalsGet(from, size, filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket, filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket, sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket, searchtermLeft_Square_BracketvalueRight_Square_Bracket);
+                Debug.WriteLine(result);
+            } catch (Exception e) {
+                Debug.Print("Exception when calling DefaultApi.archivalsGet: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-archivalsGet-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create an instance of the API class
+$api_instance = new OpenAPITools\Client\Api\DefaultApi();
+$from = 0; // Integer | The offset of the first item to return
+$size = 100; // Integer | The maximum number of items to return
+$filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = 56; // Integer | # Items filtered by value
+## Example
+https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
+
+## Paramters
+The `filterfield` is used to define the field by which the data is to be filtered.
+
+The `equalsoperator` is the operator to set equals or not equals
+
+Possible operators:
+* `eq` = equals
+* `neq` = not equals
+* `sim` = similar - for wildcard search
+
+The `filtervalue` is used to define the value by which the data is to be filtered.
+
+## Serveral filter criteria
+Several criteria can be passed for filtering.
+
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1900&entity_type:eq=PAINTING
+
+## Multiple values
+Several values can be specified for one filter criteria.
+In this case, multiple values can be defined using a comma-separated list.
+
+If searching by wildcard or ranges, only one value is possible.
+
+https://mivs02.gm.fh-koeln.de/?entity_type:neq=PAINTING,GRAPHIC
+
+$filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket = value; // String | # Items filtered by range
+## Example
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1920&dating_end:gte=1950
+
+## Paramters
+The `filterfield` is used to define the field by which the data is to be filtered.
+
+The `rangeoperator` is the operator to set the range
+
+Possible operators:
+* `gte` = greater than or equal
+* `lte` = less than or equal
+* `gt` = greater than
+* `lt` = less than
+
+The `filtervalue` is used to define the value by which the data is to be filtered.
+
+$sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket = value; // String | # Items sorted by field
+## Example
+https://mivs02.gm.fh-koeln.de/?sort_by:dating_end.asc
+
+## Paramters
+The `sort_by` key must be setted to sort the data
+
+The `sortfield` is the field by which the data is to be sorted.
+
+The `sortdirection` is the direction of the sorting.
+
+Possible directions:
+* `asc` = ascending
+* `desc` = descending
+
+$searchtermLeft_Square_BracketvalueRight_Square_Bracket = searchtermLeft_Square_BracketvalueRight_Square_Bracket_example; // String | # Items filtered across multiple field
+
+The `searchtearm` parameter is used to search the data across multiple fields.
+
+## Example
+https://mivs02.gm.fh-koeln.de/?searchterm=Lucas
+
+## Paramters
+The `value` is the search term.
+
+The search term is searched in the following fields:
+* `inventoryNumber`
+* `repository`
+* `signature`
+* `metadata.subtitle`
+* `metadata.title`
+
+
+try {
+    $result = $api_instance->archivalsGet($from, $size, $filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket, $filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket, $sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket, $searchtermLeft_Square_BracketvalueRight_Square_Bracket);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DefaultApi->archivalsGet: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-archivalsGet-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::OPenAPIClient::Configuration;
+use WWW::OPenAPIClient::DefaultApi;
+
+# Create an instance of the API class
+my $api_instance = WWW::OPenAPIClient::DefaultApi->new();
+my $from = 0; # Integer | The offset of the first item to return
+my $size = 100; # Integer | The maximum number of items to return
+my $filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = 56; # Integer | # Items filtered by value
+## Example
+https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
+
+## Paramters
+The `filterfield` is used to define the field by which the data is to be filtered.
+
+The `equalsoperator` is the operator to set equals or not equals
+
+Possible operators:
+* `eq` = equals
+* `neq` = not equals
+* `sim` = similar - for wildcard search
+
+The `filtervalue` is used to define the value by which the data is to be filtered.
+
+## Serveral filter criteria
+Several criteria can be passed for filtering.
+
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1900&entity_type:eq=PAINTING
+
+## Multiple values
+Several values can be specified for one filter criteria.
+In this case, multiple values can be defined using a comma-separated list.
+
+If searching by wildcard or ranges, only one value is possible.
+
+https://mivs02.gm.fh-koeln.de/?entity_type:neq=PAINTING,GRAPHIC
+
+my $filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket = value; # String | # Items filtered by range
+## Example
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1920&dating_end:gte=1950
+
+## Paramters
+The `filterfield` is used to define the field by which the data is to be filtered.
+
+The `rangeoperator` is the operator to set the range
+
+Possible operators:
+* `gte` = greater than or equal
+* `lte` = less than or equal
+* `gt` = greater than
+* `lt` = less than
+
+The `filtervalue` is used to define the value by which the data is to be filtered.
+
+my $sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket = value; # String | # Items sorted by field
+## Example
+https://mivs02.gm.fh-koeln.de/?sort_by:dating_end.asc
+
+## Paramters
+The `sort_by` key must be setted to sort the data
+
+The `sortfield` is the field by which the data is to be sorted.
+
+The `sortdirection` is the direction of the sorting.
+
+Possible directions:
+* `asc` = ascending
+* `desc` = descending
+
+my $searchtermLeft_Square_BracketvalueRight_Square_Bracket = searchtermLeft_Square_BracketvalueRight_Square_Bracket_example; # String | # Items filtered across multiple field
+
+The `searchtearm` parameter is used to search the data across multiple fields.
+
+## Example
+https://mivs02.gm.fh-koeln.de/?searchterm=Lucas
+
+## Paramters
+The `value` is the search term.
+
+The search term is searched in the following fields:
+* `inventoryNumber`
+* `repository`
+* `signature`
+* `metadata.subtitle`
+* `metadata.title`
+
+
+eval {
+    my $result = $api_instance->archivalsGet(from => $from, size => $size, filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket => $filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket, filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket => $filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket, sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket => $sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket, searchtermLeft_Square_BracketvalueRight_Square_Bracket => $searchtermLeft_Square_BracketvalueRight_Square_Bracket);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling DefaultApi->archivalsGet: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-archivalsGet-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import openapi_client
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Create an instance of the API class
+api_instance = openapi_client.DefaultApi()
+from = 0 # Integer | The offset of the first item to return (optional) (default to 0)
+size = 100 # Integer | The maximum number of items to return (optional) (default to 100)
+filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = 56 # Integer | # Items filtered by value
+## Example
+https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
+
+## Paramters
+The `filterfield` is used to define the field by which the data is to be filtered.
+
+The `equalsoperator` is the operator to set equals or not equals
+
+Possible operators:
+* `eq` = equals
+* `neq` = not equals
+* `sim` = similar - for wildcard search
+
+The `filtervalue` is used to define the value by which the data is to be filtered.
+
+## Serveral filter criteria
+Several criteria can be passed for filtering.
+
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1900&entity_type:eq=PAINTING
+
+## Multiple values
+Several values can be specified for one filter criteria.
+In this case, multiple values can be defined using a comma-separated list.
+
+If searching by wildcard or ranges, only one value is possible.
+
+https://mivs02.gm.fh-koeln.de/?entity_type:neq=PAINTING,GRAPHIC
+ (optional) (default to null)
+filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket = value # String | # Items filtered by range
+## Example
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1920&dating_end:gte=1950
+
+## Paramters
+The `filterfield` is used to define the field by which the data is to be filtered.
+
+The `rangeoperator` is the operator to set the range
+
+Possible operators:
+* `gte` = greater than or equal
+* `lte` = less than or equal
+* `gt` = greater than
+* `lt` = less than
+
+The `filtervalue` is used to define the value by which the data is to be filtered.
+ (optional) (default to null)
+sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket = value # String | # Items sorted by field
+## Example
+https://mivs02.gm.fh-koeln.de/?sort_by:dating_end.asc
+
+## Paramters
+The `sort_by` key must be setted to sort the data
+
+The `sortfield` is the field by which the data is to be sorted.
+
+The `sortdirection` is the direction of the sorting.
+
+Possible directions:
+* `asc` = ascending
+* `desc` = descending
+ (optional) (default to null)
+searchtermLeft_Square_BracketvalueRight_Square_Bracket = searchtermLeft_Square_BracketvalueRight_Square_Bracket_example # String | # Items filtered across multiple field
+
+The `searchtearm` parameter is used to search the data across multiple fields.
+
+## Example
+https://mivs02.gm.fh-koeln.de/?searchterm=Lucas
+
+## Paramters
+The `value` is the search term.
+
+The search term is searched in the following fields:
+* `inventoryNumber`
+* `repository`
+* `signature`
+* `metadata.subtitle`
+* `metadata.title`
+ (optional) (default to null)
+
+try:
+    # List of archival documents
+    api_response = api_instance.archivals_get(from=from, size=size, filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket=filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket, filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket=filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket, sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket=sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket, searchtermLeft_Square_BracketvalueRight_Square_Bracket=searchtermLeft_Square_BracketvalueRight_Square_Bracket)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DefaultApi->archivalsGet: %s\n" % e)</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-archivalsGet-0-rust">
+                              <pre class="prettyprint"><code class="language-rust">extern crate DefaultApi;
+
+pub fn main() {
+    let from = 0; // Integer
+    let size = 100; // Integer
+    let filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = 56; // Integer
+    let filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket = value; // String
+    let sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket = value; // String
+    let searchtermLeft_Square_BracketvalueRight_Square_Bracket = searchtermLeft_Square_BracketvalueRight_Square_Bracket_example; // String
+
+    let mut context = DefaultApi::Context::default();
+    let result = client.archivalsGet(from, size, filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket, filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket, sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket, searchtermLeft_Square_BracketvalueRight_Square_Bracket, &context).wait();
+
+    println!("{:?}", result);
+}
+</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Scopes</h2>
+                          <table>
+                            
+                          </table>
+
+                          <h2>Parameters</h2>
+
+
+
+
+
+                            <div class="methodsubtabletitle">Query parameters</div>
+                            <table id="methodsubtable">
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
+                                <tr><td style="width:150px;">from</td>
+<td>
+
+
+    <div id="d2e199_archivalsGet_from">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    Integer
+                </span>
+
+                    <div class="inner description marked">
+The offset of the first item to return
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                                <tr><td style="width:150px;">size</td>
+<td>
+
+
+    <div id="d2e199_archivalsGet_size">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    Integer
+                </span>
+
+                    <div class="inner description marked">
+The maximum number of items to return
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                                <tr><td style="width:150px;">filterfield:[equalsoperator]</td>
+<td>
+
+
+    <div id="d2e199_archivalsGet_filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    Integer
+                </span>
+
+                    <div class="inner description marked">
+# Items filtered by value
+## Example
+https://mivs02.gm.fh-koeln.de/?entity_type:eq&#x3D;PAINTING
+
+## Paramters
+The &#x60;filterfield&#x60; is used to define the field by which the data is to be filtered.
+
+The &#x60;equalsoperator&#x60; is the operator to set equals or not equals
+
+Possible operators:
+* &#x60;eq&#x60; &#x3D; equals
+* &#x60;neq&#x60; &#x3D; not equals
+* &#x60;sim&#x60; &#x3D; similar - for wildcard search
+
+The &#x60;filtervalue&#x60; is used to define the value by which the data is to be filtered.
+
+## Serveral filter criteria
+Several criteria can be passed for filtering.
+
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte&#x3D;1900&amp;entity_type:eq&#x3D;PAINTING
+
+## Multiple values
+Several values can be specified for one filter criteria.
+In this case, multiple values can be defined using a comma-separated list.
+
+If searching by wildcard or ranges, only one value is possible.
+
+https://mivs02.gm.fh-koeln.de/?entity_type:neq&#x3D;PAINTING,GRAPHIC
+
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                                <tr><td style="width:150px;">filterfield:[rangeoperator]</td>
+<td>
+
+
+    <div id="d2e199_archivalsGet_filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+# Items filtered by range
+## Example
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte&#x3D;1920&amp;dating_end:gte&#x3D;1950
+
+## Paramters
+The &#x60;filterfield&#x60; is used to define the field by which the data is to be filtered.
+
+The &#x60;rangeoperator&#x60; is the operator to set the range
+
+Possible operators:
+* &#x60;gte&#x60; &#x3D; greater than or equal
+* &#x60;lte&#x60; &#x3D; less than or equal
+* &#x60;gt&#x60; &#x3D; greater than
+* &#x60;lt&#x60; &#x3D; less than
+
+The &#x60;filtervalue&#x60; is used to define the value by which the data is to be filtered.
+
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                                <tr><td style="width:150px;">sort_by:[sorfield].[sortdirection]</td>
+<td>
+
+
+    <div id="d2e199_archivalsGet_sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+# Items sorted by field
+## Example
+https://mivs02.gm.fh-koeln.de/?sort_by:dating_end.asc
+
+## Paramters
+The &#x60;sort_by&#x60; key must be setted to sort the data
+
+The &#x60;sortfield&#x60; is the field by which the data is to be sorted.
+
+The &#x60;sortdirection&#x60; is the direction of the sorting.
+
+Possible directions:
+* &#x60;asc&#x60; &#x3D; ascending
+* &#x60;desc&#x60; &#x3D; descending
+
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                                <tr><td style="width:150px;">searchterm:[value]</td>
+<td>
+
+
+    <div id="d2e199_archivalsGet_searchtermLeft_Square_BracketvalueRight_Square_Bracket">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+# Items filtered across multiple field
+
+The &#x60;searchtearm&#x60; parameter is used to search the data across multiple fields.
+
+## Example
+https://mivs02.gm.fh-koeln.de/?searchterm&#x3D;Lucas
+
+## Paramters
+The &#x60;value&#x60; is the search term.
+
+The search term is searched in the following fields:
+* &#x60;inventoryNumber&#x60;
+* &#x60;repository&#x60;
+* &#x60;signature&#x60;
+* &#x60;metadata.subtitle&#x60;
+* &#x60;metadata.title&#x60;
+
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                            </table>
+
+                          <h2>Responses</h2>
+                            <h3 id="examples-Default-archivalsGet-title-200"></h3>
+                            <p id="examples-Default-archivalsGet-description-200" class="marked"></p>
+                            <script>
+                              var responseDefault200_description = `OK`;
+                              var responseDefault200_description_break = responseDefault200_description.indexOf('\n');
+                              if (responseDefault200_description_break == -1) {
+                                $("#examples-Default-archivalsGet-title-200").text("Status: 200 - " + responseDefault200_description);
+                              } else {
+                                $("#examples-Default-archivalsGet-title-200").text("Status: 200 - " + responseDefault200_description.substring(0, responseDefault200_description_break));
+                                $("#examples-Default-archivalsGet-description-200").html(responseDefault200_description.substring(responseDefault200_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-Default-archivalsGet-200" class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-Default-archivalsGet-200-schema">Schema</a>
+                                </li>
+
+
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-Default-archivalsGet-200-wrapper" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-Default-archivalsGet-200-schema">
+                                  <div id="responses-Default-archivalsGet-schema-200" class="exampleStyle">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "OK",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/successResponse"
+      }
+    }
+  }
+};
+                                        var schema = findNode('schema',schemaWrapper).schema;
+                                        if (!schema) {
+                                          schema = schemaWrapper.schema;
+                                        }
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                          Object.keys(schema.properties).forEach( (item) => {
+                                            if (schema.properties[item].$ref != null) {
+                                              schema.properties[item] = defsParser.$refs.get(schema.properties[item].$ref);
+                                            }
+                                          });
+                                        } else if (schema.items != null && schema.items.$ref != null) {
+                                            schema.items = defsParser.$refs.get(schema.items.$ref);
+                                        } else {
+                                          schemaWrapper.definitions = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-Default-archivalsGet-200-schema-data').val(JSON.stringify(schema));
+                                        var result = $('#responses-Default-archivalsGet-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-Default-archivalsGet-200-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+                        </article>
+                      </div>
+                      <hr>
                     <div id="api-Default-inventoryNumberGet">
                       <article id="api-Default-inventoryNumberGet-0" data-group="User" data-name="inventoryNumberGet" data-version="0">
                         <div class="pull-left">
@@ -1499,16 +2676,1222 @@ The inventory number of the item
                         </article>
                       </div>
                       <hr>
-                    <div id="api-Default-rootGet">
-                      <article id="api-Default-rootGet-0" data-group="User" data-name="rootGet" data-version="0">
+                    <div id="api-Default-literatureReferencesGet">
+                      <article id="api-Default-literatureReferencesGet-0" data-group="User" data-name="literatureReferencesGet" data-version="0">
                         <div class="pull-left">
-                          <h1>rootGet</h1>
-                          <p>List of items</p>
+                          <h1>literatureReferencesGet</h1>
+                          <p>List of publications</p>
                         </div>
                         <div class="pull-right"></div>
                         <div class="clearfix"></div>
                         <p></p>
-                        <p class="marked">Returns a list of all items.</p>
+                        <p class="marked">Returns a list of items including Publications.</p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/literature_references</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Default-literatureReferencesGet-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Default-literatureReferencesGet-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Default-literatureReferencesGet-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Default-literatureReferencesGet-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Default-literatureReferencesGet-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Default-literatureReferencesGet-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Default-literatureReferencesGet-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Default-literatureReferencesGet-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Default-literatureReferencesGet-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Default-literatureReferencesGet-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Default-literatureReferencesGet-0-python">Python</a></li>
+                          <li class=""><a href="#examples-Default-literatureReferencesGet-0-rust">Rust</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Default-literatureReferencesGet-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET \
+ -H "Accept: application/json" \
+ "https://mivs02.gm.fh-koeln.de/literature_references?from=0&size=100&filterfield:[equalsoperator]=56&filterfield:[rangeoperator]=value&sort_by:[sorfield].[sortdirection]=value&searchterm:[value]=searchtermLeft_Square_BracketvalueRight_Square_Bracket_example"
+</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Default-literatureReferencesGet-0-java">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.*;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.model.*;
+import org.openapitools.client.api.DefaultApi;
+
+import java.io.File;
+import java.util.*;
+
+public class DefaultApiExample {
+    public static void main(String[] args) {
+
+        // Create an instance of the API class
+        DefaultApi apiInstance = new DefaultApi();
+        Integer from = 0; // Integer | The offset of the first item to return
+        Integer size = 100; // Integer | The maximum number of items to return
+        Integer filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = 56; // Integer | # Items filtered by value
+## Example
+https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
+
+## Paramters
+The `filterfield` is used to define the field by which the data is to be filtered.
+
+The `equalsoperator` is the operator to set equals or not equals
+
+Possible operators:
+* `eq` = equals
+* `neq` = not equals
+* `sim` = similar - for wildcard search
+
+The `filtervalue` is used to define the value by which the data is to be filtered.
+
+## Serveral filter criteria
+Several criteria can be passed for filtering.
+
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1900&entity_type:eq=PAINTING
+
+## Multiple values
+Several values can be specified for one filter criteria.
+In this case, multiple values can be defined using a comma-separated list.
+
+If searching by wildcard or ranges, only one value is possible.
+
+https://mivs02.gm.fh-koeln.de/?entity_type:neq=PAINTING,GRAPHIC
+
+        String filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket = value; // String | # Items filtered by range
+## Example
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1920&dating_end:gte=1950
+
+## Paramters
+The `filterfield` is used to define the field by which the data is to be filtered.
+
+The `rangeoperator` is the operator to set the range
+
+Possible operators:
+* `gte` = greater than or equal
+* `lte` = less than or equal
+* `gt` = greater than
+* `lt` = less than
+
+The `filtervalue` is used to define the value by which the data is to be filtered.
+
+        String sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket = value; // String | # Items sorted by field
+## Example
+https://mivs02.gm.fh-koeln.de/?sort_by:dating_end.asc
+
+## Paramters
+The `sort_by` key must be setted to sort the data
+
+The `sortfield` is the field by which the data is to be sorted.
+
+The `sortdirection` is the direction of the sorting.
+
+Possible directions:
+* `asc` = ascending
+* `desc` = descending
+
+        String searchtermLeft_Square_BracketvalueRight_Square_Bracket = searchtermLeft_Square_BracketvalueRight_Square_Bracket_example; // String | # Items filtered across multiple field
+
+The `searchtearm` parameter is used to search the data across multiple fields.
+
+## Example
+https://mivs02.gm.fh-koeln.de/?searchterm=Lucas
+
+## Paramters
+The `value` is the search term.
+
+The search term is searched in the following fields:
+* `longTitle`
+* `metadata.subtitle`
+* `metadata.title`
+* `publishLocation`
+* `publishDate`
+* `publications.text`
+* `referenceId`
+* `referenceNumber`
+* `referenceNumber`
+* `shortTitle`
+
+
+        try {
+            successResponse result = apiInstance.literatureReferencesGet(from, size, filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket, filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket, sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket, searchtermLeft_Square_BracketvalueRight_Square_Bracket);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#literatureReferencesGet");
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Default-literatureReferencesGet-0-android">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.api.DefaultApi;
+
+public class DefaultApiExample {
+    public static void main(String[] args) {
+        DefaultApi apiInstance = new DefaultApi();
+        Integer from = 0; // Integer | The offset of the first item to return
+        Integer size = 100; // Integer | The maximum number of items to return
+        Integer filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = 56; // Integer | # Items filtered by value
+## Example
+https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
+
+## Paramters
+The `filterfield` is used to define the field by which the data is to be filtered.
+
+The `equalsoperator` is the operator to set equals or not equals
+
+Possible operators:
+* `eq` = equals
+* `neq` = not equals
+* `sim` = similar - for wildcard search
+
+The `filtervalue` is used to define the value by which the data is to be filtered.
+
+## Serveral filter criteria
+Several criteria can be passed for filtering.
+
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1900&entity_type:eq=PAINTING
+
+## Multiple values
+Several values can be specified for one filter criteria.
+In this case, multiple values can be defined using a comma-separated list.
+
+If searching by wildcard or ranges, only one value is possible.
+
+https://mivs02.gm.fh-koeln.de/?entity_type:neq=PAINTING,GRAPHIC
+
+        String filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket = value; // String | # Items filtered by range
+## Example
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1920&dating_end:gte=1950
+
+## Paramters
+The `filterfield` is used to define the field by which the data is to be filtered.
+
+The `rangeoperator` is the operator to set the range
+
+Possible operators:
+* `gte` = greater than or equal
+* `lte` = less than or equal
+* `gt` = greater than
+* `lt` = less than
+
+The `filtervalue` is used to define the value by which the data is to be filtered.
+
+        String sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket = value; // String | # Items sorted by field
+## Example
+https://mivs02.gm.fh-koeln.de/?sort_by:dating_end.asc
+
+## Paramters
+The `sort_by` key must be setted to sort the data
+
+The `sortfield` is the field by which the data is to be sorted.
+
+The `sortdirection` is the direction of the sorting.
+
+Possible directions:
+* `asc` = ascending
+* `desc` = descending
+
+        String searchtermLeft_Square_BracketvalueRight_Square_Bracket = searchtermLeft_Square_BracketvalueRight_Square_Bracket_example; // String | # Items filtered across multiple field
+
+The `searchtearm` parameter is used to search the data across multiple fields.
+
+## Example
+https://mivs02.gm.fh-koeln.de/?searchterm=Lucas
+
+## Paramters
+The `value` is the search term.
+
+The search term is searched in the following fields:
+* `longTitle`
+* `metadata.subtitle`
+* `metadata.title`
+* `publishLocation`
+* `publishDate`
+* `publications.text`
+* `referenceId`
+* `referenceNumber`
+* `referenceNumber`
+* `shortTitle`
+
+
+        try {
+            successResponse result = apiInstance.literatureReferencesGet(from, size, filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket, filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket, sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket, searchtermLeft_Square_BracketvalueRight_Square_Bracket);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#literatureReferencesGet");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Default-literatureReferencesGet-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Default-literatureReferencesGet-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">
+
+// Create an instance of the API class
+DefaultApi *apiInstance = [[DefaultApi alloc] init];
+Integer *from = 0; // The offset of the first item to return (optional) (default to 0)
+Integer *size = 100; // The maximum number of items to return (optional) (default to 100)
+Integer *filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = 56; // # Items filtered by value
+## Example
+https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
+
+## Paramters
+The `filterfield` is used to define the field by which the data is to be filtered.
+
+The `equalsoperator` is the operator to set equals or not equals
+
+Possible operators:
+* `eq` = equals
+* `neq` = not equals
+* `sim` = similar - for wildcard search
+
+The `filtervalue` is used to define the value by which the data is to be filtered.
+
+## Serveral filter criteria
+Several criteria can be passed for filtering.
+
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1900&entity_type:eq=PAINTING
+
+## Multiple values
+Several values can be specified for one filter criteria.
+In this case, multiple values can be defined using a comma-separated list.
+
+If searching by wildcard or ranges, only one value is possible.
+
+https://mivs02.gm.fh-koeln.de/?entity_type:neq=PAINTING,GRAPHIC
+ (optional) (default to null)
+String *filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket = value; // # Items filtered by range
+## Example
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1920&dating_end:gte=1950
+
+## Paramters
+The `filterfield` is used to define the field by which the data is to be filtered.
+
+The `rangeoperator` is the operator to set the range
+
+Possible operators:
+* `gte` = greater than or equal
+* `lte` = less than or equal
+* `gt` = greater than
+* `lt` = less than
+
+The `filtervalue` is used to define the value by which the data is to be filtered.
+ (optional) (default to null)
+String *sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket = value; // # Items sorted by field
+## Example
+https://mivs02.gm.fh-koeln.de/?sort_by:dating_end.asc
+
+## Paramters
+The `sort_by` key must be setted to sort the data
+
+The `sortfield` is the field by which the data is to be sorted.
+
+The `sortdirection` is the direction of the sorting.
+
+Possible directions:
+* `asc` = ascending
+* `desc` = descending
+ (optional) (default to null)
+String *searchtermLeft_Square_BracketvalueRight_Square_Bracket = searchtermLeft_Square_BracketvalueRight_Square_Bracket_example; // # Items filtered across multiple field
+
+The `searchtearm` parameter is used to search the data across multiple fields.
+
+## Example
+https://mivs02.gm.fh-koeln.de/?searchterm=Lucas
+
+## Paramters
+The `value` is the search term.
+
+The search term is searched in the following fields:
+* `longTitle`
+* `metadata.subtitle`
+* `metadata.title`
+* `publishLocation`
+* `publishDate`
+* `publications.text`
+* `referenceId`
+* `referenceNumber`
+* `referenceNumber`
+* `shortTitle`
+ (optional) (default to null)
+
+// List of publications
+[apiInstance literatureReferencesGetWith:from
+    size:size
+    filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket:filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket
+    filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket:filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket
+    sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket:sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket
+    searchtermLeft_Square_BracketvalueRight_Square_Bracket:searchtermLeft_Square_BracketvalueRight_Square_Bracket
+              completionHandler: ^(successResponse output, NSError* error) {
+    if (output) {
+        NSLog(@"%@", output);
+    }
+    if (error) {
+        NSLog(@"Error: %@", error);
+    }
+}];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-literatureReferencesGet-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var CranachApi = require('cranach_api');
+
+// Create an instance of the API class
+var api = new CranachApi.DefaultApi()
+var opts = {
+  'from': 0, // {Integer} The offset of the first item to return
+  'size': 100, // {Integer} The maximum number of items to return
+  'filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket': 56, // {Integer} # Items filtered by value
+## Example
+https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
+
+## Paramters
+The `filterfield` is used to define the field by which the data is to be filtered.
+
+The `equalsoperator` is the operator to set equals or not equals
+
+Possible operators:
+* `eq` = equals
+* `neq` = not equals
+* `sim` = similar - for wildcard search
+
+The `filtervalue` is used to define the value by which the data is to be filtered.
+
+## Serveral filter criteria
+Several criteria can be passed for filtering.
+
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1900&entity_type:eq=PAINTING
+
+## Multiple values
+Several values can be specified for one filter criteria.
+In this case, multiple values can be defined using a comma-separated list.
+
+If searching by wildcard or ranges, only one value is possible.
+
+https://mivs02.gm.fh-koeln.de/?entity_type:neq=PAINTING,GRAPHIC
+
+  'filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket': value, // {String} # Items filtered by range
+## Example
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1920&dating_end:gte=1950
+
+## Paramters
+The `filterfield` is used to define the field by which the data is to be filtered.
+
+The `rangeoperator` is the operator to set the range
+
+Possible operators:
+* `gte` = greater than or equal
+* `lte` = less than or equal
+* `gt` = greater than
+* `lt` = less than
+
+The `filtervalue` is used to define the value by which the data is to be filtered.
+
+  'sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket': value, // {String} # Items sorted by field
+## Example
+https://mivs02.gm.fh-koeln.de/?sort_by:dating_end.asc
+
+## Paramters
+The `sort_by` key must be setted to sort the data
+
+The `sortfield` is the field by which the data is to be sorted.
+
+The `sortdirection` is the direction of the sorting.
+
+Possible directions:
+* `asc` = ascending
+* `desc` = descending
+
+  'searchtermLeft_Square_BracketvalueRight_Square_Bracket': searchtermLeft_Square_BracketvalueRight_Square_Bracket_example // {String} # Items filtered across multiple field
+
+The `searchtearm` parameter is used to search the data across multiple fields.
+
+## Example
+https://mivs02.gm.fh-koeln.de/?searchterm=Lucas
+
+## Paramters
+The `value` is the search term.
+
+The search term is searched in the following fields:
+* `longTitle`
+* `metadata.subtitle`
+* `metadata.title`
+* `publishLocation`
+* `publishDate`
+* `publications.text`
+* `referenceId`
+* `referenceNumber`
+* `referenceNumber`
+* `shortTitle`
+
+};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.literatureReferencesGet(opts, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Default-literatureReferencesGet-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Default-literatureReferencesGet-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using Org.OpenAPITools.Api;
+using Org.OpenAPITools.Client;
+using Org.OpenAPITools.Model;
+
+namespace Example
+{
+    public class literatureReferencesGetExample
+    {
+        public void main()
+        {
+
+            // Create an instance of the API class
+            var apiInstance = new DefaultApi();
+            var from = 0;  // Integer | The offset of the first item to return (optional)  (default to 0)
+            var size = 100;  // Integer | The maximum number of items to return (optional)  (default to 100)
+            var filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = 56;  // Integer | # Items filtered by value
+## Example
+https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
+
+## Paramters
+The `filterfield` is used to define the field by which the data is to be filtered.
+
+The `equalsoperator` is the operator to set equals or not equals
+
+Possible operators:
+* `eq` = equals
+* `neq` = not equals
+* `sim` = similar - for wildcard search
+
+The `filtervalue` is used to define the value by which the data is to be filtered.
+
+## Serveral filter criteria
+Several criteria can be passed for filtering.
+
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1900&entity_type:eq=PAINTING
+
+## Multiple values
+Several values can be specified for one filter criteria.
+In this case, multiple values can be defined using a comma-separated list.
+
+If searching by wildcard or ranges, only one value is possible.
+
+https://mivs02.gm.fh-koeln.de/?entity_type:neq=PAINTING,GRAPHIC
+ (optional)  (default to null)
+            var filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket = value;  // String | # Items filtered by range
+## Example
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1920&dating_end:gte=1950
+
+## Paramters
+The `filterfield` is used to define the field by which the data is to be filtered.
+
+The `rangeoperator` is the operator to set the range
+
+Possible operators:
+* `gte` = greater than or equal
+* `lte` = less than or equal
+* `gt` = greater than
+* `lt` = less than
+
+The `filtervalue` is used to define the value by which the data is to be filtered.
+ (optional)  (default to null)
+            var sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket = value;  // String | # Items sorted by field
+## Example
+https://mivs02.gm.fh-koeln.de/?sort_by:dating_end.asc
+
+## Paramters
+The `sort_by` key must be setted to sort the data
+
+The `sortfield` is the field by which the data is to be sorted.
+
+The `sortdirection` is the direction of the sorting.
+
+Possible directions:
+* `asc` = ascending
+* `desc` = descending
+ (optional)  (default to null)
+            var searchtermLeft_Square_BracketvalueRight_Square_Bracket = searchtermLeft_Square_BracketvalueRight_Square_Bracket_example;  // String | # Items filtered across multiple field
+
+The `searchtearm` parameter is used to search the data across multiple fields.
+
+## Example
+https://mivs02.gm.fh-koeln.de/?searchterm=Lucas
+
+## Paramters
+The `value` is the search term.
+
+The search term is searched in the following fields:
+* `longTitle`
+* `metadata.subtitle`
+* `metadata.title`
+* `publishLocation`
+* `publishDate`
+* `publications.text`
+* `referenceId`
+* `referenceNumber`
+* `referenceNumber`
+* `shortTitle`
+ (optional)  (default to null)
+
+            try {
+                // List of publications
+                successResponse result = apiInstance.literatureReferencesGet(from, size, filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket, filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket, sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket, searchtermLeft_Square_BracketvalueRight_Square_Bracket);
+                Debug.WriteLine(result);
+            } catch (Exception e) {
+                Debug.Print("Exception when calling DefaultApi.literatureReferencesGet: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-literatureReferencesGet-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create an instance of the API class
+$api_instance = new OpenAPITools\Client\Api\DefaultApi();
+$from = 0; // Integer | The offset of the first item to return
+$size = 100; // Integer | The maximum number of items to return
+$filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = 56; // Integer | # Items filtered by value
+## Example
+https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
+
+## Paramters
+The `filterfield` is used to define the field by which the data is to be filtered.
+
+The `equalsoperator` is the operator to set equals or not equals
+
+Possible operators:
+* `eq` = equals
+* `neq` = not equals
+* `sim` = similar - for wildcard search
+
+The `filtervalue` is used to define the value by which the data is to be filtered.
+
+## Serveral filter criteria
+Several criteria can be passed for filtering.
+
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1900&entity_type:eq=PAINTING
+
+## Multiple values
+Several values can be specified for one filter criteria.
+In this case, multiple values can be defined using a comma-separated list.
+
+If searching by wildcard or ranges, only one value is possible.
+
+https://mivs02.gm.fh-koeln.de/?entity_type:neq=PAINTING,GRAPHIC
+
+$filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket = value; // String | # Items filtered by range
+## Example
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1920&dating_end:gte=1950
+
+## Paramters
+The `filterfield` is used to define the field by which the data is to be filtered.
+
+The `rangeoperator` is the operator to set the range
+
+Possible operators:
+* `gte` = greater than or equal
+* `lte` = less than or equal
+* `gt` = greater than
+* `lt` = less than
+
+The `filtervalue` is used to define the value by which the data is to be filtered.
+
+$sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket = value; // String | # Items sorted by field
+## Example
+https://mivs02.gm.fh-koeln.de/?sort_by:dating_end.asc
+
+## Paramters
+The `sort_by` key must be setted to sort the data
+
+The `sortfield` is the field by which the data is to be sorted.
+
+The `sortdirection` is the direction of the sorting.
+
+Possible directions:
+* `asc` = ascending
+* `desc` = descending
+
+$searchtermLeft_Square_BracketvalueRight_Square_Bracket = searchtermLeft_Square_BracketvalueRight_Square_Bracket_example; // String | # Items filtered across multiple field
+
+The `searchtearm` parameter is used to search the data across multiple fields.
+
+## Example
+https://mivs02.gm.fh-koeln.de/?searchterm=Lucas
+
+## Paramters
+The `value` is the search term.
+
+The search term is searched in the following fields:
+* `longTitle`
+* `metadata.subtitle`
+* `metadata.title`
+* `publishLocation`
+* `publishDate`
+* `publications.text`
+* `referenceId`
+* `referenceNumber`
+* `referenceNumber`
+* `shortTitle`
+
+
+try {
+    $result = $api_instance->literatureReferencesGet($from, $size, $filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket, $filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket, $sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket, $searchtermLeft_Square_BracketvalueRight_Square_Bracket);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DefaultApi->literatureReferencesGet: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-literatureReferencesGet-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::OPenAPIClient::Configuration;
+use WWW::OPenAPIClient::DefaultApi;
+
+# Create an instance of the API class
+my $api_instance = WWW::OPenAPIClient::DefaultApi->new();
+my $from = 0; # Integer | The offset of the first item to return
+my $size = 100; # Integer | The maximum number of items to return
+my $filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = 56; # Integer | # Items filtered by value
+## Example
+https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
+
+## Paramters
+The `filterfield` is used to define the field by which the data is to be filtered.
+
+The `equalsoperator` is the operator to set equals or not equals
+
+Possible operators:
+* `eq` = equals
+* `neq` = not equals
+* `sim` = similar - for wildcard search
+
+The `filtervalue` is used to define the value by which the data is to be filtered.
+
+## Serveral filter criteria
+Several criteria can be passed for filtering.
+
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1900&entity_type:eq=PAINTING
+
+## Multiple values
+Several values can be specified for one filter criteria.
+In this case, multiple values can be defined using a comma-separated list.
+
+If searching by wildcard or ranges, only one value is possible.
+
+https://mivs02.gm.fh-koeln.de/?entity_type:neq=PAINTING,GRAPHIC
+
+my $filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket = value; # String | # Items filtered by range
+## Example
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1920&dating_end:gte=1950
+
+## Paramters
+The `filterfield` is used to define the field by which the data is to be filtered.
+
+The `rangeoperator` is the operator to set the range
+
+Possible operators:
+* `gte` = greater than or equal
+* `lte` = less than or equal
+* `gt` = greater than
+* `lt` = less than
+
+The `filtervalue` is used to define the value by which the data is to be filtered.
+
+my $sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket = value; # String | # Items sorted by field
+## Example
+https://mivs02.gm.fh-koeln.de/?sort_by:dating_end.asc
+
+## Paramters
+The `sort_by` key must be setted to sort the data
+
+The `sortfield` is the field by which the data is to be sorted.
+
+The `sortdirection` is the direction of the sorting.
+
+Possible directions:
+* `asc` = ascending
+* `desc` = descending
+
+my $searchtermLeft_Square_BracketvalueRight_Square_Bracket = searchtermLeft_Square_BracketvalueRight_Square_Bracket_example; # String | # Items filtered across multiple field
+
+The `searchtearm` parameter is used to search the data across multiple fields.
+
+## Example
+https://mivs02.gm.fh-koeln.de/?searchterm=Lucas
+
+## Paramters
+The `value` is the search term.
+
+The search term is searched in the following fields:
+* `longTitle`
+* `metadata.subtitle`
+* `metadata.title`
+* `publishLocation`
+* `publishDate`
+* `publications.text`
+* `referenceId`
+* `referenceNumber`
+* `referenceNumber`
+* `shortTitle`
+
+
+eval {
+    my $result = $api_instance->literatureReferencesGet(from => $from, size => $size, filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket => $filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket, filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket => $filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket, sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket => $sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket, searchtermLeft_Square_BracketvalueRight_Square_Bracket => $searchtermLeft_Square_BracketvalueRight_Square_Bracket);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling DefaultApi->literatureReferencesGet: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-literatureReferencesGet-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import openapi_client
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Create an instance of the API class
+api_instance = openapi_client.DefaultApi()
+from = 0 # Integer | The offset of the first item to return (optional) (default to 0)
+size = 100 # Integer | The maximum number of items to return (optional) (default to 100)
+filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = 56 # Integer | # Items filtered by value
+## Example
+https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
+
+## Paramters
+The `filterfield` is used to define the field by which the data is to be filtered.
+
+The `equalsoperator` is the operator to set equals or not equals
+
+Possible operators:
+* `eq` = equals
+* `neq` = not equals
+* `sim` = similar - for wildcard search
+
+The `filtervalue` is used to define the value by which the data is to be filtered.
+
+## Serveral filter criteria
+Several criteria can be passed for filtering.
+
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1900&entity_type:eq=PAINTING
+
+## Multiple values
+Several values can be specified for one filter criteria.
+In this case, multiple values can be defined using a comma-separated list.
+
+If searching by wildcard or ranges, only one value is possible.
+
+https://mivs02.gm.fh-koeln.de/?entity_type:neq=PAINTING,GRAPHIC
+ (optional) (default to null)
+filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket = value # String | # Items filtered by range
+## Example
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1920&dating_end:gte=1950
+
+## Paramters
+The `filterfield` is used to define the field by which the data is to be filtered.
+
+The `rangeoperator` is the operator to set the range
+
+Possible operators:
+* `gte` = greater than or equal
+* `lte` = less than or equal
+* `gt` = greater than
+* `lt` = less than
+
+The `filtervalue` is used to define the value by which the data is to be filtered.
+ (optional) (default to null)
+sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket = value # String | # Items sorted by field
+## Example
+https://mivs02.gm.fh-koeln.de/?sort_by:dating_end.asc
+
+## Paramters
+The `sort_by` key must be setted to sort the data
+
+The `sortfield` is the field by which the data is to be sorted.
+
+The `sortdirection` is the direction of the sorting.
+
+Possible directions:
+* `asc` = ascending
+* `desc` = descending
+ (optional) (default to null)
+searchtermLeft_Square_BracketvalueRight_Square_Bracket = searchtermLeft_Square_BracketvalueRight_Square_Bracket_example # String | # Items filtered across multiple field
+
+The `searchtearm` parameter is used to search the data across multiple fields.
+
+## Example
+https://mivs02.gm.fh-koeln.de/?searchterm=Lucas
+
+## Paramters
+The `value` is the search term.
+
+The search term is searched in the following fields:
+* `longTitle`
+* `metadata.subtitle`
+* `metadata.title`
+* `publishLocation`
+* `publishDate`
+* `publications.text`
+* `referenceId`
+* `referenceNumber`
+* `referenceNumber`
+* `shortTitle`
+ (optional) (default to null)
+
+try:
+    # List of publications
+    api_response = api_instance.literature_references_get(from=from, size=size, filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket=filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket, filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket=filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket, sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket=sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket, searchtermLeft_Square_BracketvalueRight_Square_Bracket=searchtermLeft_Square_BracketvalueRight_Square_Bracket)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DefaultApi->literatureReferencesGet: %s\n" % e)</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-literatureReferencesGet-0-rust">
+                              <pre class="prettyprint"><code class="language-rust">extern crate DefaultApi;
+
+pub fn main() {
+    let from = 0; // Integer
+    let size = 100; // Integer
+    let filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = 56; // Integer
+    let filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket = value; // String
+    let sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket = value; // String
+    let searchtermLeft_Square_BracketvalueRight_Square_Bracket = searchtermLeft_Square_BracketvalueRight_Square_Bracket_example; // String
+
+    let mut context = DefaultApi::Context::default();
+    let result = client.literatureReferencesGet(from, size, filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket, filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket, sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket, searchtermLeft_Square_BracketvalueRight_Square_Bracket, &context).wait();
+
+    println!("{:?}", result);
+}
+</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Scopes</h2>
+                          <table>
+                            
+                          </table>
+
+                          <h2>Parameters</h2>
+
+
+
+
+
+                            <div class="methodsubtabletitle">Query parameters</div>
+                            <table id="methodsubtable">
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
+                                <tr><td style="width:150px;">from</td>
+<td>
+
+
+    <div id="d2e199_literatureReferencesGet_from">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    Integer
+                </span>
+
+                    <div class="inner description marked">
+The offset of the first item to return
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                                <tr><td style="width:150px;">size</td>
+<td>
+
+
+    <div id="d2e199_literatureReferencesGet_size">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    Integer
+                </span>
+
+                    <div class="inner description marked">
+The maximum number of items to return
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                                <tr><td style="width:150px;">filterfield:[equalsoperator]</td>
+<td>
+
+
+    <div id="d2e199_literatureReferencesGet_filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    Integer
+                </span>
+
+                    <div class="inner description marked">
+# Items filtered by value
+## Example
+https://mivs02.gm.fh-koeln.de/?entity_type:eq&#x3D;PAINTING
+
+## Paramters
+The &#x60;filterfield&#x60; is used to define the field by which the data is to be filtered.
+
+The &#x60;equalsoperator&#x60; is the operator to set equals or not equals
+
+Possible operators:
+* &#x60;eq&#x60; &#x3D; equals
+* &#x60;neq&#x60; &#x3D; not equals
+* &#x60;sim&#x60; &#x3D; similar - for wildcard search
+
+The &#x60;filtervalue&#x60; is used to define the value by which the data is to be filtered.
+
+## Serveral filter criteria
+Several criteria can be passed for filtering.
+
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte&#x3D;1900&amp;entity_type:eq&#x3D;PAINTING
+
+## Multiple values
+Several values can be specified for one filter criteria.
+In this case, multiple values can be defined using a comma-separated list.
+
+If searching by wildcard or ranges, only one value is possible.
+
+https://mivs02.gm.fh-koeln.de/?entity_type:neq&#x3D;PAINTING,GRAPHIC
+
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                                <tr><td style="width:150px;">filterfield:[rangeoperator]</td>
+<td>
+
+
+    <div id="d2e199_literatureReferencesGet_filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+# Items filtered by range
+## Example
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte&#x3D;1920&amp;dating_end:gte&#x3D;1950
+
+## Paramters
+The &#x60;filterfield&#x60; is used to define the field by which the data is to be filtered.
+
+The &#x60;rangeoperator&#x60; is the operator to set the range
+
+Possible operators:
+* &#x60;gte&#x60; &#x3D; greater than or equal
+* &#x60;lte&#x60; &#x3D; less than or equal
+* &#x60;gt&#x60; &#x3D; greater than
+* &#x60;lt&#x60; &#x3D; less than
+
+The &#x60;filtervalue&#x60; is used to define the value by which the data is to be filtered.
+
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                                <tr><td style="width:150px;">sort_by:[sorfield].[sortdirection]</td>
+<td>
+
+
+    <div id="d2e199_literatureReferencesGet_sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+# Items sorted by field
+## Example
+https://mivs02.gm.fh-koeln.de/?sort_by:dating_end.asc
+
+## Paramters
+The &#x60;sort_by&#x60; key must be setted to sort the data
+
+The &#x60;sortfield&#x60; is the field by which the data is to be sorted.
+
+The &#x60;sortdirection&#x60; is the direction of the sorting.
+
+Possible directions:
+* &#x60;asc&#x60; &#x3D; ascending
+* &#x60;desc&#x60; &#x3D; descending
+
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                                <tr><td style="width:150px;">searchterm:[value]</td>
+<td>
+
+
+    <div id="d2e199_literatureReferencesGet_searchtermLeft_Square_BracketvalueRight_Square_Bracket">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+# Items filtered across multiple field
+
+The &#x60;searchtearm&#x60; parameter is used to search the data across multiple fields.
+
+## Example
+https://mivs02.gm.fh-koeln.de/?searchterm&#x3D;Lucas
+
+## Paramters
+The &#x60;value&#x60; is the search term.
+
+The search term is searched in the following fields:
+* &#x60;longTitle&#x60;
+* &#x60;metadata.subtitle&#x60;
+* &#x60;metadata.title&#x60;
+* &#x60;publishLocation&#x60;
+* &#x60;publishDate&#x60;
+* &#x60;publications.text&#x60;
+* &#x60;referenceId&#x60;
+* &#x60;referenceNumber&#x60;
+* &#x60;referenceNumber&#x60;
+* &#x60;shortTitle&#x60;
+
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                            </table>
+
+                          <h2>Responses</h2>
+                            <h3 id="examples-Default-literatureReferencesGet-title-200"></h3>
+                            <p id="examples-Default-literatureReferencesGet-description-200" class="marked"></p>
+                            <script>
+                              var responseDefault200_description = `OK`;
+                              var responseDefault200_description_break = responseDefault200_description.indexOf('\n');
+                              if (responseDefault200_description_break == -1) {
+                                $("#examples-Default-literatureReferencesGet-title-200").text("Status: 200 - " + responseDefault200_description);
+                              } else {
+                                $("#examples-Default-literatureReferencesGet-title-200").text("Status: 200 - " + responseDefault200_description.substring(0, responseDefault200_description_break));
+                                $("#examples-Default-literatureReferencesGet-description-200").html(responseDefault200_description.substring(responseDefault200_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-Default-literatureReferencesGet-200" class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-Default-literatureReferencesGet-200-schema">Schema</a>
+                                </li>
+
+
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-Default-literatureReferencesGet-200-wrapper" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-Default-literatureReferencesGet-200-schema">
+                                  <div id="responses-Default-literatureReferencesGet-schema-200" class="exampleStyle">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "OK",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/successResponse"
+      }
+    }
+  }
+};
+                                        var schema = findNode('schema',schemaWrapper).schema;
+                                        if (!schema) {
+                                          schema = schemaWrapper.schema;
+                                        }
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                          Object.keys(schema.properties).forEach( (item) => {
+                                            if (schema.properties[item].$ref != null) {
+                                              schema.properties[item] = defsParser.$refs.get(schema.properties[item].$ref);
+                                            }
+                                          });
+                                        } else if (schema.items != null && schema.items.$ref != null) {
+                                            schema.items = defsParser.$refs.get(schema.items.$ref);
+                                        } else {
+                                          schemaWrapper.definitions = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-Default-literatureReferencesGet-200-schema-data').val(JSON.stringify(schema));
+                                        var result = $('#responses-Default-literatureReferencesGet-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-Default-literatureReferencesGet-200-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-Default-rootGet">
+                      <article id="api-Default-rootGet-0" data-group="User" data-name="rootGet" data-version="0">
+                        <div class="pull-left">
+                          <h1>rootGet</h1>
+                          <p>List of all items</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked">Returns a list of all items inclusive Paintings, Graphics, Archival Documents and Publications.</p>
                         <p></p>
                         <br />
                         <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/</span></code></pre>
@@ -1534,7 +3917,7 @@ The inventory number of the item
                           <div class="tab-pane active" id="examples-Default-rootGet-0-curl">
                             <pre class="prettyprint"><code class="language-bsh">curl -X GET \
  -H "Accept: application/json" \
- "https://mivs02.gm.fh-koeln.de/?from=0&size=100&filterfield:[equalsoperator]=56&filterfield:[rangeoperator]=value"
+ "https://mivs02.gm.fh-koeln.de/?from=0&size=100&filterfield:[equalsoperator]=56&filterfield:[rangeoperator]=value&sort_by:[sorfield].[sortdirection]=value&searchterm:[value]=searchtermLeft_Square_BracketvalueRight_Square_Bracket_example"
 </code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Default-rootGet-0-java">
@@ -1599,9 +3982,52 @@ Possible operators:
 
 The `filtervalue` is used to define the value by which the data is to be filtered.
 
+        String sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket = value; // String | # Items sorted by field
+## Example
+https://mivs02.gm.fh-koeln.de/?sort_by:dating_end.asc
+
+## Paramters
+The `sort_by` key must be setted to sort the data
+
+The `sortfield` is the field by which the data is to be sorted.
+
+The `sortdirection` is the direction of the sorting.
+
+Possible directions:
+* `asc` = ascending
+* `desc` = descending
+
+        String searchtermLeft_Square_BracketvalueRight_Square_Bracket = searchtermLeft_Square_BracketvalueRight_Square_Bracket_example; // String | # Items filtered across multiple field
+
+The `searchtearm` parameter is used to search the data across multiple fields.
+
+## Example
+https://mivs02.gm.fh-koeln.de/?searchterm=Lucas
+
+## Paramters
+The `value` is the search term.
+
+The search term is searched in the following fields:
+* `additionalTextInformation.text`
+* `dating.begin`
+* `dating.end`
+* `description`
+* `inventoryNumber`
+* `involvedPersons.id`
+* `locations.term`
+* `metadata.date`
+* `metadata.subtitle`
+* `metadata.title.keyword`
+* `medium`
+* `owner`
+* `provenance`
+* `repository`
+* `restorationSurveys.tests.text`
+* `signature`
+
 
         try {
-            successResponse result = apiInstance.rootGet(from, size, filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket, filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket);
+            successResponse result = apiInstance.rootGet(from, size, filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket, filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket, sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket, searchtermLeft_Square_BracketvalueRight_Square_Bracket);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#rootGet");
@@ -1666,9 +4092,52 @@ Possible operators:
 
 The `filtervalue` is used to define the value by which the data is to be filtered.
 
+        String sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket = value; // String | # Items sorted by field
+## Example
+https://mivs02.gm.fh-koeln.de/?sort_by:dating_end.asc
+
+## Paramters
+The `sort_by` key must be setted to sort the data
+
+The `sortfield` is the field by which the data is to be sorted.
+
+The `sortdirection` is the direction of the sorting.
+
+Possible directions:
+* `asc` = ascending
+* `desc` = descending
+
+        String searchtermLeft_Square_BracketvalueRight_Square_Bracket = searchtermLeft_Square_BracketvalueRight_Square_Bracket_example; // String | # Items filtered across multiple field
+
+The `searchtearm` parameter is used to search the data across multiple fields.
+
+## Example
+https://mivs02.gm.fh-koeln.de/?searchterm=Lucas
+
+## Paramters
+The `value` is the search term.
+
+The search term is searched in the following fields:
+* `additionalTextInformation.text`
+* `dating.begin`
+* `dating.end`
+* `description`
+* `inventoryNumber`
+* `involvedPersons.id`
+* `locations.term`
+* `metadata.date`
+* `metadata.subtitle`
+* `metadata.title.keyword`
+* `medium`
+* `owner`
+* `provenance`
+* `repository`
+* `restorationSurveys.tests.text`
+* `signature`
+
 
         try {
-            successResponse result = apiInstance.rootGet(from, size, filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket, filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket);
+            successResponse result = apiInstance.rootGet(from, size, filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket, filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket, sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket, searchtermLeft_Square_BracketvalueRight_Square_Bracket);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#rootGet");
@@ -1734,12 +4203,57 @@ Possible operators:
 
 The `filtervalue` is used to define the value by which the data is to be filtered.
  (optional) (default to null)
+String *sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket = value; // # Items sorted by field
+## Example
+https://mivs02.gm.fh-koeln.de/?sort_by:dating_end.asc
 
-// List of items
+## Paramters
+The `sort_by` key must be setted to sort the data
+
+The `sortfield` is the field by which the data is to be sorted.
+
+The `sortdirection` is the direction of the sorting.
+
+Possible directions:
+* `asc` = ascending
+* `desc` = descending
+ (optional) (default to null)
+String *searchtermLeft_Square_BracketvalueRight_Square_Bracket = searchtermLeft_Square_BracketvalueRight_Square_Bracket_example; // # Items filtered across multiple field
+
+The `searchtearm` parameter is used to search the data across multiple fields.
+
+## Example
+https://mivs02.gm.fh-koeln.de/?searchterm=Lucas
+
+## Paramters
+The `value` is the search term.
+
+The search term is searched in the following fields:
+* `additionalTextInformation.text`
+* `dating.begin`
+* `dating.end`
+* `description`
+* `inventoryNumber`
+* `involvedPersons.id`
+* `locations.term`
+* `metadata.date`
+* `metadata.subtitle`
+* `metadata.title.keyword`
+* `medium`
+* `owner`
+* `provenance`
+* `repository`
+* `restorationSurveys.tests.text`
+* `signature`
+ (optional) (default to null)
+
+// List of all items
 [apiInstance rootGetWith:from
     size:size
     filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket:filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket
     filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket:filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket
+    sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket:sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket
+    searchtermLeft_Square_BracketvalueRight_Square_Bracket:searchtermLeft_Square_BracketvalueRight_Square_Bracket
               completionHandler: ^(successResponse output, NSError* error) {
     if (output) {
         NSLog(@"%@", output);
@@ -1788,7 +4302,7 @@ If searching by wildcard or ranges, only one value is possible.
 
 https://mivs02.gm.fh-koeln.de/?entity_type:neq=PAINTING,GRAPHIC
 
-  'filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket': value // {String} # Items filtered by range
+  'filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket': value, // {String} # Items filtered by range
 ## Example
 https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1920&dating_end:gte=1950
 
@@ -1804,6 +4318,49 @@ Possible operators:
 * `lt` = less than
 
 The `filtervalue` is used to define the value by which the data is to be filtered.
+
+  'sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket': value, // {String} # Items sorted by field
+## Example
+https://mivs02.gm.fh-koeln.de/?sort_by:dating_end.asc
+
+## Paramters
+The `sort_by` key must be setted to sort the data
+
+The `sortfield` is the field by which the data is to be sorted.
+
+The `sortdirection` is the direction of the sorting.
+
+Possible directions:
+* `asc` = ascending
+* `desc` = descending
+
+  'searchtermLeft_Square_BracketvalueRight_Square_Bracket': searchtermLeft_Square_BracketvalueRight_Square_Bracket_example // {String} # Items filtered across multiple field
+
+The `searchtearm` parameter is used to search the data across multiple fields.
+
+## Example
+https://mivs02.gm.fh-koeln.de/?searchterm=Lucas
+
+## Paramters
+The `value` is the search term.
+
+The search term is searched in the following fields:
+* `additionalTextInformation.text`
+* `dating.begin`
+* `dating.end`
+* `description`
+* `inventoryNumber`
+* `involvedPersons.id`
+* `locations.term`
+* `metadata.date`
+* `metadata.subtitle`
+* `metadata.title.keyword`
+* `medium`
+* `owner`
+* `provenance`
+* `repository`
+* `restorationSurveys.tests.text`
+* `signature`
 
 };
 
@@ -1885,10 +4442,53 @@ Possible operators:
 
 The `filtervalue` is used to define the value by which the data is to be filtered.
  (optional)  (default to null)
+            var sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket = value;  // String | # Items sorted by field
+## Example
+https://mivs02.gm.fh-koeln.de/?sort_by:dating_end.asc
+
+## Paramters
+The `sort_by` key must be setted to sort the data
+
+The `sortfield` is the field by which the data is to be sorted.
+
+The `sortdirection` is the direction of the sorting.
+
+Possible directions:
+* `asc` = ascending
+* `desc` = descending
+ (optional)  (default to null)
+            var searchtermLeft_Square_BracketvalueRight_Square_Bracket = searchtermLeft_Square_BracketvalueRight_Square_Bracket_example;  // String | # Items filtered across multiple field
+
+The `searchtearm` parameter is used to search the data across multiple fields.
+
+## Example
+https://mivs02.gm.fh-koeln.de/?searchterm=Lucas
+
+## Paramters
+The `value` is the search term.
+
+The search term is searched in the following fields:
+* `additionalTextInformation.text`
+* `dating.begin`
+* `dating.end`
+* `description`
+* `inventoryNumber`
+* `involvedPersons.id`
+* `locations.term`
+* `metadata.date`
+* `metadata.subtitle`
+* `metadata.title.keyword`
+* `medium`
+* `owner`
+* `provenance`
+* `repository`
+* `restorationSurveys.tests.text`
+* `signature`
+ (optional)  (default to null)
 
             try {
-                // List of items
-                successResponse result = apiInstance.rootGet(from, size, filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket, filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket);
+                // List of all items
+                successResponse result = apiInstance.rootGet(from, size, filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket, filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket, sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket, searchtermLeft_Square_BracketvalueRight_Square_Bracket);
                 Debug.WriteLine(result);
             } catch (Exception e) {
                 Debug.Print("Exception when calling DefaultApi.rootGet: " + e.Message );
@@ -1953,9 +4553,52 @@ Possible operators:
 
 The `filtervalue` is used to define the value by which the data is to be filtered.
 
+$sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket = value; // String | # Items sorted by field
+## Example
+https://mivs02.gm.fh-koeln.de/?sort_by:dating_end.asc
+
+## Paramters
+The `sort_by` key must be setted to sort the data
+
+The `sortfield` is the field by which the data is to be sorted.
+
+The `sortdirection` is the direction of the sorting.
+
+Possible directions:
+* `asc` = ascending
+* `desc` = descending
+
+$searchtermLeft_Square_BracketvalueRight_Square_Bracket = searchtermLeft_Square_BracketvalueRight_Square_Bracket_example; // String | # Items filtered across multiple field
+
+The `searchtearm` parameter is used to search the data across multiple fields.
+
+## Example
+https://mivs02.gm.fh-koeln.de/?searchterm=Lucas
+
+## Paramters
+The `value` is the search term.
+
+The search term is searched in the following fields:
+* `additionalTextInformation.text`
+* `dating.begin`
+* `dating.end`
+* `description`
+* `inventoryNumber`
+* `involvedPersons.id`
+* `locations.term`
+* `metadata.date`
+* `metadata.subtitle`
+* `metadata.title.keyword`
+* `medium`
+* `owner`
+* `provenance`
+* `repository`
+* `restorationSurveys.tests.text`
+* `signature`
+
 
 try {
-    $result = $api_instance->rootGet($from, $size, $filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket, $filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket);
+    $result = $api_instance->rootGet($from, $size, $filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket, $filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket, $sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket, $searchtermLeft_Square_BracketvalueRight_Square_Bracket);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->rootGet: ', $e->getMessage(), PHP_EOL;
@@ -2018,9 +4661,52 @@ Possible operators:
 
 The `filtervalue` is used to define the value by which the data is to be filtered.
 
+my $sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket = value; # String | # Items sorted by field
+## Example
+https://mivs02.gm.fh-koeln.de/?sort_by:dating_end.asc
+
+## Paramters
+The `sort_by` key must be setted to sort the data
+
+The `sortfield` is the field by which the data is to be sorted.
+
+The `sortdirection` is the direction of the sorting.
+
+Possible directions:
+* `asc` = ascending
+* `desc` = descending
+
+my $searchtermLeft_Square_BracketvalueRight_Square_Bracket = searchtermLeft_Square_BracketvalueRight_Square_Bracket_example; # String | # Items filtered across multiple field
+
+The `searchtearm` parameter is used to search the data across multiple fields.
+
+## Example
+https://mivs02.gm.fh-koeln.de/?searchterm=Lucas
+
+## Paramters
+The `value` is the search term.
+
+The search term is searched in the following fields:
+* `additionalTextInformation.text`
+* `dating.begin`
+* `dating.end`
+* `description`
+* `inventoryNumber`
+* `involvedPersons.id`
+* `locations.term`
+* `metadata.date`
+* `metadata.subtitle`
+* `metadata.title.keyword`
+* `medium`
+* `owner`
+* `provenance`
+* `repository`
+* `restorationSurveys.tests.text`
+* `signature`
+
 
 eval {
-    my $result = $api_instance->rootGet(from => $from, size => $size, filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket => $filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket, filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket => $filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket);
+    my $result = $api_instance->rootGet(from => $from, size => $size, filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket => $filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket, filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket => $filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket, sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket => $sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket, searchtermLeft_Square_BracketvalueRight_Square_Bracket => $searchtermLeft_Square_BracketvalueRight_Square_Bracket);
     print Dumper($result);
 };
 if ($@) {
@@ -2085,10 +4771,53 @@ Possible operators:
 
 The `filtervalue` is used to define the value by which the data is to be filtered.
  (optional) (default to null)
+sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket = value # String | # Items sorted by field
+## Example
+https://mivs02.gm.fh-koeln.de/?sort_by:dating_end.asc
+
+## Paramters
+The `sort_by` key must be setted to sort the data
+
+The `sortfield` is the field by which the data is to be sorted.
+
+The `sortdirection` is the direction of the sorting.
+
+Possible directions:
+* `asc` = ascending
+* `desc` = descending
+ (optional) (default to null)
+searchtermLeft_Square_BracketvalueRight_Square_Bracket = searchtermLeft_Square_BracketvalueRight_Square_Bracket_example # String | # Items filtered across multiple field
+
+The `searchtearm` parameter is used to search the data across multiple fields.
+
+## Example
+https://mivs02.gm.fh-koeln.de/?searchterm=Lucas
+
+## Paramters
+The `value` is the search term.
+
+The search term is searched in the following fields:
+* `additionalTextInformation.text`
+* `dating.begin`
+* `dating.end`
+* `description`
+* `inventoryNumber`
+* `involvedPersons.id`
+* `locations.term`
+* `metadata.date`
+* `metadata.subtitle`
+* `metadata.title.keyword`
+* `medium`
+* `owner`
+* `provenance`
+* `repository`
+* `restorationSurveys.tests.text`
+* `signature`
+ (optional) (default to null)
 
 try:
-    # List of items
-    api_response = api_instance.root_get(from=from, size=size, filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket=filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket, filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket=filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket)
+    # List of all items
+    api_response = api_instance.root_get(from=from, size=size, filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket=filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket, filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket=filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket, sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket=sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket, searchtermLeft_Square_BracketvalueRight_Square_Bracket=searchtermLeft_Square_BracketvalueRight_Square_Bracket)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->rootGet: %s\n" % e)</code></pre>
@@ -2102,9 +4831,11 @@ pub fn main() {
     let size = 100; // Integer
     let filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = 56; // Integer
     let filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket = value; // String
+    let sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket = value; // String
+    let searchtermLeft_Square_BracketvalueRight_Square_Bracket = searchtermLeft_Square_BracketvalueRight_Square_Bracket_example; // String
 
     let mut context = DefaultApi::Context::default();
-    let result = client.rootGet(from, size, filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket, filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket, &context).wait();
+    let result = client.rootGet(from, size, filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket, filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket, sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket, searchtermLeft_Square_BracketvalueRight_Square_Bracket, &context).wait();
 
     println!("{:?}", result);
 }
@@ -2253,6 +4984,87 @@ The &#x60;filtervalue&#x60; is used to define the value by which the data is to 
 </td>
 </tr>
 
+                                <tr><td style="width:150px;">sort_by:[sorfield].[sortdirection]</td>
+<td>
+
+
+    <div id="d2e199_rootGet_sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+# Items sorted by field
+## Example
+https://mivs02.gm.fh-koeln.de/?sort_by:dating_end.asc
+
+## Paramters
+The &#x60;sort_by&#x60; key must be setted to sort the data
+
+The &#x60;sortfield&#x60; is the field by which the data is to be sorted.
+
+The &#x60;sortdirection&#x60; is the direction of the sorting.
+
+Possible directions:
+* &#x60;asc&#x60; &#x3D; ascending
+* &#x60;desc&#x60; &#x3D; descending
+
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                                <tr><td style="width:150px;">searchterm:[value]</td>
+<td>
+
+
+    <div id="d2e199_rootGet_searchtermLeft_Square_BracketvalueRight_Square_Bracket">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+# Items filtered across multiple field
+
+The &#x60;searchtearm&#x60; parameter is used to search the data across multiple fields.
+
+## Example
+https://mivs02.gm.fh-koeln.de/?searchterm&#x3D;Lucas
+
+## Paramters
+The &#x60;value&#x60; is the search term.
+
+The search term is searched in the following fields:
+* &#x60;additionalTextInformation.text&#x60;
+* &#x60;dating.begin&#x60;
+* &#x60;dating.end&#x60;
+* &#x60;description&#x60;
+* &#x60;inventoryNumber&#x60;
+* &#x60;involvedPersons.id&#x60;
+* &#x60;locations.term&#x60;
+* &#x60;metadata.date&#x60;
+* &#x60;metadata.subtitle&#x60;
+* &#x60;metadata.title.keyword&#x60;
+* &#x60;medium&#x60;
+* &#x60;owner&#x60;
+* &#x60;provenance&#x60;
+* &#x60;repository&#x60;
+* &#x60;restorationSurveys.tests.text&#x60;
+* &#x60;signature&#x60;
+
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
                             </table>
 
                           <h2>Responses</h2>
@@ -2325,6 +5137,1239 @@ The &#x60;filtervalue&#x60; is used to define the value by which the data is to 
                                     </script>
                                   </div>
                                   <input id='responses-Default-rootGet-200-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-Default-worksGet">
+                      <article id="api-Default-worksGet-0" data-group="User" data-name="worksGet" data-version="0">
+                        <div class="pull-left">
+                          <h1>worksGet</h1>
+                          <p>List of patings and graphics</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked">Returns a list of items including Paintings and Graphics.</p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/works</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Default-worksGet-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Default-worksGet-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Default-worksGet-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Default-worksGet-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Default-worksGet-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Default-worksGet-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Default-worksGet-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Default-worksGet-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Default-worksGet-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Default-worksGet-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Default-worksGet-0-python">Python</a></li>
+                          <li class=""><a href="#examples-Default-worksGet-0-rust">Rust</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Default-worksGet-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET \
+ -H "Accept: application/json" \
+ "https://mivs02.gm.fh-koeln.de/works?from=0&size=100&filterfield:[equalsoperator]=56&filterfield:[rangeoperator]=value&sort_by:[sorfield].[sortdirection]=value&searchterm:[value]=searchtermLeft_Square_BracketvalueRight_Square_Bracket_example"
+</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Default-worksGet-0-java">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.*;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.model.*;
+import org.openapitools.client.api.DefaultApi;
+
+import java.io.File;
+import java.util.*;
+
+public class DefaultApiExample {
+    public static void main(String[] args) {
+
+        // Create an instance of the API class
+        DefaultApi apiInstance = new DefaultApi();
+        Integer from = 0; // Integer | The offset of the first item to return
+        Integer size = 100; // Integer | The maximum number of items to return
+        Integer filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = 56; // Integer | # Items filtered by value
+## Example
+https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
+
+## Paramters
+The `filterfield` is used to define the field by which the data is to be filtered.
+
+The `equalsoperator` is the operator to set equals or not equals
+
+Possible operators:
+* `eq` = equals
+* `neq` = not equals
+* `sim` = similar - for wildcard search
+
+The `filtervalue` is used to define the value by which the data is to be filtered.
+
+## Serveral filter criteria
+Several criteria can be passed for filtering.
+
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1900&entity_type:eq=PAINTING
+
+## Multiple values
+Several values can be specified for one filter criteria.
+In this case, multiple values can be defined using a comma-separated list.
+
+If searching by wildcard or ranges, only one value is possible.
+
+https://mivs02.gm.fh-koeln.de/?entity_type:neq=PAINTING,GRAPHIC
+
+        String filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket = value; // String | # Items filtered by range
+## Example
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1920&dating_end:gte=1950
+
+## Paramters
+The `filterfield` is used to define the field by which the data is to be filtered.
+
+The `rangeoperator` is the operator to set the range
+
+Possible operators:
+* `gte` = greater than or equal
+* `lte` = less than or equal
+* `gt` = greater than
+* `lt` = less than
+
+The `filtervalue` is used to define the value by which the data is to be filtered.
+
+        String sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket = value; // String | # Items sorted by field
+## Example
+https://mivs02.gm.fh-koeln.de/?sort_by:dating_end.asc
+
+## Paramters
+The `sort_by` key must be setted to sort the data
+
+The `sortfield` is the field by which the data is to be sorted.
+
+The `sortdirection` is the direction of the sorting.
+
+Possible directions:
+* `asc` = ascending
+* `desc` = descending
+
+        String searchtermLeft_Square_BracketvalueRight_Square_Bracket = searchtermLeft_Square_BracketvalueRight_Square_Bracket_example; // String | # Items filtered across multiple field
+
+The `searchtearm` parameter is used to search the data across multiple fields.
+
+## Example
+https://mivs02.gm.fh-koeln.de/?searchterm=Lucas
+
+## Paramters
+The `value` is the search term.
+
+The search term is searched in the following fields:
+* `additionalTextInformation.text`
+* `description`
+* `inventoryNumber`
+* `involvedPersons.id`
+* `locations.term`
+* `medium`
+* `metadata.title.keyword`
+* `metadata.subtitle`
+* `owner`
+* `provenance`
+* `repository`
+* `restorationSurveys.tests.text`        
+* `signature`
+
+
+        try {
+            successResponse result = apiInstance.worksGet(from, size, filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket, filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket, sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket, searchtermLeft_Square_BracketvalueRight_Square_Bracket);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#worksGet");
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Default-worksGet-0-android">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.api.DefaultApi;
+
+public class DefaultApiExample {
+    public static void main(String[] args) {
+        DefaultApi apiInstance = new DefaultApi();
+        Integer from = 0; // Integer | The offset of the first item to return
+        Integer size = 100; // Integer | The maximum number of items to return
+        Integer filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = 56; // Integer | # Items filtered by value
+## Example
+https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
+
+## Paramters
+The `filterfield` is used to define the field by which the data is to be filtered.
+
+The `equalsoperator` is the operator to set equals or not equals
+
+Possible operators:
+* `eq` = equals
+* `neq` = not equals
+* `sim` = similar - for wildcard search
+
+The `filtervalue` is used to define the value by which the data is to be filtered.
+
+## Serveral filter criteria
+Several criteria can be passed for filtering.
+
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1900&entity_type:eq=PAINTING
+
+## Multiple values
+Several values can be specified for one filter criteria.
+In this case, multiple values can be defined using a comma-separated list.
+
+If searching by wildcard or ranges, only one value is possible.
+
+https://mivs02.gm.fh-koeln.de/?entity_type:neq=PAINTING,GRAPHIC
+
+        String filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket = value; // String | # Items filtered by range
+## Example
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1920&dating_end:gte=1950
+
+## Paramters
+The `filterfield` is used to define the field by which the data is to be filtered.
+
+The `rangeoperator` is the operator to set the range
+
+Possible operators:
+* `gte` = greater than or equal
+* `lte` = less than or equal
+* `gt` = greater than
+* `lt` = less than
+
+The `filtervalue` is used to define the value by which the data is to be filtered.
+
+        String sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket = value; // String | # Items sorted by field
+## Example
+https://mivs02.gm.fh-koeln.de/?sort_by:dating_end.asc
+
+## Paramters
+The `sort_by` key must be setted to sort the data
+
+The `sortfield` is the field by which the data is to be sorted.
+
+The `sortdirection` is the direction of the sorting.
+
+Possible directions:
+* `asc` = ascending
+* `desc` = descending
+
+        String searchtermLeft_Square_BracketvalueRight_Square_Bracket = searchtermLeft_Square_BracketvalueRight_Square_Bracket_example; // String | # Items filtered across multiple field
+
+The `searchtearm` parameter is used to search the data across multiple fields.
+
+## Example
+https://mivs02.gm.fh-koeln.de/?searchterm=Lucas
+
+## Paramters
+The `value` is the search term.
+
+The search term is searched in the following fields:
+* `additionalTextInformation.text`
+* `description`
+* `inventoryNumber`
+* `involvedPersons.id`
+* `locations.term`
+* `medium`
+* `metadata.title.keyword`
+* `metadata.subtitle`
+* `owner`
+* `provenance`
+* `repository`
+* `restorationSurveys.tests.text`        
+* `signature`
+
+
+        try {
+            successResponse result = apiInstance.worksGet(from, size, filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket, filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket, sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket, searchtermLeft_Square_BracketvalueRight_Square_Bracket);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#worksGet");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Default-worksGet-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Default-worksGet-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">
+
+// Create an instance of the API class
+DefaultApi *apiInstance = [[DefaultApi alloc] init];
+Integer *from = 0; // The offset of the first item to return (optional) (default to 0)
+Integer *size = 100; // The maximum number of items to return (optional) (default to 100)
+Integer *filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = 56; // # Items filtered by value
+## Example
+https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
+
+## Paramters
+The `filterfield` is used to define the field by which the data is to be filtered.
+
+The `equalsoperator` is the operator to set equals or not equals
+
+Possible operators:
+* `eq` = equals
+* `neq` = not equals
+* `sim` = similar - for wildcard search
+
+The `filtervalue` is used to define the value by which the data is to be filtered.
+
+## Serveral filter criteria
+Several criteria can be passed for filtering.
+
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1900&entity_type:eq=PAINTING
+
+## Multiple values
+Several values can be specified for one filter criteria.
+In this case, multiple values can be defined using a comma-separated list.
+
+If searching by wildcard or ranges, only one value is possible.
+
+https://mivs02.gm.fh-koeln.de/?entity_type:neq=PAINTING,GRAPHIC
+ (optional) (default to null)
+String *filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket = value; // # Items filtered by range
+## Example
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1920&dating_end:gte=1950
+
+## Paramters
+The `filterfield` is used to define the field by which the data is to be filtered.
+
+The `rangeoperator` is the operator to set the range
+
+Possible operators:
+* `gte` = greater than or equal
+* `lte` = less than or equal
+* `gt` = greater than
+* `lt` = less than
+
+The `filtervalue` is used to define the value by which the data is to be filtered.
+ (optional) (default to null)
+String *sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket = value; // # Items sorted by field
+## Example
+https://mivs02.gm.fh-koeln.de/?sort_by:dating_end.asc
+
+## Paramters
+The `sort_by` key must be setted to sort the data
+
+The `sortfield` is the field by which the data is to be sorted.
+
+The `sortdirection` is the direction of the sorting.
+
+Possible directions:
+* `asc` = ascending
+* `desc` = descending
+ (optional) (default to null)
+String *searchtermLeft_Square_BracketvalueRight_Square_Bracket = searchtermLeft_Square_BracketvalueRight_Square_Bracket_example; // # Items filtered across multiple field
+
+The `searchtearm` parameter is used to search the data across multiple fields.
+
+## Example
+https://mivs02.gm.fh-koeln.de/?searchterm=Lucas
+
+## Paramters
+The `value` is the search term.
+
+The search term is searched in the following fields:
+* `additionalTextInformation.text`
+* `description`
+* `inventoryNumber`
+* `involvedPersons.id`
+* `locations.term`
+* `medium`
+* `metadata.title.keyword`
+* `metadata.subtitle`
+* `owner`
+* `provenance`
+* `repository`
+* `restorationSurveys.tests.text`        
+* `signature`
+ (optional) (default to null)
+
+// List of patings and graphics
+[apiInstance worksGetWith:from
+    size:size
+    filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket:filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket
+    filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket:filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket
+    sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket:sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket
+    searchtermLeft_Square_BracketvalueRight_Square_Bracket:searchtermLeft_Square_BracketvalueRight_Square_Bracket
+              completionHandler: ^(successResponse output, NSError* error) {
+    if (output) {
+        NSLog(@"%@", output);
+    }
+    if (error) {
+        NSLog(@"Error: %@", error);
+    }
+}];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-worksGet-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var CranachApi = require('cranach_api');
+
+// Create an instance of the API class
+var api = new CranachApi.DefaultApi()
+var opts = {
+  'from': 0, // {Integer} The offset of the first item to return
+  'size': 100, // {Integer} The maximum number of items to return
+  'filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket': 56, // {Integer} # Items filtered by value
+## Example
+https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
+
+## Paramters
+The `filterfield` is used to define the field by which the data is to be filtered.
+
+The `equalsoperator` is the operator to set equals or not equals
+
+Possible operators:
+* `eq` = equals
+* `neq` = not equals
+* `sim` = similar - for wildcard search
+
+The `filtervalue` is used to define the value by which the data is to be filtered.
+
+## Serveral filter criteria
+Several criteria can be passed for filtering.
+
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1900&entity_type:eq=PAINTING
+
+## Multiple values
+Several values can be specified for one filter criteria.
+In this case, multiple values can be defined using a comma-separated list.
+
+If searching by wildcard or ranges, only one value is possible.
+
+https://mivs02.gm.fh-koeln.de/?entity_type:neq=PAINTING,GRAPHIC
+
+  'filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket': value, // {String} # Items filtered by range
+## Example
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1920&dating_end:gte=1950
+
+## Paramters
+The `filterfield` is used to define the field by which the data is to be filtered.
+
+The `rangeoperator` is the operator to set the range
+
+Possible operators:
+* `gte` = greater than or equal
+* `lte` = less than or equal
+* `gt` = greater than
+* `lt` = less than
+
+The `filtervalue` is used to define the value by which the data is to be filtered.
+
+  'sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket': value, // {String} # Items sorted by field
+## Example
+https://mivs02.gm.fh-koeln.de/?sort_by:dating_end.asc
+
+## Paramters
+The `sort_by` key must be setted to sort the data
+
+The `sortfield` is the field by which the data is to be sorted.
+
+The `sortdirection` is the direction of the sorting.
+
+Possible directions:
+* `asc` = ascending
+* `desc` = descending
+
+  'searchtermLeft_Square_BracketvalueRight_Square_Bracket': searchtermLeft_Square_BracketvalueRight_Square_Bracket_example // {String} # Items filtered across multiple field
+
+The `searchtearm` parameter is used to search the data across multiple fields.
+
+## Example
+https://mivs02.gm.fh-koeln.de/?searchterm=Lucas
+
+## Paramters
+The `value` is the search term.
+
+The search term is searched in the following fields:
+* `additionalTextInformation.text`
+* `description`
+* `inventoryNumber`
+* `involvedPersons.id`
+* `locations.term`
+* `medium`
+* `metadata.title.keyword`
+* `metadata.subtitle`
+* `owner`
+* `provenance`
+* `repository`
+* `restorationSurveys.tests.text`        
+* `signature`
+
+};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.worksGet(opts, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Default-worksGet-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Default-worksGet-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using Org.OpenAPITools.Api;
+using Org.OpenAPITools.Client;
+using Org.OpenAPITools.Model;
+
+namespace Example
+{
+    public class worksGetExample
+    {
+        public void main()
+        {
+
+            // Create an instance of the API class
+            var apiInstance = new DefaultApi();
+            var from = 0;  // Integer | The offset of the first item to return (optional)  (default to 0)
+            var size = 100;  // Integer | The maximum number of items to return (optional)  (default to 100)
+            var filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = 56;  // Integer | # Items filtered by value
+## Example
+https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
+
+## Paramters
+The `filterfield` is used to define the field by which the data is to be filtered.
+
+The `equalsoperator` is the operator to set equals or not equals
+
+Possible operators:
+* `eq` = equals
+* `neq` = not equals
+* `sim` = similar - for wildcard search
+
+The `filtervalue` is used to define the value by which the data is to be filtered.
+
+## Serveral filter criteria
+Several criteria can be passed for filtering.
+
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1900&entity_type:eq=PAINTING
+
+## Multiple values
+Several values can be specified for one filter criteria.
+In this case, multiple values can be defined using a comma-separated list.
+
+If searching by wildcard or ranges, only one value is possible.
+
+https://mivs02.gm.fh-koeln.de/?entity_type:neq=PAINTING,GRAPHIC
+ (optional)  (default to null)
+            var filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket = value;  // String | # Items filtered by range
+## Example
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1920&dating_end:gte=1950
+
+## Paramters
+The `filterfield` is used to define the field by which the data is to be filtered.
+
+The `rangeoperator` is the operator to set the range
+
+Possible operators:
+* `gte` = greater than or equal
+* `lte` = less than or equal
+* `gt` = greater than
+* `lt` = less than
+
+The `filtervalue` is used to define the value by which the data is to be filtered.
+ (optional)  (default to null)
+            var sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket = value;  // String | # Items sorted by field
+## Example
+https://mivs02.gm.fh-koeln.de/?sort_by:dating_end.asc
+
+## Paramters
+The `sort_by` key must be setted to sort the data
+
+The `sortfield` is the field by which the data is to be sorted.
+
+The `sortdirection` is the direction of the sorting.
+
+Possible directions:
+* `asc` = ascending
+* `desc` = descending
+ (optional)  (default to null)
+            var searchtermLeft_Square_BracketvalueRight_Square_Bracket = searchtermLeft_Square_BracketvalueRight_Square_Bracket_example;  // String | # Items filtered across multiple field
+
+The `searchtearm` parameter is used to search the data across multiple fields.
+
+## Example
+https://mivs02.gm.fh-koeln.de/?searchterm=Lucas
+
+## Paramters
+The `value` is the search term.
+
+The search term is searched in the following fields:
+* `additionalTextInformation.text`
+* `description`
+* `inventoryNumber`
+* `involvedPersons.id`
+* `locations.term`
+* `medium`
+* `metadata.title.keyword`
+* `metadata.subtitle`
+* `owner`
+* `provenance`
+* `repository`
+* `restorationSurveys.tests.text`        
+* `signature`
+ (optional)  (default to null)
+
+            try {
+                // List of patings and graphics
+                successResponse result = apiInstance.worksGet(from, size, filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket, filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket, sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket, searchtermLeft_Square_BracketvalueRight_Square_Bracket);
+                Debug.WriteLine(result);
+            } catch (Exception e) {
+                Debug.Print("Exception when calling DefaultApi.worksGet: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-worksGet-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create an instance of the API class
+$api_instance = new OpenAPITools\Client\Api\DefaultApi();
+$from = 0; // Integer | The offset of the first item to return
+$size = 100; // Integer | The maximum number of items to return
+$filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = 56; // Integer | # Items filtered by value
+## Example
+https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
+
+## Paramters
+The `filterfield` is used to define the field by which the data is to be filtered.
+
+The `equalsoperator` is the operator to set equals or not equals
+
+Possible operators:
+* `eq` = equals
+* `neq` = not equals
+* `sim` = similar - for wildcard search
+
+The `filtervalue` is used to define the value by which the data is to be filtered.
+
+## Serveral filter criteria
+Several criteria can be passed for filtering.
+
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1900&entity_type:eq=PAINTING
+
+## Multiple values
+Several values can be specified for one filter criteria.
+In this case, multiple values can be defined using a comma-separated list.
+
+If searching by wildcard or ranges, only one value is possible.
+
+https://mivs02.gm.fh-koeln.de/?entity_type:neq=PAINTING,GRAPHIC
+
+$filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket = value; // String | # Items filtered by range
+## Example
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1920&dating_end:gte=1950
+
+## Paramters
+The `filterfield` is used to define the field by which the data is to be filtered.
+
+The `rangeoperator` is the operator to set the range
+
+Possible operators:
+* `gte` = greater than or equal
+* `lte` = less than or equal
+* `gt` = greater than
+* `lt` = less than
+
+The `filtervalue` is used to define the value by which the data is to be filtered.
+
+$sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket = value; // String | # Items sorted by field
+## Example
+https://mivs02.gm.fh-koeln.de/?sort_by:dating_end.asc
+
+## Paramters
+The `sort_by` key must be setted to sort the data
+
+The `sortfield` is the field by which the data is to be sorted.
+
+The `sortdirection` is the direction of the sorting.
+
+Possible directions:
+* `asc` = ascending
+* `desc` = descending
+
+$searchtermLeft_Square_BracketvalueRight_Square_Bracket = searchtermLeft_Square_BracketvalueRight_Square_Bracket_example; // String | # Items filtered across multiple field
+
+The `searchtearm` parameter is used to search the data across multiple fields.
+
+## Example
+https://mivs02.gm.fh-koeln.de/?searchterm=Lucas
+
+## Paramters
+The `value` is the search term.
+
+The search term is searched in the following fields:
+* `additionalTextInformation.text`
+* `description`
+* `inventoryNumber`
+* `involvedPersons.id`
+* `locations.term`
+* `medium`
+* `metadata.title.keyword`
+* `metadata.subtitle`
+* `owner`
+* `provenance`
+* `repository`
+* `restorationSurveys.tests.text`        
+* `signature`
+
+
+try {
+    $result = $api_instance->worksGet($from, $size, $filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket, $filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket, $sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket, $searchtermLeft_Square_BracketvalueRight_Square_Bracket);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DefaultApi->worksGet: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-worksGet-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::OPenAPIClient::Configuration;
+use WWW::OPenAPIClient::DefaultApi;
+
+# Create an instance of the API class
+my $api_instance = WWW::OPenAPIClient::DefaultApi->new();
+my $from = 0; # Integer | The offset of the first item to return
+my $size = 100; # Integer | The maximum number of items to return
+my $filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = 56; # Integer | # Items filtered by value
+## Example
+https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
+
+## Paramters
+The `filterfield` is used to define the field by which the data is to be filtered.
+
+The `equalsoperator` is the operator to set equals or not equals
+
+Possible operators:
+* `eq` = equals
+* `neq` = not equals
+* `sim` = similar - for wildcard search
+
+The `filtervalue` is used to define the value by which the data is to be filtered.
+
+## Serveral filter criteria
+Several criteria can be passed for filtering.
+
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1900&entity_type:eq=PAINTING
+
+## Multiple values
+Several values can be specified for one filter criteria.
+In this case, multiple values can be defined using a comma-separated list.
+
+If searching by wildcard or ranges, only one value is possible.
+
+https://mivs02.gm.fh-koeln.de/?entity_type:neq=PAINTING,GRAPHIC
+
+my $filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket = value; # String | # Items filtered by range
+## Example
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1920&dating_end:gte=1950
+
+## Paramters
+The `filterfield` is used to define the field by which the data is to be filtered.
+
+The `rangeoperator` is the operator to set the range
+
+Possible operators:
+* `gte` = greater than or equal
+* `lte` = less than or equal
+* `gt` = greater than
+* `lt` = less than
+
+The `filtervalue` is used to define the value by which the data is to be filtered.
+
+my $sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket = value; # String | # Items sorted by field
+## Example
+https://mivs02.gm.fh-koeln.de/?sort_by:dating_end.asc
+
+## Paramters
+The `sort_by` key must be setted to sort the data
+
+The `sortfield` is the field by which the data is to be sorted.
+
+The `sortdirection` is the direction of the sorting.
+
+Possible directions:
+* `asc` = ascending
+* `desc` = descending
+
+my $searchtermLeft_Square_BracketvalueRight_Square_Bracket = searchtermLeft_Square_BracketvalueRight_Square_Bracket_example; # String | # Items filtered across multiple field
+
+The `searchtearm` parameter is used to search the data across multiple fields.
+
+## Example
+https://mivs02.gm.fh-koeln.de/?searchterm=Lucas
+
+## Paramters
+The `value` is the search term.
+
+The search term is searched in the following fields:
+* `additionalTextInformation.text`
+* `description`
+* `inventoryNumber`
+* `involvedPersons.id`
+* `locations.term`
+* `medium`
+* `metadata.title.keyword`
+* `metadata.subtitle`
+* `owner`
+* `provenance`
+* `repository`
+* `restorationSurveys.tests.text`        
+* `signature`
+
+
+eval {
+    my $result = $api_instance->worksGet(from => $from, size => $size, filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket => $filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket, filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket => $filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket, sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket => $sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket, searchtermLeft_Square_BracketvalueRight_Square_Bracket => $searchtermLeft_Square_BracketvalueRight_Square_Bracket);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling DefaultApi->worksGet: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-worksGet-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import openapi_client
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Create an instance of the API class
+api_instance = openapi_client.DefaultApi()
+from = 0 # Integer | The offset of the first item to return (optional) (default to 0)
+size = 100 # Integer | The maximum number of items to return (optional) (default to 100)
+filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = 56 # Integer | # Items filtered by value
+## Example
+https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
+
+## Paramters
+The `filterfield` is used to define the field by which the data is to be filtered.
+
+The `equalsoperator` is the operator to set equals or not equals
+
+Possible operators:
+* `eq` = equals
+* `neq` = not equals
+* `sim` = similar - for wildcard search
+
+The `filtervalue` is used to define the value by which the data is to be filtered.
+
+## Serveral filter criteria
+Several criteria can be passed for filtering.
+
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1900&entity_type:eq=PAINTING
+
+## Multiple values
+Several values can be specified for one filter criteria.
+In this case, multiple values can be defined using a comma-separated list.
+
+If searching by wildcard or ranges, only one value is possible.
+
+https://mivs02.gm.fh-koeln.de/?entity_type:neq=PAINTING,GRAPHIC
+ (optional) (default to null)
+filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket = value # String | # Items filtered by range
+## Example
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1920&dating_end:gte=1950
+
+## Paramters
+The `filterfield` is used to define the field by which the data is to be filtered.
+
+The `rangeoperator` is the operator to set the range
+
+Possible operators:
+* `gte` = greater than or equal
+* `lte` = less than or equal
+* `gt` = greater than
+* `lt` = less than
+
+The `filtervalue` is used to define the value by which the data is to be filtered.
+ (optional) (default to null)
+sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket = value # String | # Items sorted by field
+## Example
+https://mivs02.gm.fh-koeln.de/?sort_by:dating_end.asc
+
+## Paramters
+The `sort_by` key must be setted to sort the data
+
+The `sortfield` is the field by which the data is to be sorted.
+
+The `sortdirection` is the direction of the sorting.
+
+Possible directions:
+* `asc` = ascending
+* `desc` = descending
+ (optional) (default to null)
+searchtermLeft_Square_BracketvalueRight_Square_Bracket = searchtermLeft_Square_BracketvalueRight_Square_Bracket_example # String | # Items filtered across multiple field
+
+The `searchtearm` parameter is used to search the data across multiple fields.
+
+## Example
+https://mivs02.gm.fh-koeln.de/?searchterm=Lucas
+
+## Paramters
+The `value` is the search term.
+
+The search term is searched in the following fields:
+* `additionalTextInformation.text`
+* `description`
+* `inventoryNumber`
+* `involvedPersons.id`
+* `locations.term`
+* `medium`
+* `metadata.title.keyword`
+* `metadata.subtitle`
+* `owner`
+* `provenance`
+* `repository`
+* `restorationSurveys.tests.text`        
+* `signature`
+ (optional) (default to null)
+
+try:
+    # List of patings and graphics
+    api_response = api_instance.works_get(from=from, size=size, filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket=filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket, filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket=filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket, sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket=sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket, searchtermLeft_Square_BracketvalueRight_Square_Bracket=searchtermLeft_Square_BracketvalueRight_Square_Bracket)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DefaultApi->worksGet: %s\n" % e)</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-worksGet-0-rust">
+                              <pre class="prettyprint"><code class="language-rust">extern crate DefaultApi;
+
+pub fn main() {
+    let from = 0; // Integer
+    let size = 100; // Integer
+    let filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket = 56; // Integer
+    let filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket = value; // String
+    let sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket = value; // String
+    let searchtermLeft_Square_BracketvalueRight_Square_Bracket = searchtermLeft_Square_BracketvalueRight_Square_Bracket_example; // String
+
+    let mut context = DefaultApi::Context::default();
+    let result = client.worksGet(from, size, filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket, filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket, sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket, searchtermLeft_Square_BracketvalueRight_Square_Bracket, &context).wait();
+
+    println!("{:?}", result);
+}
+</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Scopes</h2>
+                          <table>
+                            
+                          </table>
+
+                          <h2>Parameters</h2>
+
+
+
+
+
+                            <div class="methodsubtabletitle">Query parameters</div>
+                            <table id="methodsubtable">
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
+                                <tr><td style="width:150px;">from</td>
+<td>
+
+
+    <div id="d2e199_worksGet_from">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    Integer
+                </span>
+
+                    <div class="inner description marked">
+The offset of the first item to return
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                                <tr><td style="width:150px;">size</td>
+<td>
+
+
+    <div id="d2e199_worksGet_size">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    Integer
+                </span>
+
+                    <div class="inner description marked">
+The maximum number of items to return
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                                <tr><td style="width:150px;">filterfield:[equalsoperator]</td>
+<td>
+
+
+    <div id="d2e199_worksGet_filterfieldLeft_Square_BracketequalsoperatorRight_Square_Bracket">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    Integer
+                </span>
+
+                    <div class="inner description marked">
+# Items filtered by value
+## Example
+https://mivs02.gm.fh-koeln.de/?entity_type:eq&#x3D;PAINTING
+
+## Paramters
+The &#x60;filterfield&#x60; is used to define the field by which the data is to be filtered.
+
+The &#x60;equalsoperator&#x60; is the operator to set equals or not equals
+
+Possible operators:
+* &#x60;eq&#x60; &#x3D; equals
+* &#x60;neq&#x60; &#x3D; not equals
+* &#x60;sim&#x60; &#x3D; similar - for wildcard search
+
+The &#x60;filtervalue&#x60; is used to define the value by which the data is to be filtered.
+
+## Serveral filter criteria
+Several criteria can be passed for filtering.
+
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte&#x3D;1900&amp;entity_type:eq&#x3D;PAINTING
+
+## Multiple values
+Several values can be specified for one filter criteria.
+In this case, multiple values can be defined using a comma-separated list.
+
+If searching by wildcard or ranges, only one value is possible.
+
+https://mivs02.gm.fh-koeln.de/?entity_type:neq&#x3D;PAINTING,GRAPHIC
+
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                                <tr><td style="width:150px;">filterfield:[rangeoperator]</td>
+<td>
+
+
+    <div id="d2e199_worksGet_filterfieldLeft_Square_BracketrangeoperatorRight_Square_Bracket">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+# Items filtered by range
+## Example
+https://mivs02.gm.fh-koeln.de/?dating_begin:gte&#x3D;1920&amp;dating_end:gte&#x3D;1950
+
+## Paramters
+The &#x60;filterfield&#x60; is used to define the field by which the data is to be filtered.
+
+The &#x60;rangeoperator&#x60; is the operator to set the range
+
+Possible operators:
+* &#x60;gte&#x60; &#x3D; greater than or equal
+* &#x60;lte&#x60; &#x3D; less than or equal
+* &#x60;gt&#x60; &#x3D; greater than
+* &#x60;lt&#x60; &#x3D; less than
+
+The &#x60;filtervalue&#x60; is used to define the value by which the data is to be filtered.
+
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                                <tr><td style="width:150px;">sort_by:[sorfield].[sortdirection]</td>
+<td>
+
+
+    <div id="d2e199_worksGet_sortByLeft_Square_BracketsorfieldRight_Square_BracketPeriodLeft_Square_BracketsortdirectionRight_Square_Bracket">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+# Items sorted by field
+## Example
+https://mivs02.gm.fh-koeln.de/?sort_by:dating_end.asc
+
+## Paramters
+The &#x60;sort_by&#x60; key must be setted to sort the data
+
+The &#x60;sortfield&#x60; is the field by which the data is to be sorted.
+
+The &#x60;sortdirection&#x60; is the direction of the sorting.
+
+Possible directions:
+* &#x60;asc&#x60; &#x3D; ascending
+* &#x60;desc&#x60; &#x3D; descending
+
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                                <tr><td style="width:150px;">searchterm:[value]</td>
+<td>
+
+
+    <div id="d2e199_worksGet_searchtermLeft_Square_BracketvalueRight_Square_Bracket">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+# Items filtered across multiple field
+
+The &#x60;searchtearm&#x60; parameter is used to search the data across multiple fields.
+
+## Example
+https://mivs02.gm.fh-koeln.de/?searchterm&#x3D;Lucas
+
+## Paramters
+The &#x60;value&#x60; is the search term.
+
+The search term is searched in the following fields:
+* &#x60;additionalTextInformation.text&#x60;
+* &#x60;description&#x60;
+* &#x60;inventoryNumber&#x60;
+* &#x60;involvedPersons.id&#x60;
+* &#x60;locations.term&#x60;
+* &#x60;medium&#x60;
+* &#x60;metadata.title.keyword&#x60;
+* &#x60;metadata.subtitle&#x60;
+* &#x60;owner&#x60;
+* &#x60;provenance&#x60;
+* &#x60;repository&#x60;
+* &#x60;restorationSurveys.tests.text&#x60;        
+* &#x60;signature&#x60;
+
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                            </table>
+
+                          <h2>Responses</h2>
+                            <h3 id="examples-Default-worksGet-title-200"></h3>
+                            <p id="examples-Default-worksGet-description-200" class="marked"></p>
+                            <script>
+                              var responseDefault200_description = `OK`;
+                              var responseDefault200_description_break = responseDefault200_description.indexOf('\n');
+                              if (responseDefault200_description_break == -1) {
+                                $("#examples-Default-worksGet-title-200").text("Status: 200 - " + responseDefault200_description);
+                              } else {
+                                $("#examples-Default-worksGet-title-200").text("Status: 200 - " + responseDefault200_description.substring(0, responseDefault200_description_break));
+                                $("#examples-Default-worksGet-description-200").html(responseDefault200_description.substring(responseDefault200_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-Default-worksGet-200" class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-Default-worksGet-200-schema">Schema</a>
+                                </li>
+
+
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-Default-worksGet-200-wrapper" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-Default-worksGet-200-schema">
+                                  <div id="responses-Default-worksGet-schema-200" class="exampleStyle">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "OK",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/successResponse"
+      }
+    }
+  }
+};
+                                        var schema = findNode('schema',schemaWrapper).schema;
+                                        if (!schema) {
+                                          schema = schemaWrapper.schema;
+                                        }
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                          Object.keys(schema.properties).forEach( (item) => {
+                                            if (schema.properties[item].$ref != null) {
+                                              schema.properties[item] = defsParser.$refs.get(schema.properties[item].$ref);
+                                            }
+                                          });
+                                        } else if (schema.items != null && schema.items.$ref != null) {
+                                            schema.items = defsParser.$refs.get(schema.items.$ref);
+                                        } else {
+                                          schemaWrapper.definitions = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-Default-worksGet-200-schema-data').val(JSON.stringify(schema));
+                                        var result = $('#responses-Default-worksGet-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-Default-worksGet-200-schema-data' type='hidden' value=''></input>
                                 </div>
                             </div>
                         </article>

@@ -2,7 +2,12 @@ openapi: "3.0.0"
 info:
   title: Cranach API
   description: |
-    API to retrieve data from the Lucas Cranach Archive
+    ## API to retrieve data of the Lucas Cranach Archive
+    * Response to every request is sent in JSON format. 
+    * In case the API request results in an error, it is represented by an `"error": {}` in the JSON response.
+    * The API only provides the GET method. Data changes are not possible via the API.
+    * The API calls will respond with appropriate HTTP status codes for all requests.
+
   version: "1.3"
 servers:
   - url: https://mivs02.gm.fh-koeln.de/
@@ -10,68 +15,60 @@ servers:
 paths:
   /:
     get:
-      summary: List of items
-      description: Returns a list of all items.
+      summary: List of all items
+      description: Returns a list of all items inclusive Paintings, Graphics, Archival Documents and Publications.
       parameters:
         - $ref: "#/components/parameters/from"
         - $ref: "#/components/parameters/size"
-        - name: "filterfield:[equalsoperator]"
-          in: query
-          description: |
-            # Items filtered by value
-            ## Example
-            https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
+        - $ref: "#/components/parameters/filterfield_equalsoperator"
+        - $ref: "#/components/parameters/filterfield_rangeoperator"
+        - $ref: "#/components/parameters/sort_by"
+        - $ref: "#/components/parameters/searchterm"
+      responses:
+        200:
+          $ref: "#/components/responses/success"
 
-            ## Paramters
-            The `filterfield` is used to define the field by which the data is to be filtered.
+  /archivals:
+    get:
+      summary: List of archival documents
+      description: Returns a list of items including Archival Documents.
+      parameters:
+        - $ref: "#/components/parameters/from"
+        - $ref: "#/components/parameters/size"
+        - $ref: "#/components/parameters/filterfield_equalsoperator"
+        - $ref: "#/components/parameters/filterfield_rangeoperator"
+        - $ref: "#/components/parameters/sort_by"
+        - $ref: "#/components/parameters/searchterm_archivals"
+      responses:
+        200:
+          $ref: "#/components/responses/success"
 
-            The `equalsoperator` is the operator to set equals or not equals
+  /literature_references:
+    get:
+      summary: List of publications
+      description: Returns a list of items including Publications.
+      parameters:
+        - $ref: "#/components/parameters/from"
+        - $ref: "#/components/parameters/size"
+        - $ref: "#/components/parameters/filterfield_equalsoperator"
+        - $ref: "#/components/parameters/filterfield_rangeoperator"
+        - $ref: "#/components/parameters/sort_by"
+        - $ref: "#/components/parameters/searchterm_literature"
+      responses:
+        200:
+          $ref: "#/components/responses/success"
 
-            Possible operators:
-            * `eq` = equals
-            * `neq` = not equals
-            * `sim` = similar - for wildcard search
-
-            The `filtervalue` is used to define the value by which the data is to be filtered.
-
-            ## Serveral filter criteria
-            Several criteria can be passed for filtering.
-
-            https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1900&entity_type:eq=PAINTING
-
-            ## Multiple values
-            Several values can be specified for one filter criteria.
-            In this case, multiple values can be defined using a comma-separated list.
-
-            If searching by wildcard or ranges, only one value is possible.
-
-            https://mivs02.gm.fh-koeln.de/?entity_type:neq=PAINTING,GRAPHIC
-          required: false
-          schema:
-            type: integer
-        - name: "filterfield:[rangeoperator]"
-          in: query
-          description: |
-            # Items filtered by range
-            ## Example
-            https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1920&dating_end:gte=1950
-
-            ## Paramters
-            The `filterfield` is used to define the field by which the data is to be filtered.
-
-            The `rangeoperator` is the operator to set the range
-
-            Possible operators:
-            * `gte` = greater than or equal
-            * `lte` = less than or equal
-            * `gt` = greater than
-            * `lt` = less than
-
-            The `filtervalue` is used to define the value by which the data is to be filtered.
-          example: value
-          required: false
-          schema:
-            type: string
+  /works:
+    get:
+      summary: List of patings and graphics
+      description: Returns a list of items including Paintings and Graphics.
+      parameters:
+        - $ref: "#/components/parameters/from"
+        - $ref: "#/components/parameters/size"
+        - $ref: "#/components/parameters/filterfield_equalsoperator"
+        - $ref: "#/components/parameters/filterfield_rangeoperator"
+        - $ref: "#/components/parameters/sort_by"
+        - $ref: "#/components/parameters/searchterm_works"
       responses:
         200:
           $ref: "#/components/responses/success"
@@ -281,3 +278,201 @@ components:
         minimum: 1
         maximum: 10000
         default: 100
+    filterfield_equalsoperator:
+      name: filterfield:[equalsoperator]
+      in: query
+      description: |
+        # Items filtered by value
+        ## Example
+        https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
+
+        ## Paramters
+        The `filterfield` is used to define the field by which the data is to be filtered.
+
+        The `equalsoperator` is the operator to set equals or not equals
+
+        Possible operators:
+        * `eq` = equals
+        * `neq` = not equals
+        * `sim` = similar - for wildcard search
+
+        The `filtervalue` is used to define the value by which the data is to be filtered.
+
+        ## Serveral filter criteria
+        Several criteria can be passed for filtering.
+
+        https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1900&entity_type:eq=PAINTING
+
+        ## Multiple values
+        Several values can be specified for one filter criteria.
+        In this case, multiple values can be defined using a comma-separated list.
+
+        If searching by wildcard or ranges, only one value is possible.
+
+        https://mivs02.gm.fh-koeln.de/?entity_type:neq=PAINTING,GRAPHIC
+      required: false
+      schema:
+        type: integer      
+    filterfield_rangeoperator:
+      name: filterfield:[rangeoperator]
+      in: query
+      description: |
+        # Items filtered by range
+        ## Example
+        https://mivs02.gm.fh-koeln.de/?dating_begin:gte=1920&dating_end:gte=1950
+
+        ## Paramters
+        The `filterfield` is used to define the field by which the data is to be filtered.
+
+        The `rangeoperator` is the operator to set the range
+
+        Possible operators:
+        * `gte` = greater than or equal
+        * `lte` = less than or equal
+        * `gt` = greater than
+        * `lt` = less than
+
+        The `filtervalue` is used to define the value by which the data is to be filtered.
+      example: value
+      required: false
+      schema:
+        type: string
+    sort_by:
+      name: "sort_by:[sorfield].[sortdirection]"
+      in: query
+      description: |
+        # Items sorted by field
+        ## Example
+        https://mivs02.gm.fh-koeln.de/?sort_by:dating_end.asc
+
+        ## Paramters
+        The `sort_by` key must be setted to sort the data
+
+        The `sortfield` is the field by which the data is to be sorted.
+
+        The `sortdirection` is the direction of the sorting.
+
+        Possible directions:
+        * `asc` = ascending
+        * `desc` = descending
+
+      example: value
+      required: false
+      schema:
+        type: string
+    searchterm:
+      name: "searchterm:[value]"
+      in: query
+      description: |
+        # Items filtered across multiple field
+        
+        The `searchtearm` parameter is used to search the data across multiple fields.
+
+        ## Example
+        https://mivs02.gm.fh-koeln.de/?searchterm=Lucas
+
+        ## Paramters
+        The `value` is the search term.
+
+        The search term is searched in the following fields:
+        * `additionalTextInformation.text`
+        * `dating.begin`
+        * `dating.end`
+        * `description`
+        * `inventoryNumber`
+        * `involvedPersons.id`
+        * `locations.term`
+        * `metadata.date`
+        * `metadata.subtitle`
+        * `metadata.title.keyword`
+        * `medium`
+        * `owner`
+        * `provenance`
+        * `repository`
+        * `restorationSurveys.tests.text`
+        * `signature`
+      required: false
+      schema:
+        type: string
+    searchterm_archivals:
+      name: "searchterm:[value]"
+      in: query
+      description: |
+        # Items filtered across multiple field
+        
+        The `searchtearm` parameter is used to search the data across multiple fields.
+
+        ## Example
+        https://mivs02.gm.fh-koeln.de/?searchterm=Lucas
+
+        ## Paramters
+        The `value` is the search term.
+
+        The search term is searched in the following fields:
+        * `inventoryNumber`
+        * `repository`
+        * `signature`
+        * `metadata.subtitle`
+        * `metadata.title`
+      required: false
+      schema:
+        type: string
+    searchterm_literature:
+      name: "searchterm:[value]"
+      in: query
+      description: |
+        # Items filtered across multiple field
+        
+        The `searchtearm` parameter is used to search the data across multiple fields.
+
+        ## Example
+        https://mivs02.gm.fh-koeln.de/?searchterm=Lucas
+
+        ## Paramters
+        The `value` is the search term.
+
+        The search term is searched in the following fields:
+        * `longTitle`
+        * `metadata.subtitle`
+        * `metadata.title`
+        * `publishLocation`
+        * `publishDate`
+        * `publications.text`
+        * `referenceId`
+        * `referenceNumber`
+        * `referenceNumber`
+        * `shortTitle`
+      required: false
+      schema:
+        type: string
+    searchterm_works:
+      name: "searchterm:[value]"
+      in: query
+      description: |
+        # Items filtered across multiple field
+        
+        The `searchtearm` parameter is used to search the data across multiple fields.
+
+        ## Example
+        https://mivs02.gm.fh-koeln.de/?searchterm=Lucas
+
+        ## Paramters
+        The `value` is the search term.
+
+        The search term is searched in the following fields:
+        * `additionalTextInformation.text`
+        * `description`
+        * `inventoryNumber`
+        * `involvedPersons.id`
+        * `locations.term`
+        * `medium`
+        * `metadata.title.keyword`
+        * `metadata.subtitle`
+        * `owner`
+        * `provenance`
+        * `repository`
+        * `restorationSurveys.tests.text`        
+        * `signature`
+      required: false
+      schema:
+        type: string
