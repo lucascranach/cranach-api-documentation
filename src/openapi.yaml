@@ -20,6 +20,7 @@ paths:
       parameters:
         - $ref: "#/components/parameters/from"
         - $ref: "#/components/parameters/size"
+        - $ref: "#/components/parameters/language"
         - $ref: "#/components/parameters/filterfield_equalsoperator"
         - $ref: "#/components/parameters/filterfield_rangeoperator"
         - $ref: "#/components/parameters/sort_by"
@@ -35,6 +36,7 @@ paths:
       parameters:
         - $ref: "#/components/parameters/from"
         - $ref: "#/components/parameters/size"
+        - $ref: "#/components/parameters/language"
         - $ref: "#/components/parameters/filterfield_equalsoperator"
         - $ref: "#/components/parameters/filterfield_rangeoperator"
         - $ref: "#/components/parameters/sort_by"
@@ -50,6 +52,7 @@ paths:
       parameters:
         - $ref: "#/components/parameters/from"
         - $ref: "#/components/parameters/size"
+        - $ref: "#/components/parameters/language"
         - $ref: "#/components/parameters/filterfield_equalsoperator"
         - $ref: "#/components/parameters/filterfield_rangeoperator"
         - $ref: "#/components/parameters/sort_by"
@@ -65,6 +68,7 @@ paths:
       parameters:
         - $ref: "#/components/parameters/from"
         - $ref: "#/components/parameters/size"
+        - $ref: "#/components/parameters/language"
         - $ref: "#/components/parameters/filterfield_equalsoperator"
         - $ref: "#/components/parameters/filterfield_rangeoperator"
         - $ref: "#/components/parameters/sort_by"
@@ -257,6 +261,30 @@ components:
         search_sorting_number:
           type: string
   parameters:
+    language:
+      name: language
+      in: query
+      required: false
+      schema:
+        type: string
+        enum:
+          - de
+          - en
+        default: de
+      description: |
+        The language of the response data
+
+        ## Example
+        https://mivs02.gm.fh-koeln.de/?language=en
+
+        ## Paramters
+        The `language` parameter is used to define the language of the response data.
+
+        Possible values:
+        * `de` = German
+        * `en` = English
+
+        The default value is `de`.
     from:
       name: from
       in: query

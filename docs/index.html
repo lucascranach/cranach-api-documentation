@@ -1182,7 +1182,7 @@ ul.nav-tabs {
                           <div class="tab-pane active" id="examples-Default-archivalsGet-0-curl">
                             <pre class="prettyprint"><code class="language-bsh">curl -X GET \
  -H "Accept: application/json" \
- "https://mivs02.gm.fh-koeln.de/archivals?from=0&size=100&filterfield:&lt;equalsoperator&gt;=value&filterfield:&lt;rangeoperator&gt;=value&sort_by:&lt;sortfield&gt;.&lt;sortdirection&gt;=value&searchterm:&lt;value&gt;=value"
+ "https://mivs02.gm.fh-koeln.de/archivals?from=0&size=100&language=language_example&filterfield:&lt;equalsoperator&gt;=value&filterfield:&lt;rangeoperator&gt;=value&sort_by:&lt;sortfield&gt;.&lt;sortdirection&gt;=value&searchterm:&lt;value&gt;=value"
 </code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Default-archivalsGet-0-java">
@@ -1201,6 +1201,20 @@ public class DefaultApiExample {
         DefaultApi apiInstance = new DefaultApi();
         Integer from = 0; // Integer | The offset of the first item to return
         Integer size = 100; // Integer | The maximum number of items to return
+        String language = language_example; // String | The language of the response data
+
+## Example
+https://mivs02.gm.fh-koeln.de/?language=en
+
+## Paramters
+The `language` parameter is used to define the language of the response data.
+
+Possible values:
+* `de` = German
+* `en` = English
+
+The default value is `de`.
+
         String filterfieldLess_ThanequalsoperatorGreater_Than = value; // String | # Items filtered by value
 ## Example
 https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
@@ -1281,7 +1295,7 @@ The search term is searched in the following fields:
 
 
         try {
-            successResponse result = apiInstance.archivalsGet(from, size, filterfieldLess_ThanequalsoperatorGreater_Than, filterfieldLess_ThanrangeoperatorGreater_Than, sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than, searchtermLess_ThanvalueGreater_Than);
+            successResponse result = apiInstance.archivalsGet(from, size, language, filterfieldLess_ThanequalsoperatorGreater_Than, filterfieldLess_ThanrangeoperatorGreater_Than, sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than, searchtermLess_ThanvalueGreater_Than);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#archivalsGet");
@@ -1300,6 +1314,20 @@ public class DefaultApiExample {
         DefaultApi apiInstance = new DefaultApi();
         Integer from = 0; // Integer | The offset of the first item to return
         Integer size = 100; // Integer | The maximum number of items to return
+        String language = language_example; // String | The language of the response data
+
+## Example
+https://mivs02.gm.fh-koeln.de/?language=en
+
+## Paramters
+The `language` parameter is used to define the language of the response data.
+
+Possible values:
+* `de` = German
+* `en` = English
+
+The default value is `de`.
+
         String filterfieldLess_ThanequalsoperatorGreater_Than = value; // String | # Items filtered by value
 ## Example
 https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
@@ -1380,7 +1408,7 @@ The search term is searched in the following fields:
 
 
         try {
-            successResponse result = apiInstance.archivalsGet(from, size, filterfieldLess_ThanequalsoperatorGreater_Than, filterfieldLess_ThanrangeoperatorGreater_Than, sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than, searchtermLess_ThanvalueGreater_Than);
+            successResponse result = apiInstance.archivalsGet(from, size, language, filterfieldLess_ThanequalsoperatorGreater_Than, filterfieldLess_ThanrangeoperatorGreater_Than, sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than, searchtermLess_ThanvalueGreater_Than);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#archivalsGet");
@@ -1400,6 +1428,20 @@ The search term is searched in the following fields:
 DefaultApi *apiInstance = [[DefaultApi alloc] init];
 Integer *from = 0; // The offset of the first item to return (optional) (default to 0)
 Integer *size = 100; // The maximum number of items to return (optional) (default to 100)
+String *language = language_example; // The language of the response data
+
+## Example
+https://mivs02.gm.fh-koeln.de/?language=en
+
+## Paramters
+The `language` parameter is used to define the language of the response data.
+
+Possible values:
+* `de` = German
+* `en` = English
+
+The default value is `de`.
+ (optional) (default to de)
 String *filterfieldLess_ThanequalsoperatorGreater_Than = value; // # Items filtered by value
 ## Example
 https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
@@ -1482,6 +1524,7 @@ The search term is searched in the following fields:
 // List of archival documents
 [apiInstance archivalsGetWith:from
     size:size
+    language:language
     filterfieldLess_ThanequalsoperatorGreater_Than:filterfieldLess_ThanequalsoperatorGreater_Than
     filterfieldLess_ThanrangeoperatorGreater_Than:filterfieldLess_ThanrangeoperatorGreater_Than
     sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than:sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than
@@ -1505,6 +1548,20 @@ var api = new CranachApi.DefaultApi()
 var opts = {
   'from': 0, // {Integer} The offset of the first item to return
   'size': 100, // {Integer} The maximum number of items to return
+  'language': language_example, // {String} The language of the response data
+
+## Example
+https://mivs02.gm.fh-koeln.de/?language=en
+
+## Paramters
+The `language` parameter is used to define the language of the response data.
+
+Possible values:
+* `de` = German
+* `en` = English
+
+The default value is `de`.
+
   'filterfieldLess_ThanequalsoperatorGreater_Than': value, // {String} # Items filtered by value
 ## Example
 https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
@@ -1617,6 +1674,20 @@ namespace Example
             var apiInstance = new DefaultApi();
             var from = 0;  // Integer | The offset of the first item to return (optional)  (default to 0)
             var size = 100;  // Integer | The maximum number of items to return (optional)  (default to 100)
+            var language = language_example;  // String | The language of the response data
+
+## Example
+https://mivs02.gm.fh-koeln.de/?language=en
+
+## Paramters
+The `language` parameter is used to define the language of the response data.
+
+Possible values:
+* `de` = German
+* `en` = English
+
+The default value is `de`.
+ (optional)  (default to de)
             var filterfieldLess_ThanequalsoperatorGreater_Than = value;  // String | # Items filtered by value
 ## Example
 https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
@@ -1698,7 +1769,7 @@ The search term is searched in the following fields:
 
             try {
                 // List of archival documents
-                successResponse result = apiInstance.archivalsGet(from, size, filterfieldLess_ThanequalsoperatorGreater_Than, filterfieldLess_ThanrangeoperatorGreater_Than, sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than, searchtermLess_ThanvalueGreater_Than);
+                successResponse result = apiInstance.archivalsGet(from, size, language, filterfieldLess_ThanequalsoperatorGreater_Than, filterfieldLess_ThanrangeoperatorGreater_Than, sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than, searchtermLess_ThanvalueGreater_Than);
                 Debug.WriteLine(result);
             } catch (Exception e) {
                 Debug.Print("Exception when calling DefaultApi.archivalsGet: " + e.Message );
@@ -1717,6 +1788,20 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $api_instance = new OpenAPITools\Client\Api\DefaultApi();
 $from = 0; // Integer | The offset of the first item to return
 $size = 100; // Integer | The maximum number of items to return
+$language = language_example; // String | The language of the response data
+
+## Example
+https://mivs02.gm.fh-koeln.de/?language=en
+
+## Paramters
+The `language` parameter is used to define the language of the response data.
+
+Possible values:
+* `de` = German
+* `en` = English
+
+The default value is `de`.
+
 $filterfieldLess_ThanequalsoperatorGreater_Than = value; // String | # Items filtered by value
 ## Example
 https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
@@ -1797,7 +1882,7 @@ The search term is searched in the following fields:
 
 
 try {
-    $result = $api_instance->archivalsGet($from, $size, $filterfieldLess_ThanequalsoperatorGreater_Than, $filterfieldLess_ThanrangeoperatorGreater_Than, $sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than, $searchtermLess_ThanvalueGreater_Than);
+    $result = $api_instance->archivalsGet($from, $size, $language, $filterfieldLess_ThanequalsoperatorGreater_Than, $filterfieldLess_ThanrangeoperatorGreater_Than, $sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than, $searchtermLess_ThanvalueGreater_Than);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->archivalsGet: ', $e->getMessage(), PHP_EOL;
@@ -1814,6 +1899,20 @@ use WWW::OPenAPIClient::DefaultApi;
 my $api_instance = WWW::OPenAPIClient::DefaultApi->new();
 my $from = 0; # Integer | The offset of the first item to return
 my $size = 100; # Integer | The maximum number of items to return
+my $language = language_example; # String | The language of the response data
+
+## Example
+https://mivs02.gm.fh-koeln.de/?language=en
+
+## Paramters
+The `language` parameter is used to define the language of the response data.
+
+Possible values:
+* `de` = German
+* `en` = English
+
+The default value is `de`.
+
 my $filterfieldLess_ThanequalsoperatorGreater_Than = value; # String | # Items filtered by value
 ## Example
 https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
@@ -1894,7 +1993,7 @@ The search term is searched in the following fields:
 
 
 eval {
-    my $result = $api_instance->archivalsGet(from => $from, size => $size, filterfieldLess_ThanequalsoperatorGreater_Than => $filterfieldLess_ThanequalsoperatorGreater_Than, filterfieldLess_ThanrangeoperatorGreater_Than => $filterfieldLess_ThanrangeoperatorGreater_Than, sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than => $sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than, searchtermLess_ThanvalueGreater_Than => $searchtermLess_ThanvalueGreater_Than);
+    my $result = $api_instance->archivalsGet(from => $from, size => $size, language => $language, filterfieldLess_ThanequalsoperatorGreater_Than => $filterfieldLess_ThanequalsoperatorGreater_Than, filterfieldLess_ThanrangeoperatorGreater_Than => $filterfieldLess_ThanrangeoperatorGreater_Than, sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than => $sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than, searchtermLess_ThanvalueGreater_Than => $searchtermLess_ThanvalueGreater_Than);
     print Dumper($result);
 };
 if ($@) {
@@ -1913,6 +2012,20 @@ from pprint import pprint
 api_instance = openapi_client.DefaultApi()
 from = 0 # Integer | The offset of the first item to return (optional) (default to 0)
 size = 100 # Integer | The maximum number of items to return (optional) (default to 100)
+language = language_example # String | The language of the response data
+
+## Example
+https://mivs02.gm.fh-koeln.de/?language=en
+
+## Paramters
+The `language` parameter is used to define the language of the response data.
+
+Possible values:
+* `de` = German
+* `en` = English
+
+The default value is `de`.
+ (optional) (default to de)
 filterfieldLess_ThanequalsoperatorGreater_Than = value # String | # Items filtered by value
 ## Example
 https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
@@ -1994,7 +2107,7 @@ The search term is searched in the following fields:
 
 try:
     # List of archival documents
-    api_response = api_instance.archivals_get(from=from, size=size, filterfieldLess_ThanequalsoperatorGreater_Than=filterfieldLess_ThanequalsoperatorGreater_Than, filterfieldLess_ThanrangeoperatorGreater_Than=filterfieldLess_ThanrangeoperatorGreater_Than, sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than=sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than, searchtermLess_ThanvalueGreater_Than=searchtermLess_ThanvalueGreater_Than)
+    api_response = api_instance.archivals_get(from=from, size=size, language=language, filterfieldLess_ThanequalsoperatorGreater_Than=filterfieldLess_ThanequalsoperatorGreater_Than, filterfieldLess_ThanrangeoperatorGreater_Than=filterfieldLess_ThanrangeoperatorGreater_Than, sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than=sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than, searchtermLess_ThanvalueGreater_Than=searchtermLess_ThanvalueGreater_Than)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->archivalsGet: %s\n" % e)</code></pre>
@@ -2006,13 +2119,14 @@ except ApiException as e:
 pub fn main() {
     let from = 0; // Integer
     let size = 100; // Integer
+    let language = language_example; // String
     let filterfieldLess_ThanequalsoperatorGreater_Than = value; // String
     let filterfieldLess_ThanrangeoperatorGreater_Than = value; // String
     let sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than = value; // String
     let searchtermLess_ThanvalueGreater_Than = value; // String
 
     let mut context = DefaultApi::Context::default();
-    let result = client.archivalsGet(from, size, filterfieldLess_ThanequalsoperatorGreater_Than, filterfieldLess_ThanrangeoperatorGreater_Than, sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than, searchtermLess_ThanvalueGreater_Than, &context).wait();
+    let result = client.archivalsGet(from, size, language, filterfieldLess_ThanequalsoperatorGreater_Than, filterfieldLess_ThanrangeoperatorGreater_Than, sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than, searchtermLess_ThanvalueGreater_Than, &context).wait();
 
     println!("{:?}", result);
 }
@@ -2070,6 +2184,39 @@ The offset of the first item to return
 
                     <div class="inner description marked">
 The maximum number of items to return
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                                <tr><td style="width:150px;">language</td>
+<td>
+
+
+    <div id="d2e199_archivalsGet_language">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+The language of the response data
+
+## Example
+https://mivs02.gm.fh-koeln.de/?language&#x3D;en
+
+## Paramters
+The &#x60;language&#x60; parameter is used to define the language of the response data.
+
+Possible values:
+* &#x60;de&#x60; &#x3D; German
+* &#x60;en&#x60; &#x3D; English
+
+The default value is &#x60;de&#x60;.
+
                     </div>
             </div>
         </div>
@@ -2711,7 +2858,7 @@ The inventory number of the item
                           <div class="tab-pane active" id="examples-Default-literatureReferencesGet-0-curl">
                             <pre class="prettyprint"><code class="language-bsh">curl -X GET \
  -H "Accept: application/json" \
- "https://mivs02.gm.fh-koeln.de/literature_references?from=0&size=100&filterfield:&lt;equalsoperator&gt;=value&filterfield:&lt;rangeoperator&gt;=value&sort_by:&lt;sortfield&gt;.&lt;sortdirection&gt;=value&searchterm:&lt;value&gt;=value"
+ "https://mivs02.gm.fh-koeln.de/literature_references?from=0&size=100&language=language_example&filterfield:&lt;equalsoperator&gt;=value&filterfield:&lt;rangeoperator&gt;=value&sort_by:&lt;sortfield&gt;.&lt;sortdirection&gt;=value&searchterm:&lt;value&gt;=value"
 </code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Default-literatureReferencesGet-0-java">
@@ -2730,6 +2877,20 @@ public class DefaultApiExample {
         DefaultApi apiInstance = new DefaultApi();
         Integer from = 0; // Integer | The offset of the first item to return
         Integer size = 100; // Integer | The maximum number of items to return
+        String language = language_example; // String | The language of the response data
+
+## Example
+https://mivs02.gm.fh-koeln.de/?language=en
+
+## Paramters
+The `language` parameter is used to define the language of the response data.
+
+Possible values:
+* `de` = German
+* `en` = English
+
+The default value is `de`.
+
         String filterfieldLess_ThanequalsoperatorGreater_Than = value; // String | # Items filtered by value
 ## Example
 https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
@@ -2815,7 +2976,7 @@ The search term is searched in the following fields:
 
 
         try {
-            successResponse result = apiInstance.literatureReferencesGet(from, size, filterfieldLess_ThanequalsoperatorGreater_Than, filterfieldLess_ThanrangeoperatorGreater_Than, sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than, searchtermLess_ThanvalueGreater_Than);
+            successResponse result = apiInstance.literatureReferencesGet(from, size, language, filterfieldLess_ThanequalsoperatorGreater_Than, filterfieldLess_ThanrangeoperatorGreater_Than, sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than, searchtermLess_ThanvalueGreater_Than);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#literatureReferencesGet");
@@ -2834,6 +2995,20 @@ public class DefaultApiExample {
         DefaultApi apiInstance = new DefaultApi();
         Integer from = 0; // Integer | The offset of the first item to return
         Integer size = 100; // Integer | The maximum number of items to return
+        String language = language_example; // String | The language of the response data
+
+## Example
+https://mivs02.gm.fh-koeln.de/?language=en
+
+## Paramters
+The `language` parameter is used to define the language of the response data.
+
+Possible values:
+* `de` = German
+* `en` = English
+
+The default value is `de`.
+
         String filterfieldLess_ThanequalsoperatorGreater_Than = value; // String | # Items filtered by value
 ## Example
 https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
@@ -2919,7 +3094,7 @@ The search term is searched in the following fields:
 
 
         try {
-            successResponse result = apiInstance.literatureReferencesGet(from, size, filterfieldLess_ThanequalsoperatorGreater_Than, filterfieldLess_ThanrangeoperatorGreater_Than, sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than, searchtermLess_ThanvalueGreater_Than);
+            successResponse result = apiInstance.literatureReferencesGet(from, size, language, filterfieldLess_ThanequalsoperatorGreater_Than, filterfieldLess_ThanrangeoperatorGreater_Than, sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than, searchtermLess_ThanvalueGreater_Than);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#literatureReferencesGet");
@@ -2939,6 +3114,20 @@ The search term is searched in the following fields:
 DefaultApi *apiInstance = [[DefaultApi alloc] init];
 Integer *from = 0; // The offset of the first item to return (optional) (default to 0)
 Integer *size = 100; // The maximum number of items to return (optional) (default to 100)
+String *language = language_example; // The language of the response data
+
+## Example
+https://mivs02.gm.fh-koeln.de/?language=en
+
+## Paramters
+The `language` parameter is used to define the language of the response data.
+
+Possible values:
+* `de` = German
+* `en` = English
+
+The default value is `de`.
+ (optional) (default to de)
 String *filterfieldLess_ThanequalsoperatorGreater_Than = value; // # Items filtered by value
 ## Example
 https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
@@ -3026,6 +3215,7 @@ The search term is searched in the following fields:
 // List of publications
 [apiInstance literatureReferencesGetWith:from
     size:size
+    language:language
     filterfieldLess_ThanequalsoperatorGreater_Than:filterfieldLess_ThanequalsoperatorGreater_Than
     filterfieldLess_ThanrangeoperatorGreater_Than:filterfieldLess_ThanrangeoperatorGreater_Than
     sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than:sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than
@@ -3049,6 +3239,20 @@ var api = new CranachApi.DefaultApi()
 var opts = {
   'from': 0, // {Integer} The offset of the first item to return
   'size': 100, // {Integer} The maximum number of items to return
+  'language': language_example, // {String} The language of the response data
+
+## Example
+https://mivs02.gm.fh-koeln.de/?language=en
+
+## Paramters
+The `language` parameter is used to define the language of the response data.
+
+Possible values:
+* `de` = German
+* `en` = English
+
+The default value is `de`.
+
   'filterfieldLess_ThanequalsoperatorGreater_Than': value, // {String} # Items filtered by value
 ## Example
 https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
@@ -3166,6 +3370,20 @@ namespace Example
             var apiInstance = new DefaultApi();
             var from = 0;  // Integer | The offset of the first item to return (optional)  (default to 0)
             var size = 100;  // Integer | The maximum number of items to return (optional)  (default to 100)
+            var language = language_example;  // String | The language of the response data
+
+## Example
+https://mivs02.gm.fh-koeln.de/?language=en
+
+## Paramters
+The `language` parameter is used to define the language of the response data.
+
+Possible values:
+* `de` = German
+* `en` = English
+
+The default value is `de`.
+ (optional)  (default to de)
             var filterfieldLess_ThanequalsoperatorGreater_Than = value;  // String | # Items filtered by value
 ## Example
 https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
@@ -3252,7 +3470,7 @@ The search term is searched in the following fields:
 
             try {
                 // List of publications
-                successResponse result = apiInstance.literatureReferencesGet(from, size, filterfieldLess_ThanequalsoperatorGreater_Than, filterfieldLess_ThanrangeoperatorGreater_Than, sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than, searchtermLess_ThanvalueGreater_Than);
+                successResponse result = apiInstance.literatureReferencesGet(from, size, language, filterfieldLess_ThanequalsoperatorGreater_Than, filterfieldLess_ThanrangeoperatorGreater_Than, sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than, searchtermLess_ThanvalueGreater_Than);
                 Debug.WriteLine(result);
             } catch (Exception e) {
                 Debug.Print("Exception when calling DefaultApi.literatureReferencesGet: " + e.Message );
@@ -3271,6 +3489,20 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $api_instance = new OpenAPITools\Client\Api\DefaultApi();
 $from = 0; // Integer | The offset of the first item to return
 $size = 100; // Integer | The maximum number of items to return
+$language = language_example; // String | The language of the response data
+
+## Example
+https://mivs02.gm.fh-koeln.de/?language=en
+
+## Paramters
+The `language` parameter is used to define the language of the response data.
+
+Possible values:
+* `de` = German
+* `en` = English
+
+The default value is `de`.
+
 $filterfieldLess_ThanequalsoperatorGreater_Than = value; // String | # Items filtered by value
 ## Example
 https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
@@ -3356,7 +3588,7 @@ The search term is searched in the following fields:
 
 
 try {
-    $result = $api_instance->literatureReferencesGet($from, $size, $filterfieldLess_ThanequalsoperatorGreater_Than, $filterfieldLess_ThanrangeoperatorGreater_Than, $sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than, $searchtermLess_ThanvalueGreater_Than);
+    $result = $api_instance->literatureReferencesGet($from, $size, $language, $filterfieldLess_ThanequalsoperatorGreater_Than, $filterfieldLess_ThanrangeoperatorGreater_Than, $sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than, $searchtermLess_ThanvalueGreater_Than);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->literatureReferencesGet: ', $e->getMessage(), PHP_EOL;
@@ -3373,6 +3605,20 @@ use WWW::OPenAPIClient::DefaultApi;
 my $api_instance = WWW::OPenAPIClient::DefaultApi->new();
 my $from = 0; # Integer | The offset of the first item to return
 my $size = 100; # Integer | The maximum number of items to return
+my $language = language_example; # String | The language of the response data
+
+## Example
+https://mivs02.gm.fh-koeln.de/?language=en
+
+## Paramters
+The `language` parameter is used to define the language of the response data.
+
+Possible values:
+* `de` = German
+* `en` = English
+
+The default value is `de`.
+
 my $filterfieldLess_ThanequalsoperatorGreater_Than = value; # String | # Items filtered by value
 ## Example
 https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
@@ -3458,7 +3704,7 @@ The search term is searched in the following fields:
 
 
 eval {
-    my $result = $api_instance->literatureReferencesGet(from => $from, size => $size, filterfieldLess_ThanequalsoperatorGreater_Than => $filterfieldLess_ThanequalsoperatorGreater_Than, filterfieldLess_ThanrangeoperatorGreater_Than => $filterfieldLess_ThanrangeoperatorGreater_Than, sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than => $sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than, searchtermLess_ThanvalueGreater_Than => $searchtermLess_ThanvalueGreater_Than);
+    my $result = $api_instance->literatureReferencesGet(from => $from, size => $size, language => $language, filterfieldLess_ThanequalsoperatorGreater_Than => $filterfieldLess_ThanequalsoperatorGreater_Than, filterfieldLess_ThanrangeoperatorGreater_Than => $filterfieldLess_ThanrangeoperatorGreater_Than, sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than => $sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than, searchtermLess_ThanvalueGreater_Than => $searchtermLess_ThanvalueGreater_Than);
     print Dumper($result);
 };
 if ($@) {
@@ -3477,6 +3723,20 @@ from pprint import pprint
 api_instance = openapi_client.DefaultApi()
 from = 0 # Integer | The offset of the first item to return (optional) (default to 0)
 size = 100 # Integer | The maximum number of items to return (optional) (default to 100)
+language = language_example # String | The language of the response data
+
+## Example
+https://mivs02.gm.fh-koeln.de/?language=en
+
+## Paramters
+The `language` parameter is used to define the language of the response data.
+
+Possible values:
+* `de` = German
+* `en` = English
+
+The default value is `de`.
+ (optional) (default to de)
 filterfieldLess_ThanequalsoperatorGreater_Than = value # String | # Items filtered by value
 ## Example
 https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
@@ -3563,7 +3823,7 @@ The search term is searched in the following fields:
 
 try:
     # List of publications
-    api_response = api_instance.literature_references_get(from=from, size=size, filterfieldLess_ThanequalsoperatorGreater_Than=filterfieldLess_ThanequalsoperatorGreater_Than, filterfieldLess_ThanrangeoperatorGreater_Than=filterfieldLess_ThanrangeoperatorGreater_Than, sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than=sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than, searchtermLess_ThanvalueGreater_Than=searchtermLess_ThanvalueGreater_Than)
+    api_response = api_instance.literature_references_get(from=from, size=size, language=language, filterfieldLess_ThanequalsoperatorGreater_Than=filterfieldLess_ThanequalsoperatorGreater_Than, filterfieldLess_ThanrangeoperatorGreater_Than=filterfieldLess_ThanrangeoperatorGreater_Than, sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than=sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than, searchtermLess_ThanvalueGreater_Than=searchtermLess_ThanvalueGreater_Than)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->literatureReferencesGet: %s\n" % e)</code></pre>
@@ -3575,13 +3835,14 @@ except ApiException as e:
 pub fn main() {
     let from = 0; // Integer
     let size = 100; // Integer
+    let language = language_example; // String
     let filterfieldLess_ThanequalsoperatorGreater_Than = value; // String
     let filterfieldLess_ThanrangeoperatorGreater_Than = value; // String
     let sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than = value; // String
     let searchtermLess_ThanvalueGreater_Than = value; // String
 
     let mut context = DefaultApi::Context::default();
-    let result = client.literatureReferencesGet(from, size, filterfieldLess_ThanequalsoperatorGreater_Than, filterfieldLess_ThanrangeoperatorGreater_Than, sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than, searchtermLess_ThanvalueGreater_Than, &context).wait();
+    let result = client.literatureReferencesGet(from, size, language, filterfieldLess_ThanequalsoperatorGreater_Than, filterfieldLess_ThanrangeoperatorGreater_Than, sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than, searchtermLess_ThanvalueGreater_Than, &context).wait();
 
     println!("{:?}", result);
 }
@@ -3639,6 +3900,39 @@ The offset of the first item to return
 
                     <div class="inner description marked">
 The maximum number of items to return
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                                <tr><td style="width:150px;">language</td>
+<td>
+
+
+    <div id="d2e199_literatureReferencesGet_language">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+The language of the response data
+
+## Example
+https://mivs02.gm.fh-koeln.de/?language&#x3D;en
+
+## Paramters
+The &#x60;language&#x60; parameter is used to define the language of the response data.
+
+Possible values:
+* &#x60;de&#x60; &#x3D; German
+* &#x60;en&#x60; &#x3D; English
+
+The default value is &#x60;de&#x60;.
+
                     </div>
             </div>
         </div>
@@ -3917,7 +4211,7 @@ The search term is searched in the following fields:
                           <div class="tab-pane active" id="examples-Default-rootGet-0-curl">
                             <pre class="prettyprint"><code class="language-bsh">curl -X GET \
  -H "Accept: application/json" \
- "https://mivs02.gm.fh-koeln.de/?from=0&size=100&filterfield:&lt;equalsoperator&gt;=value&filterfield:&lt;rangeoperator&gt;=value&sort_by:&lt;sortfield&gt;.&lt;sortdirection&gt;=value&searchterm:&lt;value&gt;=value"
+ "https://mivs02.gm.fh-koeln.de/?from=0&size=100&language=language_example&filterfield:&lt;equalsoperator&gt;=value&filterfield:&lt;rangeoperator&gt;=value&sort_by:&lt;sortfield&gt;.&lt;sortdirection&gt;=value&searchterm:&lt;value&gt;=value"
 </code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Default-rootGet-0-java">
@@ -3936,6 +4230,20 @@ public class DefaultApiExample {
         DefaultApi apiInstance = new DefaultApi();
         Integer from = 0; // Integer | The offset of the first item to return
         Integer size = 100; // Integer | The maximum number of items to return
+        String language = language_example; // String | The language of the response data
+
+## Example
+https://mivs02.gm.fh-koeln.de/?language=en
+
+## Paramters
+The `language` parameter is used to define the language of the response data.
+
+Possible values:
+* `de` = German
+* `en` = English
+
+The default value is `de`.
+
         String filterfieldLess_ThanequalsoperatorGreater_Than = value; // String | # Items filtered by value
 ## Example
 https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
@@ -4027,7 +4335,7 @@ The search term is searched in the following fields:
 
 
         try {
-            successResponse result = apiInstance.rootGet(from, size, filterfieldLess_ThanequalsoperatorGreater_Than, filterfieldLess_ThanrangeoperatorGreater_Than, sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than, searchtermLess_ThanvalueGreater_Than);
+            successResponse result = apiInstance.rootGet(from, size, language, filterfieldLess_ThanequalsoperatorGreater_Than, filterfieldLess_ThanrangeoperatorGreater_Than, sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than, searchtermLess_ThanvalueGreater_Than);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#rootGet");
@@ -4046,6 +4354,20 @@ public class DefaultApiExample {
         DefaultApi apiInstance = new DefaultApi();
         Integer from = 0; // Integer | The offset of the first item to return
         Integer size = 100; // Integer | The maximum number of items to return
+        String language = language_example; // String | The language of the response data
+
+## Example
+https://mivs02.gm.fh-koeln.de/?language=en
+
+## Paramters
+The `language` parameter is used to define the language of the response data.
+
+Possible values:
+* `de` = German
+* `en` = English
+
+The default value is `de`.
+
         String filterfieldLess_ThanequalsoperatorGreater_Than = value; // String | # Items filtered by value
 ## Example
 https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
@@ -4137,7 +4459,7 @@ The search term is searched in the following fields:
 
 
         try {
-            successResponse result = apiInstance.rootGet(from, size, filterfieldLess_ThanequalsoperatorGreater_Than, filterfieldLess_ThanrangeoperatorGreater_Than, sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than, searchtermLess_ThanvalueGreater_Than);
+            successResponse result = apiInstance.rootGet(from, size, language, filterfieldLess_ThanequalsoperatorGreater_Than, filterfieldLess_ThanrangeoperatorGreater_Than, sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than, searchtermLess_ThanvalueGreater_Than);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#rootGet");
@@ -4157,6 +4479,20 @@ The search term is searched in the following fields:
 DefaultApi *apiInstance = [[DefaultApi alloc] init];
 Integer *from = 0; // The offset of the first item to return (optional) (default to 0)
 Integer *size = 100; // The maximum number of items to return (optional) (default to 100)
+String *language = language_example; // The language of the response data
+
+## Example
+https://mivs02.gm.fh-koeln.de/?language=en
+
+## Paramters
+The `language` parameter is used to define the language of the response data.
+
+Possible values:
+* `de` = German
+* `en` = English
+
+The default value is `de`.
+ (optional) (default to de)
 String *filterfieldLess_ThanequalsoperatorGreater_Than = value; // # Items filtered by value
 ## Example
 https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
@@ -4250,6 +4586,7 @@ The search term is searched in the following fields:
 // List of all items
 [apiInstance rootGetWith:from
     size:size
+    language:language
     filterfieldLess_ThanequalsoperatorGreater_Than:filterfieldLess_ThanequalsoperatorGreater_Than
     filterfieldLess_ThanrangeoperatorGreater_Than:filterfieldLess_ThanrangeoperatorGreater_Than
     sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than:sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than
@@ -4273,6 +4610,20 @@ var api = new CranachApi.DefaultApi()
 var opts = {
   'from': 0, // {Integer} The offset of the first item to return
   'size': 100, // {Integer} The maximum number of items to return
+  'language': language_example, // {String} The language of the response data
+
+## Example
+https://mivs02.gm.fh-koeln.de/?language=en
+
+## Paramters
+The `language` parameter is used to define the language of the response data.
+
+Possible values:
+* `de` = German
+* `en` = English
+
+The default value is `de`.
+
   'filterfieldLess_ThanequalsoperatorGreater_Than': value, // {String} # Items filtered by value
 ## Example
 https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
@@ -4396,6 +4747,20 @@ namespace Example
             var apiInstance = new DefaultApi();
             var from = 0;  // Integer | The offset of the first item to return (optional)  (default to 0)
             var size = 100;  // Integer | The maximum number of items to return (optional)  (default to 100)
+            var language = language_example;  // String | The language of the response data
+
+## Example
+https://mivs02.gm.fh-koeln.de/?language=en
+
+## Paramters
+The `language` parameter is used to define the language of the response data.
+
+Possible values:
+* `de` = German
+* `en` = English
+
+The default value is `de`.
+ (optional)  (default to de)
             var filterfieldLess_ThanequalsoperatorGreater_Than = value;  // String | # Items filtered by value
 ## Example
 https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
@@ -4488,7 +4853,7 @@ The search term is searched in the following fields:
 
             try {
                 // List of all items
-                successResponse result = apiInstance.rootGet(from, size, filterfieldLess_ThanequalsoperatorGreater_Than, filterfieldLess_ThanrangeoperatorGreater_Than, sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than, searchtermLess_ThanvalueGreater_Than);
+                successResponse result = apiInstance.rootGet(from, size, language, filterfieldLess_ThanequalsoperatorGreater_Than, filterfieldLess_ThanrangeoperatorGreater_Than, sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than, searchtermLess_ThanvalueGreater_Than);
                 Debug.WriteLine(result);
             } catch (Exception e) {
                 Debug.Print("Exception when calling DefaultApi.rootGet: " + e.Message );
@@ -4507,6 +4872,20 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $api_instance = new OpenAPITools\Client\Api\DefaultApi();
 $from = 0; // Integer | The offset of the first item to return
 $size = 100; // Integer | The maximum number of items to return
+$language = language_example; // String | The language of the response data
+
+## Example
+https://mivs02.gm.fh-koeln.de/?language=en
+
+## Paramters
+The `language` parameter is used to define the language of the response data.
+
+Possible values:
+* `de` = German
+* `en` = English
+
+The default value is `de`.
+
 $filterfieldLess_ThanequalsoperatorGreater_Than = value; // String | # Items filtered by value
 ## Example
 https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
@@ -4598,7 +4977,7 @@ The search term is searched in the following fields:
 
 
 try {
-    $result = $api_instance->rootGet($from, $size, $filterfieldLess_ThanequalsoperatorGreater_Than, $filterfieldLess_ThanrangeoperatorGreater_Than, $sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than, $searchtermLess_ThanvalueGreater_Than);
+    $result = $api_instance->rootGet($from, $size, $language, $filterfieldLess_ThanequalsoperatorGreater_Than, $filterfieldLess_ThanrangeoperatorGreater_Than, $sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than, $searchtermLess_ThanvalueGreater_Than);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->rootGet: ', $e->getMessage(), PHP_EOL;
@@ -4615,6 +4994,20 @@ use WWW::OPenAPIClient::DefaultApi;
 my $api_instance = WWW::OPenAPIClient::DefaultApi->new();
 my $from = 0; # Integer | The offset of the first item to return
 my $size = 100; # Integer | The maximum number of items to return
+my $language = language_example; # String | The language of the response data
+
+## Example
+https://mivs02.gm.fh-koeln.de/?language=en
+
+## Paramters
+The `language` parameter is used to define the language of the response data.
+
+Possible values:
+* `de` = German
+* `en` = English
+
+The default value is `de`.
+
 my $filterfieldLess_ThanequalsoperatorGreater_Than = value; # String | # Items filtered by value
 ## Example
 https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
@@ -4706,7 +5099,7 @@ The search term is searched in the following fields:
 
 
 eval {
-    my $result = $api_instance->rootGet(from => $from, size => $size, filterfieldLess_ThanequalsoperatorGreater_Than => $filterfieldLess_ThanequalsoperatorGreater_Than, filterfieldLess_ThanrangeoperatorGreater_Than => $filterfieldLess_ThanrangeoperatorGreater_Than, sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than => $sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than, searchtermLess_ThanvalueGreater_Than => $searchtermLess_ThanvalueGreater_Than);
+    my $result = $api_instance->rootGet(from => $from, size => $size, language => $language, filterfieldLess_ThanequalsoperatorGreater_Than => $filterfieldLess_ThanequalsoperatorGreater_Than, filterfieldLess_ThanrangeoperatorGreater_Than => $filterfieldLess_ThanrangeoperatorGreater_Than, sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than => $sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than, searchtermLess_ThanvalueGreater_Than => $searchtermLess_ThanvalueGreater_Than);
     print Dumper($result);
 };
 if ($@) {
@@ -4725,6 +5118,20 @@ from pprint import pprint
 api_instance = openapi_client.DefaultApi()
 from = 0 # Integer | The offset of the first item to return (optional) (default to 0)
 size = 100 # Integer | The maximum number of items to return (optional) (default to 100)
+language = language_example # String | The language of the response data
+
+## Example
+https://mivs02.gm.fh-koeln.de/?language=en
+
+## Paramters
+The `language` parameter is used to define the language of the response data.
+
+Possible values:
+* `de` = German
+* `en` = English
+
+The default value is `de`.
+ (optional) (default to de)
 filterfieldLess_ThanequalsoperatorGreater_Than = value # String | # Items filtered by value
 ## Example
 https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
@@ -4817,7 +5224,7 @@ The search term is searched in the following fields:
 
 try:
     # List of all items
-    api_response = api_instance.root_get(from=from, size=size, filterfieldLess_ThanequalsoperatorGreater_Than=filterfieldLess_ThanequalsoperatorGreater_Than, filterfieldLess_ThanrangeoperatorGreater_Than=filterfieldLess_ThanrangeoperatorGreater_Than, sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than=sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than, searchtermLess_ThanvalueGreater_Than=searchtermLess_ThanvalueGreater_Than)
+    api_response = api_instance.root_get(from=from, size=size, language=language, filterfieldLess_ThanequalsoperatorGreater_Than=filterfieldLess_ThanequalsoperatorGreater_Than, filterfieldLess_ThanrangeoperatorGreater_Than=filterfieldLess_ThanrangeoperatorGreater_Than, sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than=sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than, searchtermLess_ThanvalueGreater_Than=searchtermLess_ThanvalueGreater_Than)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->rootGet: %s\n" % e)</code></pre>
@@ -4829,13 +5236,14 @@ except ApiException as e:
 pub fn main() {
     let from = 0; // Integer
     let size = 100; // Integer
+    let language = language_example; // String
     let filterfieldLess_ThanequalsoperatorGreater_Than = value; // String
     let filterfieldLess_ThanrangeoperatorGreater_Than = value; // String
     let sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than = value; // String
     let searchtermLess_ThanvalueGreater_Than = value; // String
 
     let mut context = DefaultApi::Context::default();
-    let result = client.rootGet(from, size, filterfieldLess_ThanequalsoperatorGreater_Than, filterfieldLess_ThanrangeoperatorGreater_Than, sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than, searchtermLess_ThanvalueGreater_Than, &context).wait();
+    let result = client.rootGet(from, size, language, filterfieldLess_ThanequalsoperatorGreater_Than, filterfieldLess_ThanrangeoperatorGreater_Than, sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than, searchtermLess_ThanvalueGreater_Than, &context).wait();
 
     println!("{:?}", result);
 }
@@ -4893,6 +5301,39 @@ The offset of the first item to return
 
                     <div class="inner description marked">
 The maximum number of items to return
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                                <tr><td style="width:150px;">language</td>
+<td>
+
+
+    <div id="d2e199_rootGet_language">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+The language of the response data
+
+## Example
+https://mivs02.gm.fh-koeln.de/?language&#x3D;en
+
+## Paramters
+The &#x60;language&#x60; parameter is used to define the language of the response data.
+
+Possible values:
+* &#x60;de&#x60; &#x3D; German
+* &#x60;en&#x60; &#x3D; English
+
+The default value is &#x60;de&#x60;.
+
                     </div>
             </div>
         </div>
@@ -5177,7 +5618,7 @@ The search term is searched in the following fields:
                           <div class="tab-pane active" id="examples-Default-worksGet-0-curl">
                             <pre class="prettyprint"><code class="language-bsh">curl -X GET \
  -H "Accept: application/json" \
- "https://mivs02.gm.fh-koeln.de/works?from=0&size=100&filterfield:&lt;equalsoperator&gt;=value&filterfield:&lt;rangeoperator&gt;=value&sort_by:&lt;sortfield&gt;.&lt;sortdirection&gt;=value&searchterm:&lt;value&gt;=value"
+ "https://mivs02.gm.fh-koeln.de/works?from=0&size=100&language=language_example&filterfield:&lt;equalsoperator&gt;=value&filterfield:&lt;rangeoperator&gt;=value&sort_by:&lt;sortfield&gt;.&lt;sortdirection&gt;=value&searchterm:&lt;value&gt;=value"
 </code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Default-worksGet-0-java">
@@ -5196,6 +5637,20 @@ public class DefaultApiExample {
         DefaultApi apiInstance = new DefaultApi();
         Integer from = 0; // Integer | The offset of the first item to return
         Integer size = 100; // Integer | The maximum number of items to return
+        String language = language_example; // String | The language of the response data
+
+## Example
+https://mivs02.gm.fh-koeln.de/?language=en
+
+## Paramters
+The `language` parameter is used to define the language of the response data.
+
+Possible values:
+* `de` = German
+* `en` = English
+
+The default value is `de`.
+
         String filterfieldLess_ThanequalsoperatorGreater_Than = value; // String | # Items filtered by value
 ## Example
 https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
@@ -5284,7 +5739,7 @@ The search term is searched in the following fields:
 
 
         try {
-            successResponse result = apiInstance.worksGet(from, size, filterfieldLess_ThanequalsoperatorGreater_Than, filterfieldLess_ThanrangeoperatorGreater_Than, sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than, searchtermLess_ThanvalueGreater_Than);
+            successResponse result = apiInstance.worksGet(from, size, language, filterfieldLess_ThanequalsoperatorGreater_Than, filterfieldLess_ThanrangeoperatorGreater_Than, sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than, searchtermLess_ThanvalueGreater_Than);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#worksGet");
@@ -5303,6 +5758,20 @@ public class DefaultApiExample {
         DefaultApi apiInstance = new DefaultApi();
         Integer from = 0; // Integer | The offset of the first item to return
         Integer size = 100; // Integer | The maximum number of items to return
+        String language = language_example; // String | The language of the response data
+
+## Example
+https://mivs02.gm.fh-koeln.de/?language=en
+
+## Paramters
+The `language` parameter is used to define the language of the response data.
+
+Possible values:
+* `de` = German
+* `en` = English
+
+The default value is `de`.
+
         String filterfieldLess_ThanequalsoperatorGreater_Than = value; // String | # Items filtered by value
 ## Example
 https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
@@ -5391,7 +5860,7 @@ The search term is searched in the following fields:
 
 
         try {
-            successResponse result = apiInstance.worksGet(from, size, filterfieldLess_ThanequalsoperatorGreater_Than, filterfieldLess_ThanrangeoperatorGreater_Than, sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than, searchtermLess_ThanvalueGreater_Than);
+            successResponse result = apiInstance.worksGet(from, size, language, filterfieldLess_ThanequalsoperatorGreater_Than, filterfieldLess_ThanrangeoperatorGreater_Than, sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than, searchtermLess_ThanvalueGreater_Than);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#worksGet");
@@ -5411,6 +5880,20 @@ The search term is searched in the following fields:
 DefaultApi *apiInstance = [[DefaultApi alloc] init];
 Integer *from = 0; // The offset of the first item to return (optional) (default to 0)
 Integer *size = 100; // The maximum number of items to return (optional) (default to 100)
+String *language = language_example; // The language of the response data
+
+## Example
+https://mivs02.gm.fh-koeln.de/?language=en
+
+## Paramters
+The `language` parameter is used to define the language of the response data.
+
+Possible values:
+* `de` = German
+* `en` = English
+
+The default value is `de`.
+ (optional) (default to de)
 String *filterfieldLess_ThanequalsoperatorGreater_Than = value; // # Items filtered by value
 ## Example
 https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
@@ -5501,6 +5984,7 @@ The search term is searched in the following fields:
 // List of patings and graphics
 [apiInstance worksGetWith:from
     size:size
+    language:language
     filterfieldLess_ThanequalsoperatorGreater_Than:filterfieldLess_ThanequalsoperatorGreater_Than
     filterfieldLess_ThanrangeoperatorGreater_Than:filterfieldLess_ThanrangeoperatorGreater_Than
     sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than:sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than
@@ -5524,6 +6008,20 @@ var api = new CranachApi.DefaultApi()
 var opts = {
   'from': 0, // {Integer} The offset of the first item to return
   'size': 100, // {Integer} The maximum number of items to return
+  'language': language_example, // {String} The language of the response data
+
+## Example
+https://mivs02.gm.fh-koeln.de/?language=en
+
+## Paramters
+The `language` parameter is used to define the language of the response data.
+
+Possible values:
+* `de` = German
+* `en` = English
+
+The default value is `de`.
+
   'filterfieldLess_ThanequalsoperatorGreater_Than': value, // {String} # Items filtered by value
 ## Example
 https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
@@ -5644,6 +6142,20 @@ namespace Example
             var apiInstance = new DefaultApi();
             var from = 0;  // Integer | The offset of the first item to return (optional)  (default to 0)
             var size = 100;  // Integer | The maximum number of items to return (optional)  (default to 100)
+            var language = language_example;  // String | The language of the response data
+
+## Example
+https://mivs02.gm.fh-koeln.de/?language=en
+
+## Paramters
+The `language` parameter is used to define the language of the response data.
+
+Possible values:
+* `de` = German
+* `en` = English
+
+The default value is `de`.
+ (optional)  (default to de)
             var filterfieldLess_ThanequalsoperatorGreater_Than = value;  // String | # Items filtered by value
 ## Example
 https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
@@ -5733,7 +6245,7 @@ The search term is searched in the following fields:
 
             try {
                 // List of patings and graphics
-                successResponse result = apiInstance.worksGet(from, size, filterfieldLess_ThanequalsoperatorGreater_Than, filterfieldLess_ThanrangeoperatorGreater_Than, sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than, searchtermLess_ThanvalueGreater_Than);
+                successResponse result = apiInstance.worksGet(from, size, language, filterfieldLess_ThanequalsoperatorGreater_Than, filterfieldLess_ThanrangeoperatorGreater_Than, sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than, searchtermLess_ThanvalueGreater_Than);
                 Debug.WriteLine(result);
             } catch (Exception e) {
                 Debug.Print("Exception when calling DefaultApi.worksGet: " + e.Message );
@@ -5752,6 +6264,20 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $api_instance = new OpenAPITools\Client\Api\DefaultApi();
 $from = 0; // Integer | The offset of the first item to return
 $size = 100; // Integer | The maximum number of items to return
+$language = language_example; // String | The language of the response data
+
+## Example
+https://mivs02.gm.fh-koeln.de/?language=en
+
+## Paramters
+The `language` parameter is used to define the language of the response data.
+
+Possible values:
+* `de` = German
+* `en` = English
+
+The default value is `de`.
+
 $filterfieldLess_ThanequalsoperatorGreater_Than = value; // String | # Items filtered by value
 ## Example
 https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
@@ -5840,7 +6366,7 @@ The search term is searched in the following fields:
 
 
 try {
-    $result = $api_instance->worksGet($from, $size, $filterfieldLess_ThanequalsoperatorGreater_Than, $filterfieldLess_ThanrangeoperatorGreater_Than, $sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than, $searchtermLess_ThanvalueGreater_Than);
+    $result = $api_instance->worksGet($from, $size, $language, $filterfieldLess_ThanequalsoperatorGreater_Than, $filterfieldLess_ThanrangeoperatorGreater_Than, $sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than, $searchtermLess_ThanvalueGreater_Than);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->worksGet: ', $e->getMessage(), PHP_EOL;
@@ -5857,6 +6383,20 @@ use WWW::OPenAPIClient::DefaultApi;
 my $api_instance = WWW::OPenAPIClient::DefaultApi->new();
 my $from = 0; # Integer | The offset of the first item to return
 my $size = 100; # Integer | The maximum number of items to return
+my $language = language_example; # String | The language of the response data
+
+## Example
+https://mivs02.gm.fh-koeln.de/?language=en
+
+## Paramters
+The `language` parameter is used to define the language of the response data.
+
+Possible values:
+* `de` = German
+* `en` = English
+
+The default value is `de`.
+
 my $filterfieldLess_ThanequalsoperatorGreater_Than = value; # String | # Items filtered by value
 ## Example
 https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
@@ -5945,7 +6485,7 @@ The search term is searched in the following fields:
 
 
 eval {
-    my $result = $api_instance->worksGet(from => $from, size => $size, filterfieldLess_ThanequalsoperatorGreater_Than => $filterfieldLess_ThanequalsoperatorGreater_Than, filterfieldLess_ThanrangeoperatorGreater_Than => $filterfieldLess_ThanrangeoperatorGreater_Than, sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than => $sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than, searchtermLess_ThanvalueGreater_Than => $searchtermLess_ThanvalueGreater_Than);
+    my $result = $api_instance->worksGet(from => $from, size => $size, language => $language, filterfieldLess_ThanequalsoperatorGreater_Than => $filterfieldLess_ThanequalsoperatorGreater_Than, filterfieldLess_ThanrangeoperatorGreater_Than => $filterfieldLess_ThanrangeoperatorGreater_Than, sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than => $sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than, searchtermLess_ThanvalueGreater_Than => $searchtermLess_ThanvalueGreater_Than);
     print Dumper($result);
 };
 if ($@) {
@@ -5964,6 +6504,20 @@ from pprint import pprint
 api_instance = openapi_client.DefaultApi()
 from = 0 # Integer | The offset of the first item to return (optional) (default to 0)
 size = 100 # Integer | The maximum number of items to return (optional) (default to 100)
+language = language_example # String | The language of the response data
+
+## Example
+https://mivs02.gm.fh-koeln.de/?language=en
+
+## Paramters
+The `language` parameter is used to define the language of the response data.
+
+Possible values:
+* `de` = German
+* `en` = English
+
+The default value is `de`.
+ (optional) (default to de)
 filterfieldLess_ThanequalsoperatorGreater_Than = value # String | # Items filtered by value
 ## Example
 https://mivs02.gm.fh-koeln.de/?entity_type:eq=PAINTING
@@ -6053,7 +6607,7 @@ The search term is searched in the following fields:
 
 try:
     # List of patings and graphics
-    api_response = api_instance.works_get(from=from, size=size, filterfieldLess_ThanequalsoperatorGreater_Than=filterfieldLess_ThanequalsoperatorGreater_Than, filterfieldLess_ThanrangeoperatorGreater_Than=filterfieldLess_ThanrangeoperatorGreater_Than, sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than=sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than, searchtermLess_ThanvalueGreater_Than=searchtermLess_ThanvalueGreater_Than)
+    api_response = api_instance.works_get(from=from, size=size, language=language, filterfieldLess_ThanequalsoperatorGreater_Than=filterfieldLess_ThanequalsoperatorGreater_Than, filterfieldLess_ThanrangeoperatorGreater_Than=filterfieldLess_ThanrangeoperatorGreater_Than, sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than=sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than, searchtermLess_ThanvalueGreater_Than=searchtermLess_ThanvalueGreater_Than)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->worksGet: %s\n" % e)</code></pre>
@@ -6065,13 +6619,14 @@ except ApiException as e:
 pub fn main() {
     let from = 0; // Integer
     let size = 100; // Integer
+    let language = language_example; // String
     let filterfieldLess_ThanequalsoperatorGreater_Than = value; // String
     let filterfieldLess_ThanrangeoperatorGreater_Than = value; // String
     let sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than = value; // String
     let searchtermLess_ThanvalueGreater_Than = value; // String
 
     let mut context = DefaultApi::Context::default();
-    let result = client.worksGet(from, size, filterfieldLess_ThanequalsoperatorGreater_Than, filterfieldLess_ThanrangeoperatorGreater_Than, sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than, searchtermLess_ThanvalueGreater_Than, &context).wait();
+    let result = client.worksGet(from, size, language, filterfieldLess_ThanequalsoperatorGreater_Than, filterfieldLess_ThanrangeoperatorGreater_Than, sortByLess_ThansortfieldGreater_ThanPeriodLess_ThansortdirectionGreater_Than, searchtermLess_ThanvalueGreater_Than, &context).wait();
 
     println!("{:?}", result);
 }
@@ -6129,6 +6684,39 @@ The offset of the first item to return
 
                     <div class="inner description marked">
 The maximum number of items to return
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                                <tr><td style="width:150px;">language</td>
+<td>
+
+
+    <div id="d2e199_worksGet_language">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+The language of the response data
+
+## Example
+https://mivs02.gm.fh-koeln.de/?language&#x3D;en
+
+## Paramters
+The &#x60;language&#x60; parameter is used to define the language of the response data.
+
+Possible values:
+* &#x60;de&#x60; &#x3D; German
+* &#x60;en&#x60; &#x3D; English
+
+The default value is &#x60;de&#x60;.
+
                     </div>
             </div>
         </div>
